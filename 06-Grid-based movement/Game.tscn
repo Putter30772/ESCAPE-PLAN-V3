@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Grid.gd" type="Script" id=1]
 [ext_resource path="res://GridVisualizer.gd" type="Script" id=2]
 [ext_resource path="res://Node.gd" type="Script" id=3]
 [ext_resource path="res://Label.gd" type="Script" id=4]
+[ext_resource path="res://WindowDialog.gd" type="Script" id=5]
+[ext_resource path="res://ToolButton.gd" type="Script" id=6]
+[ext_resource path="res://ToolButton2.gd" type="Script" id=7]
 
 [node name="Node2D" type="Node2D"]
 
@@ -24,3 +27,35 @@ margin_top = 346.0
 margin_right = 316.922
 margin_bottom = 383.0
 script = ExtResource( 4 )
+
+[node name="WindowDialog" type="WindowDialog" parent="."]
+visible = true
+margin_left = 133.0
+margin_top = 130.0
+margin_right = 307.0
+margin_bottom = 225.0
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="WindowDialog"]
+margin_left = 2.57211
+margin_top = 1.71475
+margin_right = 42.5721
+margin_bottom = 15.7148
+script = ExtResource( 4 )
+
+[node name="ToolButton" type="ToolButton" parent="WindowDialog"]
+margin_left = 13.718
+margin_top = 67.7327
+margin_right = 88.718
+margin_bottom = 89.7327
+text = "Play again"
+script = ExtResource( 6 )
+
+[node name="ToolButton2" type="ToolButton" parent="WindowDialog"]
+margin_left = 115.746
+margin_top = 67.7327
+margin_right = 150.746
+margin_bottom = 89.7327
+text = "Exit"
+script = ExtResource( 7 )
+[connection signal="pressed" from="WindowDialog/ToolButton" to="Grid" method="_on_ToolButton_pressed"]

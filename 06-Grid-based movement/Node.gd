@@ -6,3 +6,4 @@ extends Node
 var turn = 0
 var winner = 0
 var gameState = 0
+var gameSize = 5

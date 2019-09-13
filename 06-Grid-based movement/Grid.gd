@@ -6,7 +6,7 @@ enum {EMPTY, PLAYER, PLAYER2, OBSTACLE, COLLECTIBLE}
 var tile_size = get_cell_size()
 var half_tile_size = tile_size / 2
 #var grid_size = Vector2(cell_quadrant_size, cell_quadrant_size)
-var grid_size = Vector2(5,5)
+var grid_size = Vector2(variable.gameSize,variable.gameSize)
 
 var grid = []
 onready var Obstacle = preload("res://Obstacle.tscn")
@@ -27,7 +27,7 @@ func _ready():
 
 	# Obstacles
 	var positions = []
-	for n in range(5):
+	for n in range(variable.gameSize *variable.gameSize * 0.2):
 		var placed = false
 		while not placed:
 			randomize()
@@ -108,12 +108,14 @@ func is_cell_vacant(this_grid_pos=Vector2(), direction=Vector2()):
 			if grid[target_grid_pos.x][target_grid_pos.y] == EMPTY :
 				return true 
 			else :if grid[target_grid_pos.x][target_grid_pos.y] == PLAYER || grid[target_grid_pos.x][target_grid_pos.y] == PLAYER2 :
-				print("PRISONER LOSE, WARDEN WIN")
+				print("PRISONER LOSE, WARDER WIN")
 				variable.winner = 2
+				variable.gameState = 2
 				return true
 			else :if grid[target_grid_pos.x][target_grid_pos.y] == COLLECTIBLE && grid[this.x][this.y] == PLAYER:
-				print("PRISONER WIN, WARDEN LOSS")
+				print("PRISONER WIN, WARDER LOSS")
 				variable.winner = 1
+				variable.gameState = 2
 				return true
 			else:
 				return false
@@ -134,3 +136,11 @@ func update_child_pos(this_world_pos, direction, type):
 	var new_world_pos = map_to_world(new_grid_pos) + half_tile_size
 	return new_world_pos
 	
+
+func _on_ToolButton_pressed():
+	print("reload")
+	get_tree().reload_current_scene()
+	variable.gameState = 0
+	variable.winner = 0
+	variable.turn = 0
+	pass # Replace with function body.

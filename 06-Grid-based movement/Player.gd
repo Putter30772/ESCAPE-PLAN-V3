@@ -24,7 +24,7 @@ func _ready():
 func _process(delta):
 	direction = Vector2()
 	speed = 0
-	if(variable.turn == 0):
+	if(variable.turn == 1):
 		if Input.is_action_pressed("move_up"):
 			direction.y = -1
 		elif Input.is_action_pressed("move_down"):
@@ -46,7 +46,7 @@ func _process(delta):
 			is_moving = true
 					
 	elif is_moving:
-		if(variable.turn == 0):
+		if(variable.turn == 1):
 			speed = MAX_SPEED
 			velocity = speed * target_direction * delta
 		
@@ -58,7 +58,7 @@ func _process(delta):
 			if distance_to_target < move_distance:
 					velocity = target_direction * distance_to_target
 					is_moving = false
-					variable.turn += 1
+					variable.turn -= 1
 			move_and_collide(velocity)
 		
 		else: 
