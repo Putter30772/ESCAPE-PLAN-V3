@@ -59,3 +59,4 @@ margin_bottom = 89.7327
 text = "Exit"
 script = ExtResource( 7 )
 [connection signal="pressed" from="WindowDialog/ToolButton" to="Grid" method="_on_ToolButton_pressed"]
+[connection signal="pressed" from="WindowDialog/ToolButton2" to="Grid" method="_on_ToolButton2_pressed"]

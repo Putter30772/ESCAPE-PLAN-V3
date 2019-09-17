@@ -143,4 +143,9 @@ func _on_ToolButton_pressed():
 	variable.gameState = 0
 	variable.winner = 0
 	variable.turn = 0
-	pass # Replace with function body.
+
+func _on_ToolButton2_pressed():
+	get_tree().change_scene("res://TitleScreenRelated/Title Screen.tscn")
+	variable.gameState = 0
+	variable.winner = 0
+	variable.turn = 0
