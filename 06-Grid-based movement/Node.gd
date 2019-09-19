@@ -7,3 +7,5 @@ var turn = 0
 var winner = 0
 var gameState = 0
 var gameSize = 5
+var warderScore = 0
+var prisonerScore = 0

@@ -33,9 +33,10 @@ func _ready():
 			randomize()
 			var grid_pos = Vector2(randi() % int(grid_size.x), randi() % int(grid_size.y))
 			if not grid[grid_pos.x][grid_pos.y]:
-				if not grid_pos in positions:
-					positions.append(grid_pos)
-					placed = true
+				if not grid[1][1] || grid[1][3] || grid[2][2] || grid[3][1] || grid[3][3]:
+					if not grid_pos in positions:
+						positions.append(grid_pos)
+						placed = true
 
 	for pos in positions:
 		var new_obstacle = Obstacle.instance()
@@ -111,11 +112,13 @@ func is_cell_vacant(this_grid_pos=Vector2(), direction=Vector2()):
 				print("PRISONER LOSE, WARDER WIN")
 				variable.winner = 2
 				variable.gameState = 2
+				variable.warderScore += 1
 				return true
 			else :if grid[target_grid_pos.x][target_grid_pos.y] == COLLECTIBLE && grid[this.x][this.y] == PLAYER:
 				print("PRISONER WIN, WARDER LOSS")
 				variable.winner = 1
 				variable.gameState = 2
+				variable.prisonerScore += 1
 				return true
 			else:
 				return false
