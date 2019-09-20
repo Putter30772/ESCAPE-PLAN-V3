@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 variable="*res://Node.gd"
+globals="*res://TitleScreenRelated/globals.gd"
 
 [display]
 

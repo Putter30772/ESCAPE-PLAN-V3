@@ -148,7 +148,9 @@ func _on_ToolButton_pressed():
 	variable.turn = 0
 
 func _on_ToolButton2_pressed():
+	get_tree().set_network_peer(null)
 	get_tree().change_scene("res://TitleScreenRelated/Title Screen.tscn")
 	variable.gameState = 0
 	variable.winner = 0
 	variable.turn = 0
+	get_node("res://Game.tscn").free()

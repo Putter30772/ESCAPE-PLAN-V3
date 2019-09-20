@@ -1,14 +1,23 @@
 extends Node
 
-
 func _ready():
-	$Menu/CenterRow/Buttons/Play.grab_focus()
-
-func _physics_process(delta):
-	if $Menu/CenterRow/Buttons/Play.is_hovered() == true:
-		$Menu/CenterRow/Buttons/Play.grab_focus()
-	if $Menu/CenterRow/Buttons/Options.is_hovered() == true:
-		$Menu/CenterRow/Buttons/Options.grab_focus()
+	get_tree().connect("network_peer_connected", self, "_player_connected")
+	get_tree().connect("server_disconnected",self,"serverGotDisconnected")
 
 func _on_Play_pressed():
-	get_tree().change_scene("Game.tscn")
+	print("Connect")
+	var network = NetworkedMultiplayerENet.new()
+	network.create_client("127.0.0.1", 4242)
+	get_tree().set_network_peer(network)
+	network.connect("connection_failed",self,"_on_connection_failed")
+	
+func _player_connected(id):
+	print("Player connected to server!")
+	globals.otherPlayerId = id
+	var game = preload("res://Game.tscn").instance()
+	get_tree().get_root().add_child(game)
+	$Menu.hide()
+	
+func _on_connection_failed(error):
+	$labelStatus.text = "Error connecting to server " + error
+	
