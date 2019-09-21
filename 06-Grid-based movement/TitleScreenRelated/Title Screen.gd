@@ -10,14 +10,14 @@ func _on_Play_pressed():
 	network.create_client("127.0.0.1", 4242)
 	get_tree().set_network_peer(network)
 	network.connect("connection_failed",self,"_on_connection_failed")
+	network.connect("connection_succeeded",self,"_success")
 	
 func _player_connected(id):
 	print("Player connected to server!")
 	globals.otherPlayerId = id
-	var game = preload("res://Game.tscn").instance()
-	get_tree().get_root().add_child(game)
-	$Menu.hide()
 	
 func _on_connection_failed(error):
 	$labelStatus.text = "Error connecting to server " + error
-	
+
+func _success():
+	get_tree().change_scene("res://Game.tscn")
