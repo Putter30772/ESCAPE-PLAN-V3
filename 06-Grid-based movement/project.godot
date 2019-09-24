@@ -23,6 +23,7 @@ config/icon="res://icon.png"
 
 variable="*res://Node.gd"
 globals="*res://TitleScreenRelated/globals.gd"
+Lobby="*res://ServerLobby.gd"
 
 [display]
 
