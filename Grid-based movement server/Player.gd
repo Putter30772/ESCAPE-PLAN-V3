@@ -2,6 +2,8 @@ extends Node
 
 var connected_player = null
 var ready = false
+var grid = []
+var playername = ""
 
 func _ready():
 	pass # Replace with function body.

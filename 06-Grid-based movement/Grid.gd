@@ -8,7 +8,6 @@ var half_tile_size = tile_size / 2
 #var grid_size = Vector2(cell_quadrant_size, cell_quadrant_size)
 var grid_size = Vector2(variable.gameSize,variable.gameSize)
 
-var grid = []
 onready var Obstacle = preload("res://Obstacle.tscn")
 onready var Player = preload("res://Player.tscn")
 onready var Player2 = preload("res://Player2.tscn")
@@ -19,71 +18,69 @@ onready var Exit = preload("res://exit.tscn")
 func _ready():
 	print("START")
 	for x in range(grid_size.x):
-		grid.append([])
+		variable.grid.append([])
 		for y in range(grid_size.y):
-			grid[x].append(EMPTY)
-
-	
+			variable.grid[x].append(EMPTY)
 
 	# Obstacles
-	var positions = []
-	for n in range(variable.gameSize *variable.gameSize * 0.2):
-		var placed = false
-		while not placed:
-			randomize()
-			var grid_pos = Vector2(randi() % int(grid_size.x), randi() % int(grid_size.y))
-			if not grid[grid_pos.x][grid_pos.y]:
-				if not grid[1][1] || grid[1][3] || grid[2][2] || grid[3][1] || grid[3][3]:
-					if not grid_pos in positions:
-						positions.append(grid_pos)
-						placed = true
+#	var positions = []
+#	for n in range(variable.gameSize *variable.gameSize * 0.2):
+#		var placed = false
+#		while not placed:
+#			randomize()
+#			var grid_pos = Vector2(randi() % int(grid_size.x), randi() % int(grid_size.y))
+#			if not variable.grid[grid_pos.x][grid_pos.y]:
+#				if not variable.grid[1][1] || variable.grid[1][3] || variable.grid[2][2] || variable.grid[3][1] || variable.grid[3][3]:
+#					if not grid_pos in positions:
+#						positions.append(grid_pos)
+#						placed = true
+				
+# Obstacle
 
-	for pos in positions:
+func set_name(name):
+	variable.player_role.text = name
+
+func positions():
+	for pos in variable.position1:
 		var new_obstacle = Obstacle.instance()
 		new_obstacle.position = map_to_world(pos) + half_tile_size
-		grid[pos.x][pos.y] = OBSTACLE
+		variable.grid[pos.x][pos.y] = OBSTACLE
 		add_child(new_obstacle)
-
-# Player
-
-	var placed = false
-	while not placed:
-		randomize()
-		var play_pos = Vector2(randi() % int(grid_size.x), randi() % int(grid_size.y))
-		if not grid[play_pos.x][play_pos.y]:
-			if not play_pos in positions:
-				positions.append(play_pos)
-				placed = true
-				var new_player = Player.instance()
-				new_player.position = map_to_world(play_pos) + half_tile_size
-				grid[play_pos.x][play_pos.y] = PLAYER
-				add_child(new_player)
-				
-	placed = false
-	while not placed:
-		randomize()
-		var play2_pos = Vector2(randi() % int(grid_size.x), randi() % int(grid_size.y))
-		if not grid[play2_pos.x][play2_pos.y]:
-			if not play2_pos in positions:
-				positions.append(play2_pos)
-				placed = true
-				var new_player2 = Player2.instance()
-				new_player2.position = map_to_world(play2_pos) + half_tile_size
-				grid[play2_pos.x][play2_pos.y] = PLAYER2
-				add_child(new_player2)
+## Player
+#	var placed = false
+#	while not placed:
+#		randomize()
+#		var play2_pos = Vector2(randi() % int(grid_size.x), randi() % int(grid_size.y))
+#		if not variable.grid[play2_pos.x][play2_pos.y]:
+#			if not play2_pos in positions:
+#				positions.append(play2_pos)
+#				placed = true
+func play_pos():
+	var new_player = Player.instance()
+	new_player.position = map_to_world(variable.play_pos) + half_tile_size
+	variable.grid[variable.play_pos.x][variable.play_pos.y] = PLAYER
+	add_child(new_player)
 		
-	placed = false
-	while not placed:
-		randomize()
-		var exit_pos = Vector2(randi() % int(grid_size.x), randi() % int(grid_size.y))
-		if not grid[exit_pos.x][exit_pos.y]:
-			if not exit_pos in positions:
-				positions.append(exit_pos)
-				placed = true
-				var new_exit = Exit.instance()
-				new_exit.position = map_to_world(exit_pos) + half_tile_size
-				grid[exit_pos.x][exit_pos.y] = COLLECTIBLE
-				add_child(new_exit)
+func play2_pos():
+	var new_player2 = Player2.instance()			
+	new_player2.position = map_to_world(variable.play2_pos) + half_tile_size
+	variable.grid[variable.play2_pos.x][variable.play2_pos.y] = PLAYER2
+	add_child(new_player2)
+#
+#	placed = false
+#	while not placed:
+#		randomize()
+#		var exit_pos = Vector2(randi() % int(grid_size.x), randi() % int(grid_size.y))
+#		if not variable.grid[exit_pos.x][exit_pos.y]:
+#			if not exit_pos in positions:
+#				positions.append(exit_pos)
+#				placed = true
+func exit_pos():
+	var new_exit = Exit.instance()
+	new_exit.position = map_to_world(variable.exit_pos) + half_tile_size
+	variable.grid[variable.exit_pos.x][variable.exit_pos.y] = COLLECTIBLE
+	add_child(new_exit)
+
 #	var new_player = Player.instance()
 #	new_player.position = map_to_world(PLAYER_STARTPOS) + half_tile_size
 #	grid[PLAYER_STARTPOS.x][PLAYER_STARTPOS.y] = PLAYER
@@ -106,15 +103,15 @@ func is_cell_vacant(this_grid_pos=Vector2(), direction=Vector2()):
 	if target_grid_pos.x < grid_size.x and target_grid_pos.x >= 0:
 		if target_grid_pos.y < grid_size.y and target_grid_pos.y >= 0:
 			# If within grid return true if target cell is empty
-			if grid[target_grid_pos.x][target_grid_pos.y] == EMPTY :
+			if variable.grid[target_grid_pos.x][target_grid_pos.y] == EMPTY :
 				return true 
-			else :if grid[target_grid_pos.x][target_grid_pos.y] == PLAYER || grid[target_grid_pos.x][target_grid_pos.y] == PLAYER2 :
+			else :if variable.grid[target_grid_pos.x][target_grid_pos.y] == PLAYER || variable.grid[target_grid_pos.x][target_grid_pos.y] == PLAYER2 :
 				print("PRISONER LOSE, WARDER WIN")
 				variable.winner = 2
 				variable.gameState = 2
 				variable.warderScore += 1
 				return true
-			else :if grid[target_grid_pos.x][target_grid_pos.y] == COLLECTIBLE && grid[this.x][this.y] == PLAYER:
+			else :if variable.grid[target_grid_pos.x][target_grid_pos.y] == COLLECTIBLE && variable.grid[this.x][this.y] == PLAYER:
 				print("PRISONER WIN, WARDER LOSS")
 				variable.winner = 1
 				variable.gameState = 2
@@ -131,10 +128,10 @@ func update_child_pos(this_world_pos, direction, type):
 	var new_grid_pos = this_grid_pos + direction
 	
 		# remove player from current grid location
-	grid[this_grid_pos.x][this_grid_pos.y] = EMPTY
+	variable.grid[this_grid_pos.x][this_grid_pos.y] = EMPTY
 	
 		# place player on new grid location
-	grid[new_grid_pos.x][new_grid_pos.y] = type
+	variable.grid[new_grid_pos.x][new_grid_pos.y] = type
 	
 	var new_world_pos = map_to_world(new_grid_pos) + half_tile_size
 	return new_world_pos

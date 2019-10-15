@@ -1,33 +1,39 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Game.gd" type="Script" id=1]
-[ext_resource path="res://Grid.gd" type="Script" id=2]
-[ext_resource path="res://GridVisualizer.gd" type="Script" id=3]
-[ext_resource path="res://Node.gd" type="Script" id=4]
-[ext_resource path="res://Label.gd" type="Script" id=5]
+[ext_resource path="res://Grid.gd" type="Script" id=1]
+[ext_resource path="res://GridVisualizer.gd" type="Script" id=2]
+[ext_resource path="res://Node.gd" type="Script" id=3]
+[ext_resource path="res://Label.gd" type="Script" id=4]
+[ext_resource path="res://PlayerNum.gd" type="Script" id=5]
 [ext_resource path="res://WindowDialog.gd" type="Script" id=6]
 [ext_resource path="res://ToolButton.gd" type="Script" id=7]
 [ext_resource path="res://ToolButton2.gd" type="Script" id=8]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource( 1 )
 
 [node name="Grid" type="TileMap" parent="."]
 cell_quadrant_size = 12
 format = 1
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 
 [node name="Grid Visualizer" type="Node2D" parent="Grid"]
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 
 [node name="Node" type="Node" parent="."]
-script = ExtResource( 4 )
+script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 251.922
 margin_top = 346.0
 margin_right = 316.922
 margin_bottom = 383.0
+script = ExtResource( 4 )
+
+[node name="PlayerNum" type="Label" parent="."]
+margin_left = 44.0
+margin_top = 341.0
+margin_right = 172.0
+margin_bottom = 377.0
 script = ExtResource( 5 )
 
 [node name="WindowDialog" type="WindowDialog" parent="."]
@@ -43,7 +49,7 @@ margin_left = 2.57211
 margin_top = 1.71475
 margin_right = 42.5721
 margin_bottom = 15.7148
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
 [node name="ToolButton" type="ToolButton" parent="WindowDialog"]
 margin_left = 13.718
@@ -60,11 +66,5 @@ margin_right = 150.746
 margin_bottom = 89.7327
 text = "Exit"
 script = ExtResource( 8 )
-
-[node name="TrollData" type="Label" parent="."]
-margin_left = 44.0
-margin_top = 341.0
-margin_right = 172.0
-margin_bottom = 377.0
 [connection signal="pressed" from="WindowDialog/ToolButton" to="Grid" method="_on_ToolButton_pressed"]
 [connection signal="pressed" from="WindowDialog/ToolButton2" to="Grid" method="_on_ToolButton2_pressed"]

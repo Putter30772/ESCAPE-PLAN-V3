@@ -6,6 +6,7 @@ onready var players = $Players
 var player = preload("res://Player.tscn")
 
 func _ready():
+	print("ready")
 	var network = NetworkedMultiplayerENet.new()
 	network.create_server(6969, 20)
 	get_tree().set_network_peer(network)
@@ -17,6 +18,7 @@ func _ready():
 	network.connect("peer_disconnected",self,"_peer_disconnected")
 
 func _peer_connected(id):
+	print("peer connected")
 	status_label.text += "\n" + str(id) + " connected."
 	user_count_label.text = "Total users: " +  str(get_tree().get_network_connected_peers().size())
 	var new_player = player.instance()
@@ -24,6 +26,7 @@ func _peer_connected(id):
 	players.add_child(new_player)
 
 func _peer_disconnected(id):
+	print("peer disconnected")
 	status_label.text += "\n" + str(id) + " disconnected."
 	user_count_label.text = "Total users: " +  str(get_tree().get_network_connected_peers().size())
 	for player in players.get_children():

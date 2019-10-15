@@ -9,3 +9,10 @@ var gameState = 0
 var gameSize = 5
 var warderScore = 0
 var prisonerScore = 0
+var grid = []
+var position = []
+var play_pos = []
+var play2_pos = []
+var exit_pos = []
+var position1 = []
+var player_role

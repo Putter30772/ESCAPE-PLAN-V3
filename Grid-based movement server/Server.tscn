@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Server.gd" type="Script" id=1]
-[ext_resource path="res://TrollButton.gd" type="Script" id=2]
 
 [node name="Server" type="Node"]
 script = ExtResource( 1 )
@@ -14,23 +13,10 @@ anchor_bottom = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Troll" type="LineEdit" parent="."]
-margin_left = 272.0
-margin_top = 13.0
-margin_right = 391.0
-margin_bottom = 51.0
-
-[node name="TrollButton" type="Button" parent="."]
-margin_left = 403.0
-margin_top = 15.0
-margin_right = 479.0
-margin_bottom = 51.0
-text = "Send Data"
-script = ExtResource( 2 )
-
 [node name="Players" type="Node" parent="."]
 
 [node name="InGame" type="Node" parent="."]
 
 [node name="GameSession" type="Node" parent="."]
-[connection signal="pressed" from="TrollButton" to="TrollButton" method="_on_TrollButton_pressed"]
+
+[node name="Grid" type="Node" parent="."]
