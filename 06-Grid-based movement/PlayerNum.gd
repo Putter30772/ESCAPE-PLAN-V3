@@ -9,7 +9,9 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (variable.player_role == 0):
-		set_text("Player 1")
-	else:
-		set_text("Player 2")
+	set_text(variable.playerName)
+	
+	#if (variable.player_role == 0):
+	#	set_text("Player 1")
+	#else:
+	#	set_text("Player 2")
