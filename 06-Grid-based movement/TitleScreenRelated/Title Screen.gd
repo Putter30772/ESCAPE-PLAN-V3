@@ -23,3 +23,5 @@ func stop_looking():
 	print("stop looking")
 	get_tree().change_scene("res://Game.tscn")
 	Lobby.get_layout(variable.grid)
+
+

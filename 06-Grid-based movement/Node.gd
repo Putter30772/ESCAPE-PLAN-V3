@@ -16,3 +16,4 @@ var play2_pos = []
 var exit_pos = []
 var position1 = []
 var player_role
+var playerName = ''
