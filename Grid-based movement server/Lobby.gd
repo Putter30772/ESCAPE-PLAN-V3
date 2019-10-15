@@ -74,18 +74,39 @@ remote func serverclientposition(session_id):
 	var curr_session = session_dict[session_id]
 	var positions = []
 	var position1 = []
+	# Obstacles
 	for n in range(variable.gameSize *variable.gameSize * 0.2):
 		var placed = false
 		while not placed:
 			randomize()
 			var grid_pos = Vector2(randi() % int(variable.grid_size.x), randi() % int(variable.grid_size.y))
+			var forbidden1 = Vector2(1,1)
+			var forbidden2 = Vector2(1,3)
+			var forbidden3 = Vector2(2,2)
+			var forbidden4 = Vector2(3,1)
+			var forbidden5 = Vector2(3,3)
 			if not variable.grid[grid_pos.x][grid_pos.y]:
-				if not variable.grid[1][1] || variable.grid[1][3] || variable.grid[2][2] || variable.grid[3][1] || variable.grid[3][3]:
-					if not grid_pos in positions:
-						positions.append(grid_pos)
-						position1.append(grid_pos)
-						placed = true
-						
+				if not grid_pos == forbidden1:
+					if not grid_pos == forbidden2:
+						if not grid_pos == forbidden3:
+							if not grid_pos == forbidden4:
+								if not grid_pos == forbidden5:
+									if not grid_pos in positions:
+										positions.append(grid_pos)
+										position1.append(grid_pos)
+										placed = true
+                                        
+#	for n in range(variable.gameSize *variable.gameSize * 0.2):
+#		var placed = false
+#		while not placed:
+#			randomize()
+#			var grid_pos = Vector2(randi() % int(variable.grid_size.x), randi() % int(variable.grid_size.y))
+#			if not variable.grid[grid_pos.x][grid_pos.y]:
+#				if not variable.grid[1][1] || variable.grid[1][3] || variable.grid[2][2] || variable.grid[3][1] || variable.grid[3][3]:
+#					if not grid_pos in positions:
+#						positions.append(grid_pos)
+#						position1.append(grid_pos)
+#						placed = true
 	var placed = false
 	var play_pos = 0
 	while not placed:
