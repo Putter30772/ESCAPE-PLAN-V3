@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Grid.gd" type="Script" id=1]
 [ext_resource path="res://GridVisualizer.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://WindowDialog.gd" type="Script" id=6]
 [ext_resource path="res://ToolButton.gd" type="Script" id=7]
 [ext_resource path="res://ToolButton2.gd" type="Script" id=8]
+[ext_resource path="res://WelcomePopUp.gd" type="Script" id=9]
 
 [node name="Node2D" type="Node2D"]
 
@@ -66,5 +67,28 @@ margin_right = 150.746
 margin_bottom = 89.7327
 text = "Exit"
 script = ExtResource( 8 )
+
+[node name="WelcomePopUp" type="WindowDialog" parent="."]
+visible = true
+margin_left = 1.10803
+margin_right = 271.108
+margin_bottom = 100.0
+rect_min_size = Vector2( 270, 100 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+window_title = "Welcome"
+script = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="WelcomePopUp"]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="ToolButton" type="ToolButton" parent="WelcomePopUp"]
+margin_left = 117.452
+margin_top = 73.1302
+margin_right = 158.452
+margin_bottom = 95.1302
+text = "Start"
 [connection signal="pressed" from="WindowDialog/ToolButton" to="Grid" method="_on_ToolButton_pressed"]
 [connection signal="pressed" from="WindowDialog/ToolButton2" to="Grid" method="_on_ToolButton2_pressed"]
+[connection signal="pressed" from="WelcomePopUp/ToolButton" to="Grid" method="_on_ToolButton_pressed"]
