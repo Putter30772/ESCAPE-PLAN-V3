@@ -68,27 +68,35 @@ margin_bottom = 89.7327
 text = "Exit"
 script = ExtResource( 8 )
 
-[node name="WelcomePopUp" type="WindowDialog" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="WelcomePopUp" type="WindowDialog" parent="MarginContainer"]
 visible = true
-margin_left = 1.10803
-margin_right = 271.108
+margin_right = 250.0
 margin_bottom = 100.0
-rect_min_size = Vector2( 270, 100 )
-size_flags_horizontal = 0
+rect_min_size = Vector2( 250, 100 )
+size_flags_horizontal = 4
 size_flags_vertical = 0
 window_title = "Welcome"
 script = ExtResource( 9 )
 
-[node name="Label" type="Label" parent="WelcomePopUp"]
+[node name="Label" type="Label" parent="MarginContainer/WelcomePopUp"]
 margin_right = 40.0
 margin_bottom = 14.0
+size_flags_horizontal = 4
+align = 1
+valign = 1
 
-[node name="Start" type="ToolButton" parent="WelcomePopUp"]
-margin_left = 117.452
-margin_top = 73.1302
-margin_right = 158.452
-margin_bottom = 95.1302
+[node name="Start" type="ToolButton" parent="MarginContainer/WelcomePopUp"]
+margin_left = 104.5
+margin_top = 72.022
+margin_right = 145.5
+margin_bottom = 94.022
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Start"
 [connection signal="pressed" from="WindowDialog/PlayAgain" to="Grid" method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="WindowDialog/Exit" to="Grid" method="_on_Exit_pressed"]
-[connection signal="pressed" from="WelcomePopUp/Start" to="Grid" method="_on_Start_pressed"]
+[connection signal="pressed" from="MarginContainer/WelcomePopUp/Start" to="Grid" method="_on_Start_pressed"]

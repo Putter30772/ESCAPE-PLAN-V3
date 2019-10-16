@@ -8,5 +8,5 @@ func _ready():
 func _process(delta):
 	if(variable.gameStart==0):
 		popup_centered()
-		get_node('Label').set_text('Greetings, '+ playerName + '\nWelcome to Escape Plan' + '\nClick the Start Button to Begin Playing') # Replace with function body.
+		get_node('Label').set_text('\nGreetings, '+ playerName + '.\nWelcome to Escape Plan!' + '\nClick the Start Button to Begin Playing.') # Replace with function body.
 	
