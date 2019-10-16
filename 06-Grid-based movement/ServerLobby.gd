@@ -55,3 +55,4 @@ remote func player1_role(player1_role):
 remote func player2_role(player2_role):
 	print("player2_role")
 	variable.player_role = player2_role
+

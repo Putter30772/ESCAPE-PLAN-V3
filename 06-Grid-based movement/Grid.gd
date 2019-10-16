@@ -176,18 +176,29 @@ func update_child_pos(this_world_pos, direction, type):
 	return new_world_pos
 	
 
-func _on_ToolButton_pressed():
-	print("reload")
+func _on_PlayAgain_pressed():
+	print("PlayAgain")
 	get_tree().reload_current_scene()
 	variable.gameStart = 1
 	variable.gameState = 0
 	variable.winner = 0
 	variable.turn = 0
 
-func _on_ToolButton2_pressed():
+
+func _on_Exit_pressed():
+	print("Exit")
 	get_tree().set_network_peer(null)
 	get_tree().change_scene("res://TitleScreenRelated/Title Screen.tscn")
 	variable.gameStart = 0
+	variable.gameState = 0
+	variable.winner = 0
+	variable.turn = 0
+
+
+func _on_Start_pressed():
+	print("Welcome Start")
+	get_tree().reload_current_scene()
+	variable.gameStart = 1
 	variable.gameState = 0
 	variable.winner = 0
 	variable.turn = 0

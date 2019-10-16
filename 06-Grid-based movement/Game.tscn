@@ -52,7 +52,7 @@ margin_right = 42.5721
 margin_bottom = 15.7148
 script = ExtResource( 4 )
 
-[node name="ToolButton" type="ToolButton" parent="WindowDialog"]
+[node name="PlayAgain" type="ToolButton" parent="WindowDialog"]
 margin_left = 13.718
 margin_top = 67.7327
 margin_right = 88.718
@@ -60,7 +60,7 @@ margin_bottom = 89.7327
 text = "Play again"
 script = ExtResource( 7 )
 
-[node name="ToolButton2" type="ToolButton" parent="WindowDialog"]
+[node name="Exit" type="ToolButton" parent="WindowDialog"]
 margin_left = 115.746
 margin_top = 67.7327
 margin_right = 150.746
@@ -83,12 +83,12 @@ script = ExtResource( 9 )
 margin_right = 40.0
 margin_bottom = 14.0
 
-[node name="ToolButton" type="ToolButton" parent="WelcomePopUp"]
+[node name="Start" type="ToolButton" parent="WelcomePopUp"]
 margin_left = 117.452
 margin_top = 73.1302
 margin_right = 158.452
 margin_bottom = 95.1302
 text = "Start"
-[connection signal="pressed" from="WindowDialog/ToolButton" to="Grid" method="_on_ToolButton_pressed"]
-[connection signal="pressed" from="WindowDialog/ToolButton2" to="Grid" method="_on_ToolButton2_pressed"]
-[connection signal="pressed" from="WelcomePopUp/ToolButton" to="Grid" method="_on_ToolButton_pressed"]
+[connection signal="pressed" from="WindowDialog/PlayAgain" to="Grid" method="_on_PlayAgain_pressed"]
+[connection signal="pressed" from="WindowDialog/Exit" to="Grid" method="_on_Exit_pressed"]
+[connection signal="pressed" from="WelcomePopUp/Start" to="Grid" method="_on_Start_pressed"]

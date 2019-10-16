@@ -162,8 +162,8 @@ remote func player_role(session_id):
 			player2_role = 1
 		if player1_role == 1:
 			player2_role = 0
-		print(player1_role)
-		print(player2_role)
+		print("player1_role = " + str(player1_role))
+		print("player2_role = " + str(player2_role))
 	if (counter == 2):
 		rpc_id(int(curr_session.connected_players[0].name), "player1_role", player1_role)
 		print("to 1")
