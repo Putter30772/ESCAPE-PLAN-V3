@@ -1,14 +1,19 @@
 extends Label
 
 onready var timer = get_node("Timer")
+var start = 0
 
 func _ready():
-	if(variable.gameStart==1):
-		timer.set_wait_time(1)
-		timer.start() 
+	pass
 
 func _process(delta):
-	if(variable.gameStart==1):
+	if(variable.ready==1):
+		if(start==0 || variable.move==1):
+			variable.startTime = 10
+			timer.set_wait_time(1)
+			timer.start()
+			start = 1
+			variable.move=0 
 		if(variable.startTime==10):
 			set_text("00:" + str(variable.startTime))
 		if(variable.startTime<10 && variable.startTime>=0):
@@ -21,6 +26,7 @@ func _process(delta):
 			variable.startTime=10
 	else:
 		set_text("00:" + str(10))
+		
 func _on_Timer_timeout():
 	variable.startTime -= 1 
 

@@ -56,6 +56,7 @@ func _move(direction,position,type):
 					
 	if is_moving:
 		print("move4")
+		variable.move = 1
 		if(variable.turn == 1):
 			speed = MAX_SPEED
 			velocity = speed * target_direction * 0.2		

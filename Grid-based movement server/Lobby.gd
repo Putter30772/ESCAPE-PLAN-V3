@@ -20,6 +20,7 @@ var position1 = []
 var play_pos = 0
 var play2_pos = 0
 var exit_pos = 0
+var player_start = 0
 # warning-ignore:unused_argument
 remote func match_make(info):
 	print("match make")
@@ -193,3 +194,14 @@ func onedisconnect(session_id):
 	var curr_session = session_dict[session_id]
 	rpc_id(int(curr_session.connected_players[0].name), "onedisconnect") 
 	rpc_id(int(curr_session.connected_players[1].name), "onedisconnect") 
+	
+remote func start_game(session_id):
+	print("start game")
+	var id = get_tree().get_rpc_sender_id()
+	var curr_session = session_dict[session_id]
+	player_start += 1
+	if(player_start==2):
+		rpc_id(int(curr_session.connected_players[0].name),"start_timer")
+		rpc_id(int(curr_session.connected_players[1].name), "start_timer")
+		player_start = 0
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Grid.gd" type="Script" id=1]
 [ext_resource path="res://GridVisualizer.gd" type="Script" id=2]
@@ -6,15 +6,12 @@
 [ext_resource path="res://Label.gd" type="Script" id=4]
 [ext_resource path="res://PlayerNum.gd" type="Script" id=5]
 [ext_resource path="res://WindowDialog.gd" type="Script" id=6]
-[ext_resource path="res://ToolButton.gd" type="Script" id=7]
-[ext_resource path="res://ToolButton2.gd" type="Script" id=8]
-[ext_resource path="res://WelcomePopUp.gd" type="Script" id=9]
-[ext_resource path="res://DisplayTime.gd" type="Script" id=10]
+[ext_resource path="res://WelcomePopUp.gd" type="Script" id=7]
+[ext_resource path="res://DisplayTime.gd" type="Script" id=8]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Grid" type="TileMap" parent="."]
-editor/display_folded = true
 cell_quadrant_size = 12
 format = 1
 script = ExtResource( 1 )
@@ -26,17 +23,17 @@ script = ExtResource( 2 )
 script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 251.922
+margin_left = 252.0
 margin_top = 341.0
-margin_right = 316.922
+margin_right = 317.0
 margin_bottom = 378.0
 script = ExtResource( 4 )
 
 [node name="PlayerNum" type="Label" parent="."]
-margin_left = 44.0
-margin_top = 341.0
-margin_right = 172.0
-margin_bottom = 377.0
+margin_left = 43.0
+margin_top = 339.892
+margin_right = 171.0
+margin_bottom = 375.892
 script = ExtResource( 5 )
 
 [node name="WindowDialog" type="WindowDialog" parent="."]
@@ -99,14 +96,13 @@ size_flags_vertical = 4
 text = "Start"
 
 [node name="DisplayTime" type="Label" parent="."]
-margin_left = 174.0
-margin_top = 339.892
-margin_right = 224.0
-margin_bottom = 375.892
-script = ExtResource( 10 )
+margin_left = 175.0
+margin_top = 341.0
+margin_right = 245.0
+margin_bottom = 377.0
+script = ExtResource( 8 )
 
 [node name="Timer" type="Timer" parent="DisplayTime"]
-wait_time = 10.0
 [connection signal="pressed" from="WindowDialog/PlayAgain" to="Grid" method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="WindowDialog/Exit" to="Grid" method="_on_Exit_pressed"]
 [connection signal="pressed" from="MarginContainer/WelcomePopUp/Start" to="Grid" method="_on_Start_pressed"]

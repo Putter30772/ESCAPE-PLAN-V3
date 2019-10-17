@@ -80,8 +80,8 @@ func update_grid(direction,position,type,session_id):
 	
 remote func update_grid2(direction,position,type):
 	print("update_grid2")
-	print(direction)
-	print(position)
+	#print(direction)
+	#print(position)
 	variable.player2._move(direction,position,type)
 
 func update_gridfor1(direction,position,type,session_id):
@@ -90,8 +90,8 @@ func update_gridfor1(direction,position,type,session_id):
 	
 remote func update_grid2for1(direction,position,type):
 	print("update_grid2for1")
-	print(direction)
-	print(position)
+	#print(direction)
+	#print(position)
 	variable.player1._move(direction,position,type)
 
 remote func onedisconnect():
@@ -102,3 +102,10 @@ remote func onedisconnect():
 	variable.gameState = 0
 	variable.winner = 0
 	variable.turn = 0
+
+func ready(session_id):
+	print("ready")
+	rpc_id(1,"start_game",session_id)
+	
+remote func start_timer():
+	variable.ready = 1
