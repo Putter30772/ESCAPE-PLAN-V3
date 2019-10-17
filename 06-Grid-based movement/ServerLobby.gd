@@ -94,3 +94,11 @@ remote func update_grid2for1(direction,position,type):
 	print(position)
 	variable.player1._move(direction,position,type)
 
+remote func onedisconnect():
+	get_tree().set_network_peer(null)
+	Grid.empty_grid()
+	get_tree().change_scene("res://TitleScreenRelated/Title Screen.tscn")
+	variable.gameStart = 0
+	variable.gameState = 0
+	variable.winner = 0
+	variable.turn = 0

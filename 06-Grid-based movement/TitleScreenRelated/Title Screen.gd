@@ -29,8 +29,5 @@ func stop_looking():
 	get_tree().change_scene("res://Game.tscn")
 	Lobby.get_layout(variable.grid)
 
-
-
-
 func _on_PlayerSearchTimeout_timeout():
 	Lobby.look_for_player(null)

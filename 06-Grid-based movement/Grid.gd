@@ -205,16 +205,15 @@ func _on_PlayAgain_pressed():
 	variable.winner = 0
 	variable.turn = 0
 
-
 func _on_Exit_pressed():
 	print("Exit")
 	get_tree().set_network_peer(null)
+	empty_grid()
 	get_tree().change_scene("res://TitleScreenRelated/Title Screen.tscn")
 	variable.gameStart = 0
 	variable.gameState = 0
 	variable.winner = 0
 	variable.turn = 0
-
 
 func _on_Start_pressed():
 	print("Welcome Start")

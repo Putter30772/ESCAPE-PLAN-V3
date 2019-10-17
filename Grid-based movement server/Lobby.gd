@@ -40,7 +40,6 @@ remote func match_make(info):
 	var new_session = session.instance()
 	sessions.add_child(new_session)
 	session_dict[session_id] = new_session
-	
 	var opponent = null
 	for player in players.get_children():
 		if player.name == str(id) || player.name == candidate.name:
@@ -189,4 +188,8 @@ remote func update_gridfor1(direction,position,type,session_id):
 		rpc_id(int(curr_session.connected_players[0].name), "update_grid2for1", direction,position,type)
 		print("update_grid2for1")
 
-	
+func onedisconnect(session_id):
+	var id = get_tree().get_rpc_sender_id()
+	var curr_session = session_dict[session_id]
+	rpc_id(int(curr_session.connected_players[0].name), "onedisconnect") 
+	rpc_id(int(curr_session.connected_players[1].name), "onedisconnect") 
