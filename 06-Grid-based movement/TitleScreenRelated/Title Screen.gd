@@ -6,7 +6,7 @@ func _ready():
 
 func _on_Play_pressed():
 	print("on Play pressed")
-	variable.playerName = get_node("Insert Name Dialog/TextEdit").get_text()
+	variable.playerName = get_node("Insert Name Dialog/LineEdit").get_text()
 	var network = NetworkedMultiplayerENet.new()
 	network.create_client("127.0.0.1", 6969)
 	get_tree().set_network_peer(network)

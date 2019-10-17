@@ -40,12 +40,6 @@ func _ready():
 func set_name(name):
 	variable.player_role.text = name
 
-func positions():
-	for pos in variable.position1:
-		var new_obstacle = Obstacle.instance()
-		new_obstacle.position = map_to_world(pos) + half_tile_size
-		variable.grid[pos.x][pos.y] = OBSTACLE
-		add_child(new_obstacle)
 ## Player
 #	var placed = false
 #	while not placed:
@@ -55,33 +49,51 @@ func positions():
 #			if not play2_pos in positions:
 #				positions.append(play2_pos)
 #				placed = true
-func play_pos():
-	var new_player = Player.instance()
-	variable.player1 = new_player
-	new_player.position = map_to_world(variable.play_pos) + half_tile_size
-	variable.grid[variable.play_pos.x][variable.play_pos.y] = PLAYER
-	add_child(new_player)
-		
-func play2_pos():
-	var new_player2 = Player2.instance()			
-	variable.player2 = new_player2
-	new_player2.position = map_to_world(variable.play2_pos) + half_tile_size
-	variable.grid[variable.play2_pos.x][variable.play2_pos.y] = PLAYER2
-	add_child(new_player2)
+
+#func positions():
+#	for pos in variable.grid:
+#		for pos2 in pos:
+#			variable.grid = EMPTY
+#	for pos in variable.position1:
+#		var new_obstacle = Obstacle.instance()
+#		new_obstacle.position = map_to_world(pos) + half_tile_size
+#		variable.grid[pos.x][pos.y] = OBSTACLE
+#		add_child(new_obstacle)
+### Player
+##	var placed = false
+##	while not placed:
+##		randomize()
+##		var play2_pos = Vector2(randi() % int(grid_size.x), randi() % int(grid_size.y))
+##		if not variable.grid[play2_pos.x][play2_pos.y]:
+##			if not play2_pos in positions:
+##				positions.append(play2_pos)
+##				placed = true
+#func play_pos():
+#	var new_player = Player.instance()
+#	new_player.position = map_to_world(variable.play_pos) + half_tile_size
+#	variable.grid[variable.play_pos.x][variable.play_pos.y] = PLAYER
+#	add_child(new_player)
+
 #
-#	placed = false
-#	while not placed:
-#		randomize()
-#		var exit_pos = Vector2(randi() % int(grid_size.x), randi() % int(grid_size.y))
-#		if not variable.grid[exit_pos.x][exit_pos.y]:
-#			if not exit_pos in positions:
-#				positions.append(exit_pos)
-#				placed = true
-func exit_pos():
-	var new_exit = Exit.instance()
-	new_exit.position = map_to_world(variable.exit_pos) + half_tile_size
-	variable.grid[variable.exit_pos.x][variable.exit_pos.y] = COLLECTIBLE
-	add_child(new_exit)
+#func play2_pos():
+#	var new_player2 = Player2.instance()			
+#	new_player2.position = map_to_world(variable.play2_pos) + half_tile_size
+#	variable.grid[variable.play2_pos.x][variable.play2_pos.y] = PLAYER2
+#	add_child(new_player2)
+##
+##	placed = false
+##	while not placed:
+##		randomize()
+##		var exit_pos = Vector2(randi() % int(grid_size.x), randi() % int(grid_size.y))
+##		if not variable.grid[exit_pos.x][exit_pos.y]:
+##			if not exit_pos in positions:
+##				positions.append(exit_pos)
+##				placed = true
+#func exit_pos():
+#	var new_exit = Exit.instance()
+#	new_exit.position = map_to_world(variable.exit_pos) + half_tile_size
+#	variable.grid[variable.exit_pos.x][variable.exit_pos.y] = COLLECTIBLE
+#	add_child(new_exit)
 
 #	var new_player = Player.instance()
 #	new_player.position = map_to_world(PLAYER_STARTPOS) + half_tile_size
@@ -95,6 +107,44 @@ func exit_pos():
 #func get_cell_entity_type(pos=Vector2()):
 #	return grid[pos.x][pos.y]
 
+func empty_grid():
+    for pos in variable.grid:
+        for pos2 in pos:
+            pos2 = EMPTY
+    for obj in get_tree().get_nodes_in_group("to_delete"):
+        obj.queue_free()
+
+func positions():
+    empty_grid()
+    for pos in variable.position1:
+        var new_obstacle = Obstacle.instance()
+        new_obstacle.add_to_group("to_delete")
+        new_obstacle.position = map_to_world(pos) + half_tile_size
+        variable.grid[pos.x][pos.y] = OBSTACLE
+        add_child(new_obstacle)
+
+func play_pos():	
+	var new_player = Player.instance()
+	variable.player1 = new_player
+	new_player.add_to_group("to_delete")
+	new_player.position = map_to_world(variable.play_pos) + half_tile_size
+	variable.grid[variable.play_pos.x][variable.play_pos.y] = PLAYER
+	add_child(new_player)
+        
+func play2_pos():
+	var new_player2 = Player2.instance()
+	variable.player2 = new_player2
+	new_player2.add_to_group("to_delete")
+	new_player2.position = map_to_world(variable.play2_pos) + half_tile_size
+	variable.grid[variable.play2_pos.x][variable.play2_pos.y] = PLAYER2
+	add_child(new_player2)
+
+func exit_pos():
+    var new_exit = Exit.instance()
+    new_exit.add_to_group("to_delete")
+    new_exit.position = map_to_world(variable.exit_pos) + half_tile_size
+    variable.grid[variable.exit_pos.x][variable.exit_pos.y] = COLLECTIBLE
+    add_child(new_exit)
 
 # Check if cell at direction is vacant
 func is_cell_vacant(this_grid_pos=Vector2(), direction=Vector2()):
@@ -146,18 +196,29 @@ func update_child_pos(this_world_pos, direction, type):
 	return new_world_pos
 	
 
-func _on_ToolButton_pressed():
-	print("reload")
+func _on_PlayAgain_pressed():
+	print("PlayAgain")
 	get_tree().reload_current_scene()
 	variable.gameStart = 1
 	variable.gameState = 0
 	variable.winner = 0
 	variable.turn = 0
 
-func _on_ToolButton2_pressed():
+
+func _on_Exit_pressed():
+	print("Exit")
 	get_tree().set_network_peer(null)
 	get_tree().change_scene("res://TitleScreenRelated/Title Screen.tscn")
 	variable.gameStart = 0
+	variable.gameState = 0
+	variable.winner = 0
+	variable.turn = 0
+
+
+func _on_Start_pressed():
+	print("Welcome Start")
+	get_tree().reload_current_scene()
+	variable.gameStart = 1
 	variable.gameState = 0
 	variable.winner = 0
 	variable.turn = 0

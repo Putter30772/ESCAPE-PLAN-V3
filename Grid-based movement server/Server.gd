@@ -4,6 +4,7 @@ onready var status_label = $LabelStatus
 onready var user_count_label = $LabelUserCount
 onready var players = $Players
 var player = preload("res://Player.tscn")
+onready var reset_label = $ResetLabel
 
 func _ready():
 	print("ready")
@@ -32,3 +33,9 @@ func _peer_disconnected(id):
 	for player in players.get_children():
 		if player.name == str(id):
 			player.queue_free()
+
+func _on_Button_pressed():
+	status_label.text += "\n" + "Reset Game Initiated"
+	for acc in Lobby.session_dict:
+		Lobby.counter = 1
+		Lobby.serverclientgrid(acc)

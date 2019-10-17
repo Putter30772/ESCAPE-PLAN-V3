@@ -21,17 +21,18 @@ custom_constants/scaleborder_size = 0
 window_title = "Insert Your Name"
 script = ExtResource( 2 )
 
-[node name="TextEdit" type="TextEdit" parent="Insert Name Dialog"]
+[node name="LineEdit" type="LineEdit" parent="Insert Name Dialog"]
 margin_left = 122.0
 margin_top = 9.972
 margin_right = 202.0
 margin_bottom = 32.972
+align = 1
 
 [node name="Play" type="Button" parent="Insert Name Dialog"]
-margin_left = 144.044
-margin_top = 38.7811
-margin_right = 182.044
-margin_bottom = 58.7811
+margin_left = 143.0
+margin_top = 38.781
+margin_right = 181.0
+margin_bottom = 58.781
 text = "Play"
 
 [node name="Menu" type="VBoxContainer" parent="."]

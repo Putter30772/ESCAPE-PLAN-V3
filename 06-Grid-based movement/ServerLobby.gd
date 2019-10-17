@@ -34,6 +34,7 @@ func get_layout(layout):
 
 remote func grid(grid):
 	print("grid")
+	variable.grid = []
 	variable.grid = grid
 	rpc_id(1, "serverclientposition", session_id)
 	
@@ -57,7 +58,7 @@ remote func player1_role(player1_role):
 	else:
 		print("this is prisoner")
 	variable.player_role = player1_role
-
+		
 remote func player2_role(player2_role):
 	print("player2_role")
 	if(player2_role == 0):
@@ -65,6 +66,7 @@ remote func player2_role(player2_role):
 	else:
 		print("this is prisoner")
 	variable.player_role = player2_role
+
 		
 func send_on_ready():
 	if session_id > -1:
@@ -91,3 +93,4 @@ remote func update_grid2for1(direction,position,type):
 	print(direction)
 	print(position)
 	variable.player1._move(direction,position,type)
+

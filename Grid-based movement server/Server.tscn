@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Server.gd" type="Script" id=1]
+[ext_resource path="res://montserrat_36.tres" type="DynamicFont" id=2]
 
 [node name="Server" type="Node"]
 script = ExtResource( 1 )
@@ -20,3 +21,19 @@ anchor_bottom = 1.0
 [node name="GameSession" type="Node" parent="."]
 
 [node name="Grid" type="Node" parent="."]
+
+[node name="Button" type="Button" parent="."]
+margin_left = 282.193
+margin_top = 14.0761
+margin_right = 373.193
+margin_bottom = 42.0761
+custom_fonts/font = ExtResource( 2 )
+text = "RESET"
+
+[node name="RESET" type="Label" parent="Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "RESET"
+align = 1
+valign = 1
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
