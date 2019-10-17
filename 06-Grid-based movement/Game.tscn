@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Grid.gd" type="Script" id=1]
 [ext_resource path="res://GridVisualizer.gd" type="Script" id=2]
@@ -9,10 +9,12 @@
 [ext_resource path="res://ToolButton.gd" type="Script" id=7]
 [ext_resource path="res://ToolButton2.gd" type="Script" id=8]
 [ext_resource path="res://WelcomePopUp.gd" type="Script" id=9]
+[ext_resource path="res://DisplayTime.gd" type="Script" id=10]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Grid" type="TileMap" parent="."]
+editor/display_folded = true
 cell_quadrant_size = 12
 format = 1
 script = ExtResource( 1 )
@@ -25,9 +27,9 @@ script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 251.922
-margin_top = 346.0
+margin_top = 341.0
 margin_right = 316.922
-margin_bottom = 383.0
+margin_bottom = 378.0
 script = ExtResource( 4 )
 
 [node name="PlayerNum" type="Label" parent="."]
@@ -97,6 +99,17 @@ margin_bottom = 94.022
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Start"
+
+[node name="DisplayTime" type="Label" parent="."]
+margin_left = 174.0
+margin_top = 339.892
+margin_right = 224.0
+margin_bottom = 375.892
+script = ExtResource( 10 )
+
+[node name="Timer" type="Timer" parent="DisplayTime"]
+wait_time = 10.0
 [connection signal="pressed" from="WindowDialog/PlayAgain" to="Grid" method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="WindowDialog/Exit" to="Grid" method="_on_Exit_pressed"]
 [connection signal="pressed" from="MarginContainer/WelcomePopUp/Start" to="Grid" method="_on_Start_pressed"]
+[connection signal="timeout" from="DisplayTime/Timer" to="DisplayTime" method="_on_Timer_timeout"]
