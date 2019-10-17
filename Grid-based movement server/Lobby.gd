@@ -60,16 +60,14 @@ func move_to_game(node):
 		
 remote func serverclientgrid(session_id):
 	print("serverclientgrid")
-	for acc in session_dict:
-		print(acc)
 	counter += 1
-	var id = get_tree().get_rpc_sender_id()
-	var curr_session = session_dict[session_id]
-	for x in range(variable.grid_size.x):
-		variable.grid.append([])
-		for y in range(variable.grid_size.y):
-			variable.grid[x].append(EMPTY)
 	if (counter == 2): 
+		var id = get_tree().get_rpc_sender_id()
+		var curr_session = session_dict[session_id]
+		for x in range(variable.grid_size.x):
+			variable.grid.append([])
+			for y in range(variable.grid_size.y):
+				variable.grid[x].append(EMPTY)
 		rpc_id(int(curr_session.connected_players[0].name), "grid", variable.grid)
 		rpc_id(int(curr_session.connected_players[1].name), "grid", variable.grid)
 		counter = 0
@@ -77,11 +75,9 @@ remote func serverclientgrid(session_id):
 remote func serverclientposition(session_id):
 	print("serverclientpositions")
 	counter += 1
-	for block in variable.grid:
-		print(block)
-	var id = get_tree().get_rpc_sender_id()
-	var curr_session = session_dict[session_id]
-	if (counter == 1):
+	if (counter == 2):
+		var id = get_tree().get_rpc_sender_id()
+		var curr_session = session_dict[session_id]
 		# Obstacles
 		for n in range(variable.gameSize *variable.gameSize * 0.2):
 			var placed = false
@@ -139,7 +135,6 @@ remote func serverclientposition(session_id):
 				if not exit_pos in positions:
 					positions.append(exit_pos)
 					placed = true
-	if (counter == 2):
 		rpc_id(int(curr_session.connected_players[0].name), "positioning", position1, positions, play_pos, play2_pos, exit_pos)
 		rpc_id(int(curr_session.connected_players[1].name), "positioning", position1, positions, play_pos, play2_pos, exit_pos)
 		position1 = []
@@ -153,9 +148,9 @@ remote func serverclientposition(session_id):
 remote func player_role(session_id):
 	print("player_role this is server")
 	counter += 1
-	var id = get_tree().get_rpc_sender_id()
-	var curr_session = session_dict[session_id]
-	if (counter == 1):
+	if (counter == 2):
+		var id = get_tree().get_rpc_sender_id()
+		var curr_session = session_dict[session_id]
 		randomize()
 		player1_role = randi()%2
 		if player1_role == 0:
@@ -164,12 +159,10 @@ remote func player_role(session_id):
 			player2_role = 0
 		print("player1_role = " + str(player1_role))
 		print("player2_role = " + str(player2_role))
-	if (counter == 2):
 		rpc_id(int(curr_session.connected_players[0].name), "player1_role", player1_role)
 		print("to 1")
 		rpc_id(int(curr_session.connected_players[1].name), "player2_role", player2_role)
 		print("to 2")
-
 		player1_role = 0
 		player2_role = 0
 		counter = 0

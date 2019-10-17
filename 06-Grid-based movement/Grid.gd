@@ -115,13 +115,14 @@ func empty_grid():
         obj.queue_free()
 
 func positions():
-    empty_grid()
-    for pos in variable.position1:
-        var new_obstacle = Obstacle.instance()
-        new_obstacle.add_to_group("to_delete")
-        new_obstacle.position = map_to_world(pos) + half_tile_size
-        variable.grid[pos.x][pos.y] = OBSTACLE
-        add_child(new_obstacle)
+	empty_grid()
+	variable.turn = 0
+	for pos in variable.position1:
+		var new_obstacle = Obstacle.instance()
+		new_obstacle.add_to_group("to_delete")
+		new_obstacle.position = map_to_world(pos) + half_tile_size
+		variable.grid[pos.x][pos.y] = OBSTACLE
+		add_child(new_obstacle)
 
 func play_pos():	
 	var new_player = Player.instance()

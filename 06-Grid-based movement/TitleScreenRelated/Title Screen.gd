@@ -1,5 +1,7 @@
 extends Node
 
+onready var timer = $PlayerSearchTimeout
+
 func _ready():
 	Lobby.lobby = self
 	pass
@@ -18,11 +20,17 @@ func _on_connection_failed(error):
 
 func _success():
 	print("success")
+	timer.start()
 	Lobby.look_for_player(null)
 
 func stop_looking():
 	print("stop looking")
+	timer.stop()
 	get_tree().change_scene("res://Game.tscn")
 	Lobby.get_layout(variable.grid)
 
 
+
+
+func _on_PlayerSearchTimeout_timeout():
+	Lobby.look_for_player(null)
