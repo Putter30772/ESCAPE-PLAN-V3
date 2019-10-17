@@ -57,12 +57,14 @@ func positions():
 #				placed = true
 func play_pos():
 	var new_player = Player.instance()
+	variable.player1 = new_player
 	new_player.position = map_to_world(variable.play_pos) + half_tile_size
 	variable.grid[variable.play_pos.x][variable.play_pos.y] = PLAYER
 	add_child(new_player)
 		
 func play2_pos():
 	var new_player2 = Player2.instance()			
+	variable.player2 = new_player2
 	new_player2.position = map_to_world(variable.play2_pos) + half_tile_size
 	variable.grid[variable.play2_pos.x][variable.play2_pos.y] = PLAYER2
 	add_child(new_player2)
@@ -96,28 +98,35 @@ func exit_pos():
 
 # Check if cell at direction is vacant
 func is_cell_vacant(this_grid_pos=Vector2(), direction=Vector2()):
+	print("move2")
 	var this = world_to_map(this_grid_pos)
 	var target_grid_pos = world_to_map(this_grid_pos) + direction
-
+	
 	# Check if target cell is within the grid
 	if target_grid_pos.x < grid_size.x and target_grid_pos.x >= 0:
+		print("move2.1")
 		if target_grid_pos.y < grid_size.y and target_grid_pos.y >= 0:
 			# If within grid return true if target cell is empty
+			print("move2.2")
 			if variable.grid[target_grid_pos.x][target_grid_pos.y] == EMPTY :
+				print("move2.3")
 				return true 
 			else :if variable.grid[target_grid_pos.x][target_grid_pos.y] == PLAYER || variable.grid[target_grid_pos.x][target_grid_pos.y] == PLAYER2 :
 				print("PRISONER LOSE, WARDER WIN")
 				variable.winner = 2
 				variable.gameState = 2
 				variable.warderScore += 1
+				print("move2.4")
 				return true
 			else :if variable.grid[target_grid_pos.x][target_grid_pos.y] == COLLECTIBLE && variable.grid[this.x][this.y] == PLAYER:
 				print("PRISONER WIN, WARDER LOSS")
 				variable.winner = 1
 				variable.gameState = 2
 				variable.prisonerScore += 1
+				print("move2.5")
 				return true
 			else:
+				print("move2.6")
 				return false
 
 

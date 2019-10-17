@@ -140,7 +140,7 @@ remote func serverclientposition(session_id):
 		counter = 0
 
 remote func player_role(session_id):
-	print("player_role")
+	print("player_role this is server")
 	counter += 1
 	var id = get_tree().get_rpc_sender_id()
 	var curr_session = session_dict[session_id]
@@ -159,3 +159,24 @@ remote func player_role(session_id):
 		rpc_id(int(curr_session.connected_players[1].name), "player2_role", player2_role)
 		print("to 2")
 		counter = 0
+remote func update_grid(direction,position,type,session_id):
+	print("update_grid")
+	var id = get_tree().get_rpc_sender_id()
+	var curr_session = session_dict[session_id]
+	if id == int(curr_session.connected_players[0].name):
+		rpc_id(int(curr_session.connected_players[1].name), "update_grid2", direction,position,type)
+		print("update_grid2")
+	else:
+		rpc_id(int(curr_session.connected_players[0].name), "update_grid2", direction,position,type)
+		print("update_grid2")
+		
+remote func update_gridfor1(direction,position,type,session_id):
+	print("update_gridfor1")
+	var id = get_tree().get_rpc_sender_id()
+	var curr_session = session_dict[session_id]
+	if id == int(curr_session.connected_players[0].name):
+		rpc_id(int(curr_session.connected_players[1].name), "update_grid2for1", direction,position,type)
+		print("update_grid2for1")
+	else:
+		rpc_id(int(curr_session.connected_players[0].name), "update_grid2for1", direction,position,type)
+		print("update_grid2for1")

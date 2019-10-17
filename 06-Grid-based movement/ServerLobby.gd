@@ -4,13 +4,16 @@ onready var Obstacle = preload("res://Obstacle.tscn")
 onready var Player = preload("res://Player.tscn")
 onready var Player2 = preload("res://Player2.tscn")
 onready var Exit = preload("res://exit.tscn")
+var movePlayer2 = load("res://Player2.gd").new()
 
 func _ready():
+
 	pass # Replace with function body.
 
 var lobby = null
-
+#var test = Player2.instance()
 var session_id = -1
+
 
 func look_for_player(info):
 	print("look for player")
@@ -49,10 +52,18 @@ remote func positioning(position1, positions, play_pos, play2_pos, exit_pos):
 
 remote func player1_role(player1_role):
 	print("player1_role")
+	if(player1_role == 0):
+		print("this is warder")
+	else:
+		print("this is prisoner")
 	variable.player_role = player1_role
 
 remote func player2_role(player2_role):
 	print("player2_role")
+	if(player2_role == 0):
+		print("this is warder")
+	else:
+		print("this is prisoner")
 	variable.player_role = player2_role
 		
 func send_on_ready():
@@ -60,3 +71,23 @@ func send_on_ready():
 		rpc_id(1, "serverclientgrid", session_id)
 	else:
 		print("session error")
+		
+func update_grid(direction,position,type,session_id):
+	print("update_grid")
+	rpc_id(1,"update_grid",direction,position,type,session_id)
+	
+remote func update_grid2(direction,position,type):
+	print("update_grid2")
+	print(direction)
+	print(position)
+	variable.player2._move(direction,position,type)
+
+func update_gridfor1(direction,position,type,session_id):
+	print("update_gridfor1")
+	rpc_id(1,"update_gridfor1",direction,position,type,session_id)
+	
+remote func update_grid2for1(direction,position,type):
+	print("update_grid2for1")
+	print(direction)
+	print(position)
+	variable.player1._move(direction,position,type)

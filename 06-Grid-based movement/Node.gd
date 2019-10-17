@@ -18,3 +18,5 @@ var position1 = []
 var player_role
 var playerName = ''
 var gameStart = 0
+var player2 = null
+var player1 = null
