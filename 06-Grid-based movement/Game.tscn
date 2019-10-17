@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Grid.gd" type="Script" id=1]
 [ext_resource path="res://GridVisualizer.gd" type="Script" id=2]
@@ -6,9 +6,7 @@
 [ext_resource path="res://Label.gd" type="Script" id=4]
 [ext_resource path="res://PlayerNum.gd" type="Script" id=5]
 [ext_resource path="res://WindowDialog.gd" type="Script" id=6]
-[ext_resource path="res://ToolButton.gd" type="Script" id=7]
-[ext_resource path="res://ToolButton2.gd" type="Script" id=8]
-[ext_resource path="res://WelcomePopUp.gd" type="Script" id=9]
+[ext_resource path="res://WelcomePopUp.gd" type="Script" id=7]
 
 [node name="Node2D" type="Node2D"]
 
@@ -58,7 +56,6 @@ margin_top = 67.7327
 margin_right = 88.718
 margin_bottom = 89.7327
 text = "Play again"
-script = ExtResource( 7 )
 
 [node name="Exit" type="ToolButton" parent="WindowDialog"]
 margin_left = 115.746
@@ -66,7 +63,6 @@ margin_top = 67.7327
 margin_right = 150.746
 margin_bottom = 89.7327
 text = "Exit"
-script = ExtResource( 8 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -80,7 +76,7 @@ rect_min_size = Vector2( 250, 100 )
 size_flags_horizontal = 4
 size_flags_vertical = 0
 window_title = "Welcome"
-script = ExtResource( 9 )
+script = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="MarginContainer/WelcomePopUp"]
 margin_right = 40.0
