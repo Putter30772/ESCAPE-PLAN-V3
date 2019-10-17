@@ -60,7 +60,6 @@ margin_top = 67.7327
 margin_right = 88.718
 margin_bottom = 89.7327
 text = "Play again"
-script = ExtResource( 7 )
 
 [node name="Exit" type="ToolButton" parent="WindowDialog"]
 margin_left = 115.746
@@ -68,7 +67,6 @@ margin_top = 67.7327
 margin_right = 150.746
 margin_bottom = 89.7327
 text = "Exit"
-script = ExtResource( 8 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -82,7 +80,7 @@ rect_min_size = Vector2( 250, 100 )
 size_flags_horizontal = 4
 size_flags_vertical = 0
 window_title = "Welcome"
-script = ExtResource( 9 )
+script = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="MarginContainer/WelcomePopUp"]
 margin_right = 40.0

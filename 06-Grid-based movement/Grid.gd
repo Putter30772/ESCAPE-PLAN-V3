@@ -1,6 +1,5 @@
 # Collection of functions to work with a Grid. Stores all its children in the grid array
 extends TileMap
-
 enum {EMPTY, PLAYER, PLAYER2, OBSTACLE, COLLECTIBLE}
 
 var tile_size = get_cell_size()
@@ -199,22 +198,22 @@ func update_child_pos(this_world_pos, direction, type):
 
 func _on_PlayAgain_pressed():
 	print("PlayAgain")
-	get_tree().reload_current_scene()
+	get_tree().change_scene("res://Game.tscn")
+	Lobby.get_layout(variable.grid)
 	variable.gameStart = 1
 	variable.gameState = 0
 	variable.winner = 0
 	variable.turn = 0
 
-
 func _on_Exit_pressed():
 	print("Exit")
 	get_tree().set_network_peer(null)
+	empty_grid()
 	get_tree().change_scene("res://TitleScreenRelated/Title Screen.tscn")
 	variable.gameStart = 0
 	variable.gameState = 0
 	variable.winner = 0
 	variable.turn = 0
-
 
 func _on_Start_pressed():
 	print("Welcome Start")

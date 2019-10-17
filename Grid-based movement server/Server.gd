@@ -30,6 +30,10 @@ func _peer_disconnected(id):
 	print("peer disconnected")
 	status_label.text += "\n" + str(id) + " disconnected."
 	user_count_label.text = "Total users: " +  str(get_tree().get_network_connected_peers().size())
+	for acc in Lobby.session_dict:
+		if id == int(Lobby.session_dict[acc].connected_players[0].name) || id == int(Lobby.session_dict[acc].connected_players[1].name):
+			Lobby.counter = 0
+			Lobby.onedisconnect(acc)
 	for player in players.get_children():
 		if player.name == str(id):
 			player.queue_free()
