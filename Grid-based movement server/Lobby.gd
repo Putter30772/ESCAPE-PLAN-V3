@@ -3,8 +3,9 @@ extends Node
 enum {EMPTY, PLAYER, PLAYER2, OBSTACLE, COLLECTIBLE}
 
 func _ready():
-	pass # Replace with function body.
-
+	pass
+	
+var n = 0
 var server = null
 var players = null
 var in_game = null
@@ -20,6 +21,7 @@ var position1 = []
 var play_pos = 0
 var play2_pos = 0
 var exit_pos = 0
+
 # warning-ignore:unused_argument
 remote func match_make(info):
 	print("match make")
@@ -56,17 +58,29 @@ func move_to_game(node):
 	print("move to game")
 	node.get_parent().remove_child(node)
 	in_game.add_child(node)
-		
-remote func serverclientgrid(session_id):
-	print("serverclientgrid")
-	counter += 1
-	if (counter == 2): 
+	
+remote func client_reset(session_id):
 		var id = get_tree().get_rpc_sender_id()
 		var curr_session = session_dict[session_id]
 		for x in range(variable.grid_size.x):
 			variable.grid.append([])
 			for y in range(variable.grid_size.y):
 				variable.grid[x].append(EMPTY)
+		rpc_id(int(curr_session.connected_players[0].name), "grid", variable.grid)
+		rpc_id(int(curr_session.connected_players[1].name), "grid", variable.grid)
+		counter = 0
+
+remote func serverclientgrid(session_id):
+	print("serverclientgrid")
+	counter += 1
+	if (counter == 2): 
+		var id = get_tree().get_rpc_sender_id()
+		var curr_session = session_dict[session_id]
+		if (variable.grid.size() == 0):
+			for x in range(variable.grid_size.x):
+				variable.grid.append([])
+				for y in range(variable.grid_size.y):
+					variable.grid[x].append(EMPTY)
 		rpc_id(int(curr_session.connected_players[0].name), "grid", variable.grid)
 		rpc_id(int(curr_session.connected_players[1].name), "grid", variable.grid)
 		counter = 0
@@ -142,6 +156,10 @@ remote func serverclientposition(session_id):
 		play2_pos = 0
 		exit_pos = 0
 		variable.grid = []
+		for x in range(variable.grid_size.x):
+			variable.grid.append([])
+			for y in range(variable.grid_size.y):
+				variable.grid[x].append(EMPTY)
 		counter = 0
 
 remote func player_role(session_id):

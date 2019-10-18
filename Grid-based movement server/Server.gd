@@ -41,5 +41,6 @@ func _peer_disconnected(id):
 func _on_Button_pressed():
 	status_label.text += "\n" + "Reset Game Initiated"
 	for acc in Lobby.session_dict:
-		Lobby.counter = 1
-		Lobby.serverclientgrid(acc)
+		print(acc)
+		Lobby.client_reset(acc)
+		
