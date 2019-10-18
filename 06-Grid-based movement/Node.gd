@@ -24,3 +24,4 @@ var startTime = 10
 var ready = 0
 var start = 0
 var move = 0 
+var score = 0
