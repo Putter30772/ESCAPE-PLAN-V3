@@ -20,3 +20,7 @@ var playerName = ''
 var gameStart = 0
 var player2 = null
 var player1 = null
+var startTime = 10
+var ready = 0
+var start = 0
+var move = 0 

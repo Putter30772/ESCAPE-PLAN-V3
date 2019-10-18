@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Grid.gd" type="Script" id=1]
 [ext_resource path="res://GridVisualizer.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://PlayerNum.gd" type="Script" id=5]
 [ext_resource path="res://WindowDialog.gd" type="Script" id=6]
 [ext_resource path="res://WelcomePopUp.gd" type="Script" id=7]
+[ext_resource path="res://DisplayTime.gd" type="Script" id=8]
 
 [node name="Node2D" type="Node2D"]
 
@@ -22,17 +23,17 @@ script = ExtResource( 2 )
 script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 251.922
-margin_top = 346.0
-margin_right = 316.922
-margin_bottom = 383.0
+margin_left = 252.0
+margin_top = 341.0
+margin_right = 317.0
+margin_bottom = 378.0
 script = ExtResource( 4 )
 
 [node name="PlayerNum" type="Label" parent="."]
-margin_left = 44.0
-margin_top = 341.0
-margin_right = 172.0
-margin_bottom = 377.0
+margin_left = 43.0
+margin_top = 339.892
+margin_right = 171.0
+margin_bottom = 375.892
 script = ExtResource( 5 )
 
 [node name="WindowDialog" type="WindowDialog" parent="."]
@@ -93,6 +94,16 @@ margin_bottom = 94.022
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Start"
+
+[node name="DisplayTime" type="Label" parent="."]
+margin_left = 175.0
+margin_top = 341.0
+margin_right = 245.0
+margin_bottom = 377.0
+script = ExtResource( 8 )
+
+[node name="Timer" type="Timer" parent="DisplayTime"]
 [connection signal="pressed" from="WindowDialog/PlayAgain" to="Grid" method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="WindowDialog/Exit" to="Grid" method="_on_Exit_pressed"]
 [connection signal="pressed" from="MarginContainer/WelcomePopUp/Start" to="Grid" method="_on_Start_pressed"]
+[connection signal="timeout" from="DisplayTime/Timer" to="DisplayTime" method="_on_Timer_timeout"]

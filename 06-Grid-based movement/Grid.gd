@@ -163,6 +163,7 @@ func is_cell_vacant(this_grid_pos=Vector2(), direction=Vector2()):
 				return true 
 			else :if variable.grid[target_grid_pos.x][target_grid_pos.y] == PLAYER || variable.grid[target_grid_pos.x][target_grid_pos.y] == PLAYER2 :
 				print("PRISONER LOSE, WARDER WIN")
+				variable.ready = 0
 				variable.winner = 2
 				variable.gameState = 2
 				variable.warderScore += 1
@@ -170,6 +171,7 @@ func is_cell_vacant(this_grid_pos=Vector2(), direction=Vector2()):
 				return true
 			else :if variable.grid[target_grid_pos.x][target_grid_pos.y] == COLLECTIBLE && variable.grid[this.x][this.y] == PLAYER:
 				print("PRISONER WIN, WARDER LOSS")
+				variable.ready = 0
 				variable.winner = 1
 				variable.gameState = 2
 				variable.prisonerScore += 1
@@ -199,6 +201,7 @@ func update_child_pos(this_world_pos, direction, type):
 func _on_PlayAgain_pressed():
 	print("PlayAgain")
 	get_tree().change_scene("res://Game.tscn")
+	Lobby.ready(Lobby.session_id)
 	Lobby.get_layout(variable.grid)
 	variable.gameStart = 1
 	variable.gameState = 0
@@ -217,8 +220,10 @@ func _on_Exit_pressed():
 
 func _on_Start_pressed():
 	print("Welcome Start")
+	Lobby.ready(Lobby.session_id)
 	get_tree().reload_current_scene()
 	variable.gameStart = 1
 	variable.gameState = 0
 	variable.winner = 0
 	variable.turn = 0
+	
