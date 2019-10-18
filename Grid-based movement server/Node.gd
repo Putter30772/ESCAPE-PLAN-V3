@@ -9,5 +9,6 @@ var gameState = 0
 var gameSize = 5
 var warderScore = 0
 var prisonerScore = 0
+var move = 0
 var grid_size = Vector2(gameSize,gameSize)
 var grid = []

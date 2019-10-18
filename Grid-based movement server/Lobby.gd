@@ -222,3 +222,10 @@ remote func start_game(session_id):
 		rpc_id(int(curr_session.connected_players[0].name),"start_timer")
 		rpc_id(int(curr_session.connected_players[1].name), "start_timer")
 		player_start = 0
+
+func move0(session_id):
+	variable.move = 1
+	var id = get_tree().get_rpc_sender_id()
+	var curr_session = session_dict[session_id]
+	rpc_id(int(curr_session.connected_players[0].name),"move0", variable.move)
+	rpc_id(int(curr_session.connected_players[1].name), "move0", variable.move)

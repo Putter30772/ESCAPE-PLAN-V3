@@ -109,3 +109,6 @@ func ready(session_id):
 	
 remote func start_timer():
 	variable.ready = 1
+	
+remote func move0(move):
+	variable.move = move
