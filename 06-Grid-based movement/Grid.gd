@@ -163,6 +163,8 @@ func is_cell_vacant(this_grid_pos=Vector2(), direction=Vector2()):
 				return true 
 			else :if variable.grid[target_grid_pos.x][target_grid_pos.y] == PLAYER || variable.grid[target_grid_pos.x][target_grid_pos.y] == PLAYER2 :
 				print("PRISONER LOSE, WARDER WIN")
+				if(variable.player_role==0):
+					variable.score += 1
 				variable.ready = 0
 				variable.winner = 2
 				variable.gameState = 2
@@ -171,6 +173,8 @@ func is_cell_vacant(this_grid_pos=Vector2(), direction=Vector2()):
 				return true
 			else :if variable.grid[target_grid_pos.x][target_grid_pos.y] == COLLECTIBLE && variable.grid[this.x][this.y] == PLAYER:
 				print("PRISONER WIN, WARDER LOSS")
+				if(variable.player_role==1):
+					variable.score += 1
 				variable.ready = 0
 				variable.winner = 1
 				variable.gameState = 2

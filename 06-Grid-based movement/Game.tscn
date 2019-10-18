@@ -27,13 +27,13 @@ script = ExtResource( 3 )
 margin_left = 268.0
 margin_top = 341.0
 margin_right = 333.0
-margin_bottom = 378.0
+margin_bottom = 377.0
 script = ExtResource( 4 )
 
 [node name="PlayerNum" type="Label" parent="."]
-margin_top = 339.892
-margin_right = 128.0
-margin_bottom = 375.892
+margin_top = 341.0
+margin_right = 100.0
+margin_bottom = 377.0
 script = ExtResource( 5 )
 
 [node name="WindowDialog" type="WindowDialog" parent="."]
@@ -106,9 +106,9 @@ script = ExtResource( 8 )
 
 [node name="ScoreBoard" type="Label" parent="."]
 margin_left = 128.0
-margin_top = 339.892
+margin_top = 341.0
 margin_right = 198.0
-margin_bottom = 375.892
+margin_bottom = 377.0
 script = ExtResource( 9 )
 [connection signal="pressed" from="WindowDialog/PlayAgain" to="Grid" method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="WindowDialog/Exit" to="Grid" method="_on_Exit_pressed"]

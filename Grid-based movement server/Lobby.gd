@@ -229,3 +229,11 @@ func move0(session_id):
 	var curr_session = session_dict[session_id]
 	rpc_id(int(curr_session.connected_players[0].name),"move0", variable.move)
 	rpc_id(int(curr_session.connected_players[1].name), "move0", variable.move)
+
+func reset_score(session_id):
+	var id = get_tree().get_rpc_sender_id()
+	var curr_session = session_dict[session_id]
+	rpc_id(int(curr_session.connected_players[0].name),"reset_score")
+	rpc_id(int(curr_session.connected_players[1].name),"reset_score")
+	
+	

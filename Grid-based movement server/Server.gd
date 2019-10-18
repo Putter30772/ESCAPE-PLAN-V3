@@ -45,4 +45,5 @@ func _on_Button_pressed():
 		Lobby.client_reset(acc)
 		Lobby.start_game(acc)
 		Lobby.move0(acc)
+		Lobby.reset_score(acc)
 		

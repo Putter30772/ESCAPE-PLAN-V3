@@ -112,3 +112,6 @@ remote func start_timer():
 	
 remote func move0(move):
 	variable.move = move
+
+remote func reset_score():
+	variable.score = 0
