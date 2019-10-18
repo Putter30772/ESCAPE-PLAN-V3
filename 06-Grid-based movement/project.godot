@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Grid-based movement"
-run/main_scene="res://TitleScreenRelated/Title Screen.tscn"
+run/main_scene="res://TitleScreenRelated/TitleScreenNew.tscn"
 config/icon="res://icon.png"
 
 [autoload]
