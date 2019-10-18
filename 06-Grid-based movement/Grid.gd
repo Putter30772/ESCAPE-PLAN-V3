@@ -165,6 +165,7 @@ func is_cell_vacant(this_grid_pos=Vector2(), direction=Vector2()):
 				print("PRISONER LOSE, WARDER WIN")
 				if(variable.player_role==0):
 					variable.score += 1
+					variable.winlose = 1
 				variable.ready = 0
 				variable.winner = 2
 				variable.gameState = 2
@@ -175,6 +176,7 @@ func is_cell_vacant(this_grid_pos=Vector2(), direction=Vector2()):
 				print("PRISONER WIN, WARDER LOSS")
 				if(variable.player_role==1):
 					variable.score += 1
+					variable.winlose = 1
 				variable.ready = 0
 				variable.winner = 1
 				variable.gameState = 2
@@ -206,7 +208,7 @@ func _on_PlayAgain_pressed():
 	print("PlayAgain")
 	get_tree().change_scene("res://Game.tscn")
 	Lobby.ready(Lobby.session_id)
-	Lobby.get_layout(variable.grid)
+	Lobby.get_layoutcon(variable.grid)
 	variable.gameStart = 1
 	variable.gameState = 0
 	variable.winner = 0

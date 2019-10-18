@@ -32,11 +32,24 @@ func get_layout(layout):
 	else:
 		print("session error")
 
+func get_layoutcon(layout):
+	print("get layout")
+	if session_id > -1:
+		rpc_id(1, "serverclientgridcon", session_id)
+	else:
+		print("session error")
+
 remote func grid(grid):
 	print("grid")
 	variable.grid = []
 	variable.grid = grid
 	rpc_id(1, "serverclientposition", session_id)
+
+remote func gridcon(grid):
+	print("grid")
+	variable.grid = []
+	variable.grid = grid
+	rpc_id(1, "serverclientpositioncon", session_id)
 	
 remote func positioning(position1, positions, play_pos, play2_pos, exit_pos):
 	print("positioning")
@@ -51,6 +64,19 @@ remote func positioning(position1, positions, play_pos, play2_pos, exit_pos):
 	Grid.exit_pos()
 	rpc_id(1, "player_role", session_id)
 
+remote func positioningcon(position1, positions, play_pos, play2_pos, exit_pos):
+	print("positioningcon")
+	variable.position = positions
+	variable.position1 = position1
+	Grid.positions()
+	variable.play_pos = play_pos
+	variable.play2_pos = play2_pos
+	variable.exit_pos = exit_pos
+	Grid.play_pos()
+	Grid.play2_pos()
+	Grid.exit_pos()
+	rpc_id(1, "player_rolecon", session_id)
+
 remote func player1_role(player1_role):
 	print("player1_role")
 	if(player1_role == 0):
@@ -58,7 +84,15 @@ remote func player1_role(player1_role):
 	else:
 		print("this is prisoner")
 	variable.player_role = player1_role
-		
+
+remote func player1_rolecon():
+	print("player1_rolecon")
+	if(variable.winlose == 1):
+		variable.player_role = 0
+	else:
+		variable.player_role = 1
+	variable.winlose = 0
+
 remote func player2_role(player2_role):
 	print("player2_role")
 	if(player2_role == 0):
@@ -67,7 +101,14 @@ remote func player2_role(player2_role):
 		print("this is prisoner")
 	variable.player_role = player2_role
 
-		
+remote func player2_rolecon():
+	print("player2_rolecon")
+	if(variable.winlose == 1):
+		variable.player_role = 0
+	else: 
+		variable.player_role = 1
+	variable.winlose = 0
+
 func send_on_ready():
 	if session_id > -1:
 		rpc_id(1, "serverclientgrid", session_id)
