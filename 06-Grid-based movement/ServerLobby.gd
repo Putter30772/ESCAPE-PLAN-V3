@@ -74,25 +74,25 @@ func send_on_ready():
 	else:
 		print("session error")
 		
-func update_grid(direction,position,type,session_id):
+func update_grid(sentdirection,sentposition,position2,session_id):
 	print("update_grid")
-	rpc_id(1,"update_grid",direction,position,type,session_id)
+	rpc_id(1,"update_grid",sentdirection,sentposition,position2,session_id)
 	
-remote func update_grid2(direction,position,type):
+remote func update_grid2(sentdirection,sentposition,position2):
 	print("update_grid2")
-	#print(direction)
-	#print(position)
-	variable.player2._move(direction,position,type)
+	print(sentdirection)
+	print(sentposition)
+	variable.player2._move(sentdirection,sentposition,position2)
 
-func update_gridfor1(direction,position,type,session_id):
+func update_gridfor1(sentdirection,sentposition,position2,session_id):
 	print("update_gridfor1")
-	rpc_id(1,"update_gridfor1",direction,position,type,session_id)
+	rpc_id(1,"update_gridfor1",sentdirection,sentposition,position2,session_id)
 	
-remote func update_grid2for1(direction,position,type):
+remote func update_grid2for1(sentdirection,sentposition,position2):
 	print("update_grid2for1")
-	#print(direction)
-	#print(position)
-	variable.player1._move(direction,position,type)
+	print(sentdirection)
+	print(sentposition)
+	variable.player1._move(sentdirection,sentposition,position2)
 
 remote func onedisconnect():
 	get_tree().set_network_peer(null)

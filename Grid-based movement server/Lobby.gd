@@ -185,26 +185,26 @@ remote func player_role(session_id):
 		player2_role = 0
 		counter = 0
 
-remote func update_grid(direction,position,type,session_id):
+remote func update_grid(sentdirection,sentposition,position2,session_id):
 	print("update_grid")
 	var id = get_tree().get_rpc_sender_id()
 	var curr_session = session_dict[session_id]
 	if id == int(curr_session.connected_players[0].name):
-		rpc_id(int(curr_session.connected_players[1].name), "update_grid2", direction,position,type)
+		rpc_id(int(curr_session.connected_players[1].name), "update_grid2", sentdirection,sentposition,position2)
 		print("update_grid2")
 	else:
-		rpc_id(int(curr_session.connected_players[0].name), "update_grid2", direction,position,type)
+		rpc_id(int(curr_session.connected_players[0].name), "update_grid2", sentdirection,sentposition,position2)
 		print("update_grid2")
 		
-remote func update_gridfor1(direction,position,type,session_id):
+remote func update_gridfor1(sentdirection,sentposition,position2,session_id):
 	print("update_gridfor1")
 	var id = get_tree().get_rpc_sender_id()
 	var curr_session = session_dict[session_id]
 	if id == int(curr_session.connected_players[0].name):
-		rpc_id(int(curr_session.connected_players[1].name), "update_grid2for1", direction,position,type)
+		rpc_id(int(curr_session.connected_players[1].name), "update_grid2for1", sentdirection,sentposition,position2)
 		print("update_grid2for1")
 	else:
-		rpc_id(int(curr_session.connected_players[0].name), "update_grid2for1", direction,position,type)
+		rpc_id(int(curr_session.connected_players[0].name), "update_grid2for1", sentdirection,sentposition,position2)
 		print("update_grid2for1")
 
 func onedisconnect(session_id):
