@@ -27,7 +27,7 @@ func _ready():
 func _process(delta):
 	direction = Vector2()
 	speed = 0
-	if(variable.turn == 0)&&(variable.player_role==0):
+	if(variable.turn == 0)&&(variable.player_role==0)&&(variable.gameState==1):
 		if Input.is_action_pressed("w")||Input.is_action_pressed("move_up"):
 			direction.y = -1
 		elif Input.is_action_pressed("s")||Input.is_action_pressed("move_down"):
