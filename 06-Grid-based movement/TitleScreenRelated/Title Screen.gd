@@ -33,5 +33,9 @@ func _on_PlayerSearchTimeout_timeout():
 	Lobby.look_for_player(null)
 
 
-func _on_Back_pressed():
+#func _on_Back_pressed():
+#	get_tree().change_scene("res://TitleScreenRelated/TitleScreenNew.tscn")
+
+
+func _on_Back_Button_pressed():
 	get_tree().change_scene("res://TitleScreenRelated/TitleScreenNew.tscn")

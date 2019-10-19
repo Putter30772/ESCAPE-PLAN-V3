@@ -1,130 +1,110 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://TitleScreenRelated/Title Screen.gd" type="Script" id=1]
-[ext_resource path="res://TitleScreenRelated/WindowDialog.gd" type="Script" id=2]
-[ext_resource path="res://TitleScreenRelated/output-onlinepngtools.png" type="Texture" id=3]
-[ext_resource path="res://TitleScreenRelated/montserrat_36.tres" type="DynamicFont" id=4]
+[ext_resource path="res://gameOver.tres" type="DynamicFont" id=2]
+[ext_resource path="res://TitleScreenRelated/WindowDialog.gd" type="Script" id=3]
+[ext_resource path="res://gamemode.png" type="Texture" id=4]
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
 
-[node name="Insert Name Dialog" type="WindowDialog" parent="."]
-visible = true
-margin_left = 30.0
-margin_top = 162.0
-margin_right = 354.0
-margin_bottom = 163.0
-rect_min_size = Vector2( 0, 70 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_constants/scaleborder_size = 0
-window_title = "Insert Your Name"
-script = ExtResource( 2 )
-
-[node name="LineEdit" type="LineEdit" parent="Insert Name Dialog"]
-margin_left = 122.0
-margin_top = 9.972
-margin_right = 202.0
-margin_bottom = 32.972
-align = 1
-
-[node name="Play" type="Button" parent="Insert Name Dialog"]
-margin_left = 143.0
-margin_top = 38.781
-margin_right = 181.0
-margin_bottom = 58.781
-text = "Play"
-
-[node name="Menu" type="VBoxContainer" parent="."]
-margin_left = 30.0
-margin_top = 30.0
-margin_right = 354.0
-margin_bottom = 354.0
-
-[node name="Logo" type="TextureRect" parent="Menu"]
-margin_right = 324.0
-margin_bottom = 128.0
-texture = ExtResource( 3 )
-stretch_mode = 4
-
-[node name="CenterRow" type="HBoxContainer" parent="Menu"]
-margin_top = 132.0
-margin_right = 324.0
-margin_bottom = 336.0
-size_flags_vertical = 3
-
-[node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow"]
-margin_right = 324.0
-margin_bottom = 204.0
-rect_pivot_offset = Vector2( -801.729, -46.2363 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="PVP" type="Button" parent="Menu/CenterRow/Buttons"]
-margin_right = 324.0
-margin_bottom = 48.0
-rect_min_size = Vector2( 324, 48 )
-flat = true
-
-[node name="Label" type="Label" parent="Menu/CenterRow/Buttons/PVP"]
-margin_right = 40.0
-margin_bottom = 14.0
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color_shadow = Color( 1, 0.592157, 0, 1 )
-custom_constants/shadow_offset_x = 0
-custom_constants/shadow_offset_y = 5
-text = "PVP"
-
-[node name="PVP ShareScreen" type="Button" parent="Menu/CenterRow/Buttons"]
-margin_top = 52.0
-margin_right = 324.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 324, 48 )
-flat = true
-
-[node name="Label" type="Label" parent="Menu/CenterRow/Buttons/PVP ShareScreen"]
-margin_right = 40.0
-margin_bottom = 14.0
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color_shadow = Color( 1, 0.592157, 0, 1 )
-custom_constants/shadow_offset_x = 0
-custom_constants/shadow_offset_y = 5
-text = "PVP ShareScreen"
-
-[node name="PVE" type="Button" parent="Menu/CenterRow/Buttons"]
-margin_top = 104.0
-margin_right = 324.0
-margin_bottom = 152.0
-rect_min_size = Vector2( 324, 48 )
-flat = true
-
-[node name="Label" type="Label" parent="Menu/CenterRow/Buttons/PVE"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color_shadow = Color( 1, 0.592157, 0, 1 )
-custom_constants/shadow_offset_x = 0
-custom_constants/shadow_offset_y = 5
-text = "PVE"
-
-[node name="Back" type="Button" parent="Menu/CenterRow/Buttons"]
-margin_top = 156.0
-margin_right = 324.0
-margin_bottom = 204.0
-rect_min_size = Vector2( 324, 48 )
-flat = true
-
-[node name="Label" type="Label" parent="Menu/CenterRow/Buttons/Back"]
-margin_right = 40.0
-margin_bottom = 14.0
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color_shadow = Color( 1, 0.592157, 0, 1 )
+[node name="Back" type="Label" parent="."]
+margin_left = 70.0
+margin_top = 610.0
+margin_right = 207.0
+margin_bottom = 696.0
+custom_fonts/font = ExtResource( 2 )
 custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 5
 text = "Back"
 
+[node name="Back_Button" type="Button" parent="Back"]
+margin_left = 5.0
+margin_top = 26.0
+margin_right = 137.0
+margin_bottom = 75.0
+flat = true
+
+[node name="PVE" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 70.0
+margin_top = 540.0
+margin_right = -612.0
+margin_bottom = -174.0
+custom_fonts/font = ExtResource( 2 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 5
+text = "PVE"
+
+[node name="PVP Shared" type="Label" parent="."]
+margin_left = 70.0
+margin_top = 470.0
+margin_right = 555.0
+margin_bottom = 556.0
+custom_fonts/font = ExtResource( 2 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 5
+text = "PVP ShareScreen"
+
+[node name="PVP" type="Label" parent="."]
+margin_left = 70.0
+margin_top = 400.0
+margin_right = 188.0
+margin_bottom = 486.0
+custom_fonts/font = ExtResource( 2 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 5
+text = "PVP"
+
+[node name="PvP" type="Button" parent="PVP"]
+margin_left = 4.0
+margin_top = 27.0
+margin_right = 118.0
+margin_bottom = 71.0
+flat = true
+
+[node name="Insert Name Dialog" type="WindowDialog" parent="."]
+margin_left = 100.0
+margin_top = 350.0
+margin_right = 700.0
+margin_bottom = 450.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/scaleborder_size = 0
+window_title = "Insert Your Name"
+script = ExtResource( 3 )
+
+[node name="LineEdit" type="LineEdit" parent="Insert Name Dialog"]
+margin_left = 190.0
+margin_top = 10.0
+margin_right = 340.0
+margin_bottom = 34.0
+rect_scale = Vector2( 1.5, 1.5 )
+align = 1
+
+[node name="Play" type="Button" parent="Insert Name Dialog"]
+margin_left = 275.0
+margin_top = 60.0
+margin_right = 315.0
+margin_bottom = 80.0
+rect_scale = Vector2( 1.5, 1.5 )
+text = "Play"
+
 [node name="PlayerSearchTimeout" type="Timer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -281.103
+margin_top = -380.0
+margin_right = 876.897
+margin_bottom = 322.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+[connection signal="pressed" from="Back/Back_Button" to="." method="_on_Back_Button_pressed"]
+[connection signal="pressed" from="PVP/PvP" to="Insert Name Dialog" method="_on_PvP_pressed"]
 [connection signal="pressed" from="Insert Name Dialog/Play" to="." method="_on_Play_pressed"]
-[connection signal="pressed" from="Menu/CenterRow/Buttons/PVP" to="Insert Name Dialog" method="_on_Play_pressed"]
-[connection signal="pressed" from="Menu/CenterRow/Buttons/Back" to="." method="_on_Back_pressed"]
 [connection signal="timeout" from="PlayerSearchTimeout" to="." method="_on_PlayerSearchTimeout_timeout"]
