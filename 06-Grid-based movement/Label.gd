@@ -16,6 +16,6 @@ func _process(delta):
 	if(variable.turn == 0):
 		set_text("WARDER'S TURN")
 	if(variable.winner == 1):
-		set_text("PRISONER WIN")
+		set_text("PRISONER WINS")
 	if(variable.winner ==2):
 		set_text("WARDER WINS")

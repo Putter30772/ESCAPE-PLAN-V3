@@ -156,3 +156,4 @@ remote func move0(move):
 
 remote func reset_score():
 	variable.score = 0
+	variable.opponent_score = 0

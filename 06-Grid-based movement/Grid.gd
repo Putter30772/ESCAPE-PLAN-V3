@@ -166,6 +166,8 @@ func is_cell_vacant(this_grid_pos=Vector2(), direction=Vector2()):
 				if(variable.player_role==0):
 					variable.score += 1
 					variable.winlose = 1
+				else:
+					variable.opponent_score += 1
 				variable.ready = 0
 				variable.winner = 2
 				variable.gameState = 2
@@ -177,6 +179,8 @@ func is_cell_vacant(this_grid_pos=Vector2(), direction=Vector2()):
 				if(variable.player_role==1):
 					variable.score += 1
 					variable.winlose = 1
+				else:
+					variable.opponent_score += 1
 				variable.ready = 0
 				variable.winner = 1
 				variable.gameState = 2

@@ -25,4 +25,5 @@ var ready = 0
 var start = 0
 var move = 0 
 var score = 0
+var opponent_score = 0
 var winlose = 0
