@@ -3,12 +3,15 @@ extends Node2D
 onready var grid = get_parent()
 
 func _ready():
-	modulate = Color( 1, 0.2, 0, 0.2 )
+	pass #modulate = Color( 1, 0.2, 0, 0.2 )
 
 func _draw():
-	var LINE_COLOR = Color(255, 255, 255)
+	var LINE_COLOR = Color(179, 152, 142)
 	var LINE_WIDTH = 2
-#	var window_size = OS.get_window_size()
+	#grid.cell_size.y = 100
+	#grid.cell_size.x = 100
+
+	#var window_size = OS.get_window_size()
 
 	for x in range(variable.gameSize + 1):
 		var col_pos = x * grid.cell_size.x

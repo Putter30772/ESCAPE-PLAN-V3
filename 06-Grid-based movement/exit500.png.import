@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gamemode.png-08c8ad4bfe9e21d35dc86947b436e0a4.stex"
+path="res://.import/exit500.png-b04006f15a8bb3dbc6bbd4361d5b8e38.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gamemode.png"
-dest_files=[ "res://.import/gamemode.png-08c8ad4bfe9e21d35dc86947b436e0a4.stex" ]
+source_file="res://exit500.png"
+dest_files=[ "res://.import/exit500.png-b04006f15a8bb3dbc6bbd4361d5b8e38.stex" ]
 
 [params]
 
