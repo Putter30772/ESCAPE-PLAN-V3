@@ -1,96 +1,74 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://TitleScreenRelated/TitleScreenNew.gd" type="Script" id=1]
-[ext_resource path="res://TitleScreenRelated/logo.png" type="Texture" id=2]
-[ext_resource path="res://game_over.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://gameOver.tres" type="DynamicFont" id=4]
-
-[sub_resource type="DynamicFont" id=1]
-size = 50
-font_data = ExtResource( 3 )
+[ext_resource path="res://game_over.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://TitleScreenRelated/logo2 copy.png" type="Texture" id=3]
+[ext_resource path="res://TitleScreenRelated/playButton.png" type="Texture" id=4]
+[ext_resource path="res://TitleScreenRelated/playButtonFocus.png" type="Texture" id=5]
+[ext_resource path="res://TitleScreenRelated/optionsButton.png" type="Texture" id=6]
+[ext_resource path="res://TitleScreenRelated/optionsButtonHovered.png" type="Texture" id=7]
+[ext_resource path="res://TitleScreenRelated/274787__setuniman__intro-1l72.wav" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFont" id=2]
 size = 100
-font_data = ExtResource( 3 )
+font_data = ExtResource( 2 )
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
-
-[node name="TextureRect" type="TextureRect" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -375.177
-margin_top = -310.024
-margin_right = 1124.82
-margin_bottom = 486.976
-rect_scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 2 )
-
-[node name="Label" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -90.2143
-margin_top = -327.922
-margin_right = 91.7857
-margin_bottom = -298.922
-custom_fonts/font = SubResource( 1 )
-text = "Netcentric Project"
 
 [node name="Label2" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -239.289
-margin_top = 323.335
-margin_right = 238.711
-margin_bottom = 380.335
+margin_left = -239.0
+margin_top = 320.0
+margin_right = 239.0
+margin_bottom = 377.0
 custom_fonts/font = SubResource( 2 )
 text = "- Not For Commercial Use -"
 
-[node name="Label4" type="Label" parent="."]
-anchor_left = 0.25
-anchor_top = 0.5
-anchor_right = 0.75
-anchor_bottom = 0.5
-margin_left = -165.0
-margin_top = 200.0
-margin_right = -354.0
-margin_bottom = 286.0
-custom_fonts/font = ExtResource( 4 )
-custom_constants/shadow_offset_x = 0
-custom_constants/shadow_offset_y = 5
-text = "Options"
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 50
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 50
 
-[node name="Options" type="Button" parent="Label4"]
-margin_left = 4.0
-margin_top = 29.0
-margin_right = 210.0
-margin_bottom = 81.0
-flat = true
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 100.0
+margin_top = 50.0
+margin_right = 700.0
+margin_bottom = 750.0
+size_flags_horizontal = 4
+custom_constants/separation = 30
 
-[node name="Label3" type="Label" parent="."]
-anchor_left = 0.25
-anchor_top = 0.5
-anchor_right = 0.75
-anchor_bottom = 0.5
-margin_left = -165.0
-margin_top = 110.0
-margin_right = -447.0
-margin_bottom = 196.0
-custom_fonts/font = ExtResource( 4 )
-custom_constants/shadow_offset_x = 0
-custom_constants/shadow_offset_y = 5
-text = "Play"
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+margin_right = 600.0
+margin_bottom = 400.0
+texture = ExtResource( 3 )
 
-[node name="Play" type="Button" parent="Label3"]
-margin_left = 5.0
-margin_top = 28.0
-margin_right = 119.0
-margin_bottom = 82.0
-flat = true
-[connection signal="pressed" from="Label3/Play" to="." method="_on_Play_pressed"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 430.0
+margin_right = 600.0
+margin_bottom = 634.0
+
+[node name="PlayButton" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+margin_right = 600.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+
+[node name="OptionsButton" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+margin_top = 104.0
+margin_right = 600.0
+margin_bottom = 204.0
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -15.0
+autoplay = true
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/PlayButton" to="." method="_on_PlayButton_pressed"]

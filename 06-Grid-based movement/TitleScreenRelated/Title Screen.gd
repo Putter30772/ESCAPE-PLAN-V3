@@ -4,7 +4,17 @@ onready var timer = $PlayerSearchTimeout
 
 func _ready():
 	Lobby.lobby = self
-	pass
+	$MarginContainer/VBoxContainer/Menu/VsOnlineButton.grab_focus()
+	
+func _physics_process(delta):
+		if $MarginContainer/VBoxContainer/Menu/VsOnlineButton.is_hovered() :
+			$MarginContainer/VBoxContainer/Menu/VsOnlineButton.grab_focus()
+		if $MarginContainer/VBoxContainer/Menu/VsLocalButton.is_hovered() :
+			$MarginContainer/VBoxContainer/Menu/VsLocalButton.grab_focus()
+		if $MarginContainer/VBoxContainer/Menu/VsComButton.is_hovered() :
+			$MarginContainer/VBoxContainer/Menu/VsComButton.grab_focus()
+		if $MarginContainer/VBoxContainer/Menu/BackButton.is_hovered() :
+			$MarginContainer/VBoxContainer/Menu/BackButton.grab_focus()
 
 func _on_Play_pressed():
 	print("on Play pressed")

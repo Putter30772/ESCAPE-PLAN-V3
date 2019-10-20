@@ -6,12 +6,17 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$MarginContainer/VBoxContainer/VBoxContainer2/PlayButton.grab_focus()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
+func _physics_process(delta):
+	if $MarginContainer/VBoxContainer/VBoxContainer2/PlayButton.is_hovered() :
+		$MarginContainer/VBoxContainer/VBoxContainer2/PlayButton.grab_focus()
+	if $MarginContainer/VBoxContainer/VBoxContainer2/OptionsButton.is_hovered() :
+		$MarginContainer/VBoxContainer/VBoxContainer2/OptionsButton.grab_focus()
 
-func _on_Play_pressed():
-	get_tree().change_scene("res://TitleScreenRelated/Title Screen.tscn")
+func _on_PlayButton_pressed():
+	get_tree().change_scene("res://TitleScreenRelated/Title Screen.tscn") # Replace with function body.
