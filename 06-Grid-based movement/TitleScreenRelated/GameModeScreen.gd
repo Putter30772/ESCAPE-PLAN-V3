@@ -3,7 +3,7 @@ extends Node
 onready var timer = $PlayerSearchTimeout
 
 func _ready():
-	ClientToServer.lobby = self
+	Lobby.room = self
 	pass
 
 func _on_Play_pressed():
@@ -23,16 +23,16 @@ func _on_connection_failed(error):
 func _success():
 	print("success")
 	timer.start()
-	ClientToServer.look_for_player()
+	Lobby.look_for_player()
 
 func stop_looking():
 	print("stop looking")
 	timer.stop()
 	get_tree().change_scene("res://Game.tscn")
-	ClientToServer.get_layout(variable.grid)
+	Lobby.get_layout(variable.grid)
 
 func _on_PlayerSearchTimeout_timeout():
-	ClientToServer.look_for_player()
+	Lobby.look_for_player()
 
 
 func _on_Back_pressed():

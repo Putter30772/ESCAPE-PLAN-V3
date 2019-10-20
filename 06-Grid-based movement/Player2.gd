@@ -101,7 +101,7 @@ func _move(direction,position,position2):
 					print(sentposition)
 					position2 = position
 					if(variable.player_role == 0):
-						ClientToServer.update_grid(sentdirection,sentposition,position2,ClientToServer.session_id)
+						Lobby.update_grid(sentdirection,sentposition,position2,Lobby.session_id)
 				
 			
 			elif(variable.player_role == 1):
@@ -138,7 +138,7 @@ func _move(direction,position,position2):
 								position = position2
 								print(position)
 								if(variable.player_role == 0):
-									ClientToServer.update_grid(sentdirection,sentposition,position2,ClientToServer.session_id)
+									Lobby.update_grid(sentdirection,sentposition,position2,Lobby.session_id)
 			print("moveandcollide")
 			move_and_collide(velocity)
 			print(velocity)

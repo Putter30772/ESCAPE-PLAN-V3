@@ -11,10 +11,10 @@ func _ready():
 	var network = NetworkedMultiplayerENet.new()
 	network.create_server(6969, 20)
 	get_tree().set_network_peer(network)
-	ServerToClient.server = self
-	ServerToClient.players = players
-	ServerToClient.in_game = $InGame
-	ServerToClient.sessions = $GameSession
+	Lobby.server = self
+	Lobby.players = players
+	Lobby.in_game = $InGame
+	Lobby.sessions = $GameSession
 	network.connect("peer_connected",self,"_peer_connected")
 	network.connect("peer_disconnected",self,"_peer_disconnected")
 
@@ -30,20 +30,20 @@ func _peer_disconnected(id):
 	print("peer disconnected")
 	status_label.text += "\n" + str(id) + " disconnected."
 	user_count_label.text = "Total users: " +  str(get_tree().get_network_connected_peers().size())
-	for acc in ServerToClient.session_dict:
-		if id == int(ServerToClient.session_dict[acc].connected_players[0].name) || id == int(ServerToClient.session_dict[acc].connected_players[1].name):
-			ServerToClient.counter = 0
-			ServerToClient.onedisconnect(acc)
+	for acc in Lobby.session_dict:
+		if id == int(Lobby.session_dict[acc].connected_players[0].name) || id == int(Lobby.session_dict[acc].connected_players[1].name):
+			Lobby.counter = 0
+			Lobby.onedisconnect(acc)
 	for player in players.get_children():
 		if player.name == str(id):
 			player.queue_free()
 
 func _on_Button_pressed():
 	status_label.text += "\n" + "Reset Game Initiated"
-	for acc in ServerToClient.session_dict:
+	for acc in Lobby.session_dict:
 		print(acc)
-		ServerToClient.client_reset(acc)
-		ServerToClient.start_game(acc)
-		ServerToClient.move0(acc)
-		ServerToClient.reset_score(acc)
+		Lobby.client_reset(acc)
+		Lobby.start_game(acc)
+		Lobby.move0(acc)
+		Lobby.reset_score(acc)
 		

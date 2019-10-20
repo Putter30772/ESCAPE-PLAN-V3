@@ -211,8 +211,8 @@ func update_child_pos(this_world_pos, direction, type):
 func _on_PlayAgain_pressed():
 	print("PlayAgain")
 	get_tree().change_scene("res://Game.tscn")
-	ClientToServer.ready(ClientToServer.session_id)
-	ClientToServer.get_layoutcon(variable.grid)
+	Lobby.ready(Lobby.session_id)
+	Lobby.get_layoutcon(variable.grid)
 	variable.gameStart = 1
 	variable.gameState = 0
 	variable.winner = 0
@@ -230,7 +230,7 @@ func _on_Exit_pressed():
 
 func _on_Start_pressed():
 	print("Welcome Start")
-	ClientToServer.ready(ClientToServer.session_id)
+	Lobby.ready(Lobby.session_id)
 	get_tree().reload_current_scene()
 	variable.gameStart = 1
 	variable.gameState = 0
