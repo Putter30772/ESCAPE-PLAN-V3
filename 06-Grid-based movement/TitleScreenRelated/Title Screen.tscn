@@ -3,16 +3,16 @@
 [ext_resource path="res://TitleScreenRelated/Title Screen.gd" type="Script" id=1]
 [ext_resource path="res://gameOver.tres" type="DynamicFont" id=2]
 [ext_resource path="res://TitleScreenRelated/WindowDialog.gd" type="Script" id=3]
-[ext_resource path="res://TitleScreenRelated/gamemode.png" type="Texture" id=4]
-[ext_resource path="res://TitleScreenRelated/gamemode3.png" type="Texture" id=5]
-[ext_resource path="res://TitleScreenRelated/vsOnlineButton.png" type="Texture" id=6]
-[ext_resource path="res://TitleScreenRelated/vsOnlineButtonHovered.png" type="Texture" id=7]
-[ext_resource path="res://TitleScreenRelated/vsLocalButton.png" type="Texture" id=8]
-[ext_resource path="res://TitleScreenRelated/vsLocalButtonHovered.png" type="Texture" id=9]
-[ext_resource path="res://TitleScreenRelated/vsComButton.png" type="Texture" id=10]
-[ext_resource path="res://TitleScreenRelated/vsComButtonHovered.png" type="Texture" id=11]
-[ext_resource path="res://TitleScreenRelated/backButton.png" type="Texture" id=12]
-[ext_resource path="res://TitleScreenRelated/backButtonHovered.png" type="Texture" id=13]
+[ext_resource path="res://TitleScreenRelated/Picture/gamemode.png" type="Texture" id=4]
+[ext_resource path="res://TitleScreenRelated/Picture/gamemode3.png" type="Texture" id=5]
+[ext_resource path="res://TitleScreenRelated/Picture/vsOnlineButton.png" type="Texture" id=6]
+[ext_resource path="res://TitleScreenRelated/Picture/vsOnlineButtonHovered.png" type="Texture" id=7]
+[ext_resource path="res://TitleScreenRelated/Picture/vsLocalButton.png" type="Texture" id=8]
+[ext_resource path="res://TitleScreenRelated/Picture/vsLocalButtonHovered.png" type="Texture" id=9]
+[ext_resource path="res://TitleScreenRelated/Picture/vsComButton.png" type="Texture" id=10]
+[ext_resource path="res://TitleScreenRelated/Picture/vsComButtonHovered.png" type="Texture" id=11]
+[ext_resource path="res://TitleScreenRelated/Picture/backButton.png" type="Texture" id=12]
+[ext_resource path="res://TitleScreenRelated/Picture/backButtonHovered.png" type="Texture" id=13]
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -147,6 +147,7 @@ margin_bottom = 516.0
 [node name="VsOnlineButton" type="TextureButton" parent="MarginContainer/VBoxContainer/Menu"]
 margin_right = 500.0
 margin_bottom = 100.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 6 )
 texture_hover = ExtResource( 7 )
 
@@ -154,6 +155,7 @@ texture_hover = ExtResource( 7 )
 margin_top = 104.0
 margin_right = 500.0
 margin_bottom = 204.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 8 )
 texture_hover = ExtResource( 9 )
 
@@ -161,6 +163,7 @@ texture_hover = ExtResource( 9 )
 margin_top = 208.0
 margin_right = 500.0
 margin_bottom = 308.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 10 )
 texture_hover = ExtResource( 11 )
 
@@ -168,9 +171,12 @@ texture_hover = ExtResource( 11 )
 margin_top = 312.0
 margin_right = 500.0
 margin_bottom = 412.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 12 )
 texture_hover = ExtResource( 13 )
 [connection signal="pressed" from="Back/Back_Button" to="." method="_on_Back_Button_pressed"]
 [connection signal="pressed" from="PVP/PvP" to="Insert Name Dialog" method="_on_PvP_pressed"]
 [connection signal="pressed" from="Insert Name Dialog/Play" to="." method="_on_Play_pressed"]
 [connection signal="timeout" from="PlayerSearchTimeout" to="." method="_on_PlayerSearchTimeout_timeout"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Menu/VsOnlineButton" to="Insert Name Dialog" method="_on_VsOnlineButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Menu/BackButton" to="." method="_on_BackButton_pressed"]

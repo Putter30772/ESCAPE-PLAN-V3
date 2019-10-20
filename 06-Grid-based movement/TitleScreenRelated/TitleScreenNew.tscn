@@ -1,17 +1,21 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://TitleScreenRelated/TitleScreenNew.gd" type="Script" id=1]
 [ext_resource path="res://game_over.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://TitleScreenRelated/logo2 copy.png" type="Texture" id=3]
-[ext_resource path="res://TitleScreenRelated/playButton.png" type="Texture" id=4]
-[ext_resource path="res://TitleScreenRelated/playButtonFocus.png" type="Texture" id=5]
-[ext_resource path="res://TitleScreenRelated/optionsButton.png" type="Texture" id=6]
-[ext_resource path="res://TitleScreenRelated/optionsButtonHovered.png" type="Texture" id=7]
-[ext_resource path="res://TitleScreenRelated/274787__setuniman__intro-1l72.wav" type="AudioStream" id=8]
+[ext_resource path="res://TitleScreenRelated/Picture/logo2 copy.png" type="Texture" id=3]
+[ext_resource path="res://TitleScreenRelated/Picture/playButton.png" type="Texture" id=4]
+[ext_resource path="res://TitleScreenRelated/Picture/playButtonFocus.png" type="Texture" id=5]
+[ext_resource path="res://TitleScreenRelated/Picture/optionsButton.png" type="Texture" id=6]
+[ext_resource path="res://TitleScreenRelated/Picture/optionsButtonHovered.png" type="Texture" id=7]
+[ext_resource path="res://ARCADECLASSIC.TTF" type="DynamicFontData" id=8]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 100
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 8 )
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -25,7 +29,7 @@ margin_left = -239.0
 margin_top = 320.0
 margin_right = 239.0
 margin_bottom = 377.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "- Not For Commercial Use -"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -57,6 +61,7 @@ margin_bottom = 634.0
 [node name="PlayButton" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
 margin_right = 600.0
 margin_bottom = 100.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 4 )
 texture_hover = ExtResource( 5 )
 
@@ -64,11 +69,22 @@ texture_hover = ExtResource( 5 )
 margin_top = 104.0
 margin_right = 600.0
 margin_bottom = 204.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 6 )
 texture_hover = ExtResource( 7 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-volume_db = -15.0
-autoplay = true
+[node name="CheckButton" type="CheckButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 227.0
+margin_top = -380.0
+margin_right = 388.0
+margin_bottom = -340.0
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+enabled_focus_mode = 0
+text = "Mute"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="CheckButton" to="." method="_on_CheckButton_pressed"]

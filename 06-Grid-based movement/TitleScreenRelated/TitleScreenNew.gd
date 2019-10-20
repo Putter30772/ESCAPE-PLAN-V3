@@ -1,7 +1,7 @@
 extends Node
 
 # Declare member variables here. Examples:
-# var a = 2
+onready var check = true
 # var b = "text"
 
 # Called when the node enters the scene tree for the first time.
@@ -20,3 +20,7 @@ func _physics_process(delta):
 
 func _on_PlayButton_pressed():
 	get_tree().change_scene("res://TitleScreenRelated/Title Screen.tscn") # Replace with function body.
+
+func _on_CheckButton_pressed():
+	AudioServer.set_bus_mute(0,check)
+	check = !check # Replace with function body.
