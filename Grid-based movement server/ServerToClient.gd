@@ -24,18 +24,18 @@ var exit_pos = 0
 
 var player_start = 0
 
-remote func match_make(info):
+remote func match_make():
 	print("match make")
-	randomize()
 	var id = get_tree().get_rpc_sender_id()
-	print(str(id) + " is looking for match")
-	var filtered_player = players.get_children()
+	print(str(id) + " is looking for a match")
+	var playersearch = players.get_children()
 	
-	if(filtered_player.size() == 0):
+	if(playersearch.size() == 0):
 		return
 	
-	var candidate = filtered_player[randi()%filtered_player.size()]
-	print("chosen candidate is: " + candidate.name)
+	randomize()
+	var candidate = playersearch[randi()%playersearch.size()]
+	print("chosen opponent is: " + candidate.name)
 	
 	if candidate.name == str(id):
 		return

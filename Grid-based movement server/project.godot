@@ -22,7 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 variable="*res://Node.gd"
-Lobby="*res://Lobby.gd"
+ServerToClient="*res://ServerToClient.gd"
 
 [rendering]
 

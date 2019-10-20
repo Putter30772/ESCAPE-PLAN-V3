@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://TitleScreenRelated/Title Screen.gd" type="Script" id=1]
+[ext_resource path="res://TitleScreenRelated/GameModeScreen.gd" type="Script" id=1]
 [ext_resource path="res://TitleScreenRelated/WindowDialog.gd" type="Script" id=2]
 [ext_resource path="res://TitleScreenRelated/output-onlinepngtools.png" type="Texture" id=3]
 [ext_resource path="res://TitleScreenRelated/montserrat_36.tres" type="DynamicFont" id=4]

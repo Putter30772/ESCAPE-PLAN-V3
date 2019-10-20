@@ -10,20 +10,20 @@ func _ready():
 
 	pass # Replace with function body.
 
-var lobby = null
+var room = null
 #var test = Player2.instance()
 var session_id = -1
 
 
-func look_for_player(info):
+func look_for_player():
 	print("look for player")
-	rpc_id(1,"match_make", info)
+	rpc_id(1,"match_make")
 	
 remote func player_found(session_id):
 	print("player found")
 	self.session_id = session_id
-	if lobby != null:
-		lobby.stop_looking()
+	if room != null:
+		room.stop_looking()
 
 func get_layout(layout):
 	print("get layout")
@@ -138,7 +138,7 @@ remote func update_grid2for1(sentdirection,sentposition,position2):
 remote func onedisconnect():
 	get_tree().set_network_peer(null)
 	Grid.empty_grid()
-	get_tree().change_scene("res://TitleScreenRelated/Title Screen.tscn")
+	get_tree().change_scene("res://TitleScreenRelated/GameModeScreen.tscn")
 	variable.gameStart = 0
 	variable.gameState = 0
 	variable.winner = 0

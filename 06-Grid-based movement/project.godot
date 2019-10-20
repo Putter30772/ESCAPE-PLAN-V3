@@ -16,14 +16,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Grid-based movement"
-run/main_scene="res://TitleScreenRelated/TitleScreenNew.tscn"
+run/main_scene="res://TitleScreenRelated/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 variable="*res://Node.gd"
 globals="*res://TitleScreenRelated/globals.gd"
-Lobby="*res://ServerLobby.gd"
+ClientToServer="*res://ClientToServer.gd"
 Grid="*res://Grid.gd"
 
 [display]
