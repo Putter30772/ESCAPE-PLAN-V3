@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://TitleScreenRelated/Title Screen.gd" type="Script" id=1]
 [ext_resource path="res://TitleScreenRelated/WindowDialog.gd" type="Script" id=2]
 [ext_resource path="res://TitleScreenRelated/output-onlinepngtools.png" type="Texture" id=3]
 [ext_resource path="res://TitleScreenRelated/montserrat_36.tres" type="DynamicFont" id=4]
+[ext_resource path="res://SoundEffects/274787__setuniman__intro-1l72.wav" type="AudioStream" id=5]
+[ext_resource path="res://TitleScreenRelated/Intro Song.gd" type="Script" id=6]
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -124,7 +126,15 @@ custom_constants/shadow_offset_y = 5
 text = "Back"
 
 [node name="PlayerSearchTimeout" type="Timer" parent="."]
+
+[node name="Intro Song" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = 10.0
+pitch_scale = 1.15
+autoplay = true
+script = ExtResource( 6 )
 [connection signal="pressed" from="Insert Name Dialog/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/PVP" to="Insert Name Dialog" method="_on_Play_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/Back" to="." method="_on_Back_pressed"]
 [connection signal="timeout" from="PlayerSearchTimeout" to="." method="_on_PlayerSearchTimeout_timeout"]
+[connection signal="finished" from="Intro Song" to="Intro Song" method="_on_Intro_Song_finished"]

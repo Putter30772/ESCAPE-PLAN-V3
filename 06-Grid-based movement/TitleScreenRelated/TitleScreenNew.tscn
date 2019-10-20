@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://TitleScreenRelated/TitleScreenNew.gd" type="Script" id=1]
 [ext_resource path="res://TitleScreenRelated/output-onlinepngtools.png" type="Texture" id=2]
 [ext_resource path="res://TitleScreenRelated/montserrat_36.tres" type="DynamicFont" id=3]
+[ext_resource path="res://SoundEffects/274787__setuniman__intro-1l72.wav" type="AudioStream" id=4]
+[ext_resource path="res://TitleScreenRelated/Intro Song.gd" type="Script" id=5]
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -61,4 +63,12 @@ custom_colors/font_color_shadow = Color( 1, 0.592157, 0, 1 )
 custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 5
 text = "Options"
+
+[node name="Intro Song" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = 10.0
+pitch_scale = 1.15
+autoplay = true
+script = ExtResource( 5 )
 [connection signal="pressed" from="Menu/CenterRow/Buttons/Play" to="." method="_on_Play_pressed"]
+[connection signal="finished" from="Intro Song" to="Intro Song" method="_on_Intro_Song_finished"]
