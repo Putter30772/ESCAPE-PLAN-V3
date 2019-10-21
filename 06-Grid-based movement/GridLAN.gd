@@ -154,14 +154,6 @@ func empty_grid():
     for obj in get_tree().get_nodes_in_group("to_delete"):
         obj.queue_free()
 
-
-func _on_ToolButton_pressed():
-	print("reload")
-	get_tree().reload_current_scene()
-	variableLAN.gameState = 0
-	variableLAN.winner = 0
-	variableLAN.turn = 0
-
 func _on_PlayAgain_pressed():
 	print("reload")
 	get_tree().reload_current_scene()
@@ -170,6 +162,14 @@ func _on_PlayAgain_pressed():
 	variableLAN.turn = 0
 
 func _on_Exit_pressed():
+	get_tree().change_scene("res://TitleScreenRelated/TitleScreen.tscn")
+	variableLAN.gameState = 0
+	variableLAN.winner = 0
+	variableLAN.turn = 0
+	variableLAN.botdifficulty = 1
+	variableLAN.mode = 0
+
+func _on_ToolButton2_pressed():
 	get_tree().change_scene("res://TitleScreenRelated/TitleScreen.tscn")
 	variableLAN.gameState = 0
 	variableLAN.winner = 0
