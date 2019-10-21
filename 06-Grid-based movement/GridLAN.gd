@@ -168,11 +168,3 @@ func _on_Exit_pressed():
 	variableLAN.turn = 0
 	variableLAN.botdifficulty = 1
 	variableLAN.mode = 0
-
-func _on_ToolButton2_pressed():
-	get_tree().change_scene("res://TitleScreenRelated/TitleScreen.tscn")
-	variableLAN.gameState = 0
-	variableLAN.winner = 0
-	variableLAN.turn = 0
-	variableLAN.botdifficulty = 1
-	variableLAN.mode = 0
