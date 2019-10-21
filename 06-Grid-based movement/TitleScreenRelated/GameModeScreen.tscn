@@ -135,6 +135,8 @@ autoplay = true
 script = ExtResource( 6 )
 [connection signal="pressed" from="Insert Name Dialog/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/PVP" to="Insert Name Dialog" method="_on_Play_pressed"]
+[connection signal="pressed" from="Menu/CenterRow/Buttons/PVP ShareScreen" to="." method="_on_PVP_ShareScreen_pressed"]
+[connection signal="pressed" from="Menu/CenterRow/Buttons/PVE" to="." method="_on_PVE_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/Back" to="." method="_on_Back_pressed"]
 [connection signal="timeout" from="PlayerSearchTimeout" to="." method="_on_PlayerSearchTimeout_timeout"]
 [connection signal="finished" from="Intro Song" to="Intro Song" method="_on_Intro_Song_finished"]

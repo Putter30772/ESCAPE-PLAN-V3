@@ -37,3 +37,10 @@ func _on_PlayerSearchTimeout_timeout():
 
 func _on_Back_pressed():
 	get_tree().change_scene("res://TitleScreenRelated/TitleScreen.tscn")
+
+func _on_PVP_ShareScreen_pressed():
+	variableLAN.mode = 1
+	get_tree().change_scene("res://LAN.tscn")
+func _on_PVE_pressed():
+	variableLAN.mode = 2
+	get_tree().change_scene("res://LAN.tscn")

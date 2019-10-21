@@ -25,6 +25,7 @@ variable="*res://Node.gd"
 globals="*res://TitleScreenRelated/globals.gd"
 Lobby="*res://ClientToServer.gd"
 Grid="*res://Grid.gd"
+variableLAN="*res://NodeLAN.gd"
 
 [display]
 
