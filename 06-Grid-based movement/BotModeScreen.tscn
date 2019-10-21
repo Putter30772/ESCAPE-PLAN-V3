@@ -1,0 +1,112 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://BotModeScreen.gd" type="Script" id=1]
+[ext_resource path="res://TitleScreenRelated/output-onlinepngtools.png" type="Texture" id=2]
+[ext_resource path="res://TitleScreenRelated/montserrat_36.tres" type="DynamicFont" id=3]
+[ext_resource path="res://SoundEffects/274787__setuniman__intro-1l72.wav" type="AudioStream" id=4]
+[ext_resource path="res://TitleScreenRelated/Intro Song.gd" type="Script" id=5]
+
+[node name="Node" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 354.0
+margin_bottom = 354.0
+
+[node name="Logo" type="TextureRect" parent="Menu"]
+margin_right = 324.0
+margin_bottom = 128.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="CenterRow" type="HBoxContainer" parent="Menu"]
+margin_top = 132.0
+margin_right = 324.0
+margin_bottom = 336.0
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow"]
+margin_right = 324.0
+margin_bottom = 204.0
+rect_pivot_offset = Vector2( -801.729, -46.2363 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Easy Bot" type="Button" parent="Menu/CenterRow/Buttons"]
+margin_right = 324.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 324, 48 )
+flat = true
+
+[node name="Label" type="Label" parent="Menu/CenterRow/Buttons/Easy Bot"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 1, 0.592157, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 5
+text = "Easy Bot"
+
+[node name="Medium Bot" type="Button" parent="Menu/CenterRow/Buttons"]
+margin_top = 52.0
+margin_right = 324.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 324, 48 )
+flat = true
+
+[node name="Label" type="Label" parent="Menu/CenterRow/Buttons/Medium Bot"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 1, 0.592157, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 5
+text = "Medium Bot"
+
+[node name="Hard Bot" type="Button" parent="Menu/CenterRow/Buttons"]
+margin_top = 104.0
+margin_right = 324.0
+margin_bottom = 152.0
+rect_min_size = Vector2( 324, 48 )
+flat = true
+
+[node name="Label" type="Label" parent="Menu/CenterRow/Buttons/Hard Bot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 1, 0.592157, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 5
+text = "Hard Bot"
+
+[node name="Back" type="Button" parent="Menu/CenterRow/Buttons"]
+margin_top = 156.0
+margin_right = 324.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 324, 48 )
+flat = true
+
+[node name="Label" type="Label" parent="Menu/CenterRow/Buttons/Back"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 1, 0.592157, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 5
+text = "Back"
+
+[node name="PlayerSearchTimeout" type="Timer" parent="."]
+
+[node name="Intro Song" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = 10.0
+pitch_scale = 1.15
+autoplay = true
+script = ExtResource( 5 )
+[connection signal="pressed" from="Menu/CenterRow/Buttons/Easy Bot" to="." method="_on_Easy_Bot_pressed"]
+[connection signal="pressed" from="Menu/CenterRow/Buttons/Medium Bot" to="." method="_on_Medium_Bot_pressed"]
+[connection signal="pressed" from="Menu/CenterRow/Buttons/Hard Bot" to="." method="_on_Hard_Bot_pressed"]
+[connection signal="pressed" from="Menu/CenterRow/Buttons/Back" to="." method="_on_Back_pressed"]
+[connection signal="finished" from="Intro Song" to="Intro Song" method="_on_Intro_Song_finished"]

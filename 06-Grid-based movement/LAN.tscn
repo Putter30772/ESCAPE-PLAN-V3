@@ -41,14 +41,14 @@ margin_right = 109.406
 margin_bottom = 47.5445
 script = ExtResource( 4 )
 
-[node name="ToolButton" type="ToolButton" parent="WindowDialog"]
+[node name="PlayAgain" type="ToolButton" parent="WindowDialog"]
 margin_left = 12.9109
 margin_top = 57.0
 margin_right = 70.9109
 margin_bottom = 84.0
 text = "Play Again"
 
-[node name="ToolButton2" type="ToolButton" parent="WindowDialog"]
+[node name="Exit" type="ToolButton" parent="WindowDialog"]
 margin_left = 108.089
 margin_top = 55.0
 margin_right = 153.089
@@ -63,6 +63,6 @@ margin_bottom = 368.178
 script = ExtResource( 6 )
 
 [node name="TimerLAN" type="Timer" parent="DisplayTime"]
-[connection signal="pressed" from="WindowDialog/ToolButton" to="GridLAN" method="_on_ToolButton_pressed"]
-[connection signal="pressed" from="WindowDialog/ToolButton2" to="GridLAN" method="_on_ToolButton2_pressed"]
+[connection signal="pressed" from="WindowDialog/PlayAgain" to="GridLAN" method="_on_PlayAgain_pressed"]
+[connection signal="pressed" from="WindowDialog/Exit" to="GridLAN" method="_on_Exit_pressed"]
 [connection signal="timeout" from="DisplayTime/TimerLAN" to="DisplayTime" method="_on_TimerLAN_timeout"]
