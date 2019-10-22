@@ -7,7 +7,7 @@
 [ext_resource path="res://TitleScreenRelated/montserrat_36.tres" type="DynamicFont" id=5]
 [ext_resource path="res://TitleScreenRelated/gamemodes.png" type="Texture" id=6]
 [ext_resource path="res://TitleScreenRelated/notHovered80px.png" type="Texture" id=7]
-[ext_resource path="res://TitleScreenRelated/hovered80px.png" type="Texture" id=8]
+[ext_resource path="res://TitleScreenRelated/hover80.png" type="Texture" id=8]
 [ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=9]
 
 [sub_resource type="DynamicFont" id=1]

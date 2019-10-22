@@ -1,17 +1,16 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://options.gd" type="Script" id=1]
 [ext_resource path="res://TitleScreenRelated/options.png" type="Texture" id=2]
-[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=3]
-[ext_resource path="res://TitleScreenRelated/checkbox.png" type="Texture" id=4]
-[ext_resource path="res://TitleScreenRelated/checkbox_checked.png" type="Texture" id=5]
-[ext_resource path="res://TitleScreenRelated/notHovered80px.png" type="Texture" id=6]
-[ext_resource path="res://TitleScreenRelated/hovered80px.png" type="Texture" id=7]
-[ext_resource path="res://CircularBold.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://TitleScreenRelated/checkbox.png" type="Texture" id=3]
+[ext_resource path="res://TitleScreenRelated/checkbox_checked.png" type="Texture" id=4]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://TitleScreenRelated/hover80.png" type="Texture" id=6]
+[ext_resource path="res://CircularBold.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 90
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -28,7 +27,7 @@ custom_constants/margin_bottom = 20
 margin_left = 100.0
 margin_top = 20.0
 margin_right = 700.0
-margin_bottom = 780.0
+margin_bottom = 888.0
 size_flags_horizontal = 4
 custom_constants/separation = 50
 
@@ -41,69 +40,69 @@ texture = ExtResource( 2 )
 margin_left = 100.0
 margin_top = 150.0
 margin_right = 500.0
-margin_bottom = 552.0
+margin_bottom = 600.0
 size_flags_horizontal = 4
-custom_constants/separation = 20
+custom_constants/separation = 40
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 margin_right = 400.0
-margin_bottom = 102.0
+margin_bottom = 90.0
+size_flags_vertical = 0
 custom_constants/separation = 20
 
+[node name="Mute_Button" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 90.0
+toggle_mode = true
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
-margin_right = 187.0
-margin_bottom = 102.0
-custom_fonts/font = ExtResource( 3 )
+margin_left = 100.0
+margin_right = 267.0
+margin_bottom = 90.0
+custom_fonts/font = ExtResource( 5 )
 text = "MUTE"
 
-[node name="Mute_Button" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
-margin_left = 207.0
-margin_right = 287.0
-margin_bottom = 102.0
-toggle_mode = true
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 5 )
-
 [node name="Character_Button" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 122.0
+margin_top = 130.0
 margin_right = 400.0
-margin_bottom = 202.0
+margin_bottom = 210.0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 6 )
-texture_hover = ExtResource( 7 )
+texture_hover = ExtResource( 6 )
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/Character_Button"]
-margin_right = 396.0
-margin_bottom = 81.0
-custom_fonts/font = ExtResource( 3 )
+margin_left = 100.0
+margin_right = 496.0
+margin_bottom = 102.0
+custom_fonts/font = ExtResource( 5 )
 text = "CHARACTER"
 
 [node name="Language_Button" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 222.0
+margin_top = 250.0
 margin_right = 400.0
-margin_bottom = 302.0
+margin_bottom = 330.0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 6 )
-texture_hover = ExtResource( 7 )
+texture_hover = ExtResource( 6 )
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/Language_Button"]
-margin_right = 396.0
-margin_bottom = 81.0
-custom_fonts/font = ExtResource( 3 )
+margin_left = 100.0
+margin_right = 496.0
+margin_bottom = 102.0
+custom_fonts/font = ExtResource( 5 )
 text = "LANGUAGE"
 
 [node name="TextureButton2" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 322.0
+margin_top = 370.0
 margin_right = 400.0
-margin_bottom = 402.0
+margin_bottom = 450.0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 6 )
-texture_hover = ExtResource( 7 )
+texture_hover = ExtResource( 6 )
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/TextureButton2"]
-margin_left = 80.0
-margin_right = 256.0
-margin_bottom = 81.0
+margin_left = 100.0
+margin_right = 500.0
+margin_bottom = 102.0
 custom_fonts/font = SubResource( 1 )
 text = "BACK"
 

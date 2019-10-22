@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://TitleScreenRelated/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://TitleScreenRelated/game_over.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://TitleScreenRelated/Real_logo.png" type="Texture" id=3]
-[ext_resource path="res://TitleScreenRelated/hovered.png" type="Texture" id=4]
-[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://TitleScreenRelated/newlogo.png" type="Texture" id=3]
+[ext_resource path="res://TitleScreenRelated/notHover.png" type="Texture" id=4]
+[ext_resource path="res://TitleScreenRelated/Hover.png" type="Texture" id=5]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -57,13 +58,14 @@ custom_constants/separation = 10
 margin_right = 600.0
 margin_bottom = 100.0
 mouse_default_cursor_shape = 2
-texture_hover = ExtResource( 4 )
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/Play"]
 margin_left = 100.0
 margin_right = 320.0
 margin_bottom = 102.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "PLAY"
 
 [node name="Option" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
@@ -71,13 +73,13 @@ margin_top = 110.0
 margin_right = 600.0
 margin_bottom = 210.0
 mouse_default_cursor_shape = 2
-texture_hover = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/Option"]
 margin_left = 100.0
 margin_right = 485.0
 margin_bottom = 102.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "OPTIONS"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Option" to="." method="_on_Option_pressed"]
