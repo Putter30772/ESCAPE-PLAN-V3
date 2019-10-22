@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://options.gd" type="Script" id=1]
 [ext_resource path="res://TitleScreenRelated/options.png" type="Texture" id=2]
@@ -10,6 +10,18 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 90
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
 font_data = ExtResource( 7 )
 
 [node name="Node" type="Node"]
@@ -27,7 +39,7 @@ custom_constants/margin_bottom = 20
 margin_left = 100.0
 margin_top = 20.0
 margin_right = 700.0
-margin_bottom = 888.0
+margin_bottom = 780.0
 size_flags_horizontal = 4
 custom_constants/separation = 50
 
@@ -112,13 +124,14 @@ margin_left = 166.0
 margin_top = 611.0
 margin_right = 650.0
 margin_bottom = 754.0
-window_title = "Language"
+custom_colors/title_color = Color( 0, 0, 0, 1 )
 
 [node name="English" type="Button" parent="WindowDialog"]
 margin_left = 47.1683
 margin_top = 28.0
 margin_right = 206.168
 margin_bottom = 116.0
+custom_fonts/font = SubResource( 2 )
 text = "English"
 
 [node name="Thai" type="Button" parent="WindowDialog"]
@@ -126,7 +139,17 @@ margin_left = 280.0
 margin_top = 28.0
 margin_right = 439.0
 margin_bottom = 116.0
+custom_fonts/font = SubResource( 3 )
 text = "Thai"
+
+[node name="Label" type="Label" parent="WindowDialog"]
+margin_left = 210.0
+margin_top = -21.0
+margin_right = 276.0
+margin_bottom = 3.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Language"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Mute_Button" to="." method="_on_Mute_Button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Language_Button" to="." method="_on_Language_Button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/TextureButton2" to="." method="_on_TextureButton_pressed"]

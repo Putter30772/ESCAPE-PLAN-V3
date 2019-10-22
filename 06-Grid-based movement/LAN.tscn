@@ -9,7 +9,10 @@
 [ext_resource path="res://DisplayTimeLAN.gd" type="Script" id=7]
 [ext_resource path="res://SoundEffects/335571_magntron_gamemusic (online-audio-converter.com).wav" type="AudioStream" id=8]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -18,10 +21,7 @@ font_data = ExtResource( 4 )
 [sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=6]
@@ -41,10 +41,10 @@ script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 267.693
-margin_top = 324.0
+margin_top = 337.0
 margin_right = 350.693
-margin_bottom = 365.0
-custom_fonts/font = SubResource( 5 )
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 1 )
 script = ExtResource( 5 )
 
 [node name="WindowDialog" type="WindowDialog" parent="."]
@@ -60,39 +60,39 @@ margin_left = 40.4059
 margin_top = 15.5445
 margin_right = 109.406
 margin_bottom = 47.5445
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 script = ExtResource( 5 )
 
 [node name="PlayAgain" type="ToolButton" parent="WindowDialog"]
-margin_left = 12.9109
-margin_top = 57.0
-margin_right = 70.9109
-margin_bottom = 84.0
-custom_fonts/font = SubResource( 4 )
+margin_left = 20.0
+margin_top = 60.0
+margin_right = 78.0
+margin_bottom = 87.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="Label" type="Label" parent="WindowDialog/PlayAgain"]
 margin_right = 40.0
 margin_bottom = 14.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Play Again"
 
 [node name="Exit" type="ToolButton" parent="WindowDialog"]
-margin_left = 108.089
-margin_top = 55.0
-margin_right = 153.089
-margin_bottom = 89.0
+margin_left = 112.0
+margin_top = 60.0
+margin_right = 157.0
+margin_bottom = 94.0
 
 [node name="Label" type="Label" parent="WindowDialog/Exit"]
 margin_right = 40.0
 margin_bottom = 14.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 text = "Exit"
 
 [node name="DisplayTime" type="Label" parent="."]
 margin_left = 167.14
-margin_top = 337.178
+margin_top = 337.0
 margin_right = 236.14
-margin_bottom = 368.178
+margin_bottom = 368.0
 custom_fonts/font = SubResource( 6 )
 script = ExtResource( 7 )
 
