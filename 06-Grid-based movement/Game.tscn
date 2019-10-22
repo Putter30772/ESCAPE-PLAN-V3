@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Grid.gd" type="Script" id=1]
 [ext_resource path="res://GridVisualizer.gd" type="Script" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://DisplayTime.gd" type="Script" id=9]
 [ext_resource path="res://ScoreBoard.gd" type="Script" id=10]
 [ext_resource path="res://SoundEffects/335571_magntron_gamemusic (online-audio-converter.com).wav" type="AudioStream" id=11]
-[ext_resource path="res://Game Sound.gd" type="Script" id=12]
 
 [node name="Node2D" type="Node2D"]
 
@@ -114,13 +113,11 @@ margin_right = 198.0
 margin_bottom = 377.0
 script = ExtResource( 10 )
 
-[node name="Game Sound" type="AudioStreamPlayer2D" parent="."]
+[node name="Game_Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
-volume_db = 10.0
+volume_db = -10.0
 autoplay = true
-script = ExtResource( 12 )
 [connection signal="pressed" from="WindowDialog/PlayAgain" to="Grid" method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="WindowDialog/Exit" to="Grid" method="_on_Exit_pressed"]
 [connection signal="pressed" from="MarginContainer/WelcomePopUp/Start" to="Grid" method="_on_Start_pressed"]
 [connection signal="timeout" from="DisplayTime/Timer" to="DisplayTime" method="_on_Timer_timeout"]
-[connection signal="finished" from="Game Sound" to="Game Sound" method="_on_Game_Sound_finished"]

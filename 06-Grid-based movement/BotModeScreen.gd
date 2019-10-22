@@ -6,27 +6,39 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$MarginContainer/VBoxContainer/VBoxContainer/Easy_Button.grab_focus()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
+func _physics_process(delta):
+	if $MarginContainer/VBoxContainer/VBoxContainer/Back_Button.is_hovered() :
+		$MarginContainer/VBoxContainer/VBoxContainer/Back_Button.grab_focus()
+	if $MarginContainer/VBoxContainer/VBoxContainer/Hard_Button.is_hovered() :
+		$MarginContainer/VBoxContainer/VBoxContainer/Hard_Button.grab_focus()
+	if $MarginContainer/VBoxContainer/VBoxContainer/Normal_Button.is_hovered() :
+		$MarginContainer/VBoxContainer/VBoxContainer/Normal_Button.grab_focus()
+	if $MarginContainer/VBoxContainer/VBoxContainer/Easy_Button.is_hovered() :
+		$MarginContainer/VBoxContainer/VBoxContainer/Easy_Button.grab_focus()
 
-func _on_Back_pressed():
-	get_tree().change_scene("res://TitleScreenRelated/GameModeScreen.tscn")
-
-func _on_Easy_Bot_pressed():
+func _on_Hard_Button_pressed():
 	variableLAN.mode = 2
 	variableLAN.botdifficulty = 1
 	get_tree().change_scene("res://LAN.tscn")
 
-func _on_Medium_Bot_pressed():
+
+func _on_Normal_Button_pressed():
 	variableLAN.mode = 2
 	variableLAN.botdifficulty = 2
 	get_tree().change_scene("res://LAN.tscn")
 
-func _on_Hard_Bot_pressed():
+
+func _on_Easy_Button_pressed():
 	variableLAN.mode = 2
-	variableLAN.botdifficulty = 3
+	variableLAN.botdifficulty = 1
 	get_tree().change_scene("res://LAN.tscn")
+
+
+func _on_Back_Button_pressed():
+	get_tree().change_scene("res://TitleScreenRelated/GameModeScreen.tscn")

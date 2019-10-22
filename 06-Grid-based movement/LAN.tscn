@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://GridLAN.gd" type="Script" id=1]
 [ext_resource path="res://Grid VisualizerLAN.gd" type="Script" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://WindowDialogLAN.gd" type="Script" id=5]
 [ext_resource path="res://DisplayTimeLAN.gd" type="Script" id=6]
 [ext_resource path="res://SoundEffects/335571_magntron_gamemusic (online-audio-converter.com).wav" type="AudioStream" id=7]
-[ext_resource path="res://Game Sound.gd" type="Script" id=8]
 
 [node name="LAN" type="Node2D"]
 
@@ -66,11 +65,10 @@ script = ExtResource( 6 )
 
 [node name="TimerLAN" type="Timer" parent="DisplayTime"]
 
-[node name="Game Sound" type="AudioStreamPlayer2D" parent="."]
+[node name="Game_Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-volume_db = 10.0
+volume_db = -5.0
 autoplay = true
-script = ExtResource( 8 )
 [connection signal="pressed" from="WindowDialog/PlayAgain" to="GridLAN" method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="WindowDialog/Exit" to="GridLAN" method="_on_Exit_pressed"]
 [connection signal="timeout" from="DisplayTime/TimerLAN" to="DisplayTime" method="_on_TimerLAN_timeout"]

@@ -1,15 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://TitleScreenRelated/GameModeScreen.gd" type="Script" id=1]
 [ext_resource path="res://TitleScreenRelated/WindowDialog.gd" type="Script" id=2]
 [ext_resource path="res://TitleScreenRelated/output-onlinepngtools.png" type="Texture" id=3]
 [ext_resource path="res://TitleScreenRelated/montserrat_36.tres" type="DynamicFont" id=4]
-[ext_resource path="res://SoundEffects/274787__setuniman__intro-1l72.wav" type="AudioStream" id=5]
-[ext_resource path="res://TitleScreenRelated/Intro Song.gd" type="Script" id=6]
-[ext_resource path="res://TitleScreenRelated/gamemode3.png" type="Texture" id=7]
-[ext_resource path="res://TitleScreenRelated/notHovered80px.png" type="Texture" id=8]
-[ext_resource path="res://TitleScreenRelated/hovered80px.png" type="Texture" id=9]
-[ext_resource path="res://smallfont.tres" type="DynamicFont" id=10]
+[ext_resource path="res://TitleScreenRelated/gamemodes.png" type="Texture" id=5]
+[ext_resource path="res://TitleScreenRelated/notHovered80px.png" type="Texture" id=6]
+[ext_resource path="res://TitleScreenRelated/hovered80px.png" type="Texture" id=7]
+[ext_resource path="res://smallfont.tres" type="DynamicFont" id=8]
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -133,13 +131,6 @@ text = "Back"
 
 [node name="PlayerSearchTimeout" type="Timer" parent="."]
 
-[node name="Intro Song" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 5 )
-volume_db = 10.0
-pitch_scale = 1.15
-autoplay = true
-script = ExtResource( 6 )
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -149,81 +140,81 @@ custom_constants/margin_left = 20
 custom_constants/margin_bottom = 0
 
 [node name="Gamemode" type="VBoxContainer" parent="MarginContainer"]
-margin_left = 150.0
+margin_left = 100.0
 margin_top = 50.0
-margin_right = 650.0
+margin_right = 700.0
 margin_bottom = 800.0
 size_flags_horizontal = 4
 custom_constants/separation = 50
 
 [node name="Gamemode_Logo" type="TextureRect" parent="MarginContainer/Gamemode"]
-margin_right = 500.0
+margin_right = 600.0
 margin_bottom = 100.0
-texture = ExtResource( 7 )
+texture = ExtResource( 5 )
 
 [node name="Menu" type="VBoxContainer" parent="MarginContainer/Gamemode"]
 margin_top = 150.0
-margin_right = 500.0
+margin_right = 600.0
 margin_bottom = 530.0
 custom_constants/separation = 20
 
 [node name="vsOnline_Button" type="TextureButton" parent="MarginContainer/Gamemode/Menu"]
-margin_right = 500.0
+margin_right = 600.0
 margin_bottom = 80.0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 8 )
-texture_hover = ExtResource( 9 )
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
 
 [node name="vsOnline" type="Label" parent="MarginContainer/Gamemode/Menu/vsOnline_Button"]
 margin_left = 80.0
 margin_right = 452.0
 margin_bottom = 81.0
-custom_fonts/font = ExtResource( 10 )
+custom_fonts/font = ExtResource( 8 )
 text = "vs on line"
 
 [node name="vsLocal_Button" type="TextureButton" parent="MarginContainer/Gamemode/Menu"]
 margin_top = 100.0
-margin_right = 500.0
+margin_right = 600.0
 margin_bottom = 180.0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 8 )
-texture_hover = ExtResource( 9 )
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
 
 [node name="vsLocal" type="Label" parent="MarginContainer/Gamemode/Menu/vsLocal_Button"]
 margin_left = 80.0
 margin_right = 398.0
 margin_bottom = 81.0
-custom_fonts/font = ExtResource( 10 )
+custom_fonts/font = ExtResource( 8 )
 text = "vs local"
 
 [node name="vsCom_Button" type="TextureButton" parent="MarginContainer/Gamemode/Menu"]
 margin_top = 200.0
-margin_right = 500.0
+margin_right = 600.0
 margin_bottom = 280.0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 8 )
-texture_hover = ExtResource( 9 )
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
 
 [node name="vsCom" type="Label" parent="MarginContainer/Gamemode/Menu/vsCom_Button"]
 margin_left = 80.0
 margin_right = 310.0
 margin_bottom = 81.0
-custom_fonts/font = ExtResource( 10 )
+custom_fonts/font = ExtResource( 8 )
 text = "vs com"
 
 [node name="Back_Button" type="TextureButton" parent="MarginContainer/Gamemode/Menu"]
 margin_top = 300.0
-margin_right = 500.0
+margin_right = 600.0
 margin_bottom = 380.0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 8 )
-texture_hover = ExtResource( 9 )
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="MarginContainer/Gamemode/Menu/Back_Button"]
 margin_left = 80.0
 margin_right = 256.0
 margin_bottom = 81.0
-custom_fonts/font = ExtResource( 10 )
+custom_fonts/font = ExtResource( 8 )
 text = "back"
 [connection signal="pressed" from="Insert Name Dialog/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/PVP" to="Insert Name Dialog" method="_on_Play_pressed"]
@@ -231,7 +222,6 @@ text = "back"
 [connection signal="pressed" from="Menu/CenterRow/Buttons/PVE" to="." method="_on_PVE_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/Back" to="." method="_on_Back_pressed"]
 [connection signal="timeout" from="PlayerSearchTimeout" to="." method="_on_PlayerSearchTimeout_timeout"]
-[connection signal="finished" from="Intro Song" to="Intro Song" method="_on_Intro_Song_finished"]
 [connection signal="pressed" from="MarginContainer/Gamemode/Menu/vsOnline_Button" to="Insert Name Dialog" method="_on_vsOnline_Button_pressed"]
 [connection signal="pressed" from="MarginContainer/Gamemode/Menu/vsOnline_Button" to="." method="_on_vsOnline_Button_pressed"]
 [connection signal="pressed" from="MarginContainer/Gamemode/Menu/vsLocal_Button" to="." method="_on_vsLocal_Button_pressed"]

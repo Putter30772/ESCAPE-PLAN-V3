@@ -24,3 +24,7 @@ func _physics_process(delta):
 
 func _on_Play_pressed():
 	get_tree().change_scene("res://TitleScreenRelated/GameModeScreen.tscn") # Replace with function body.
+
+
+func _on_Option_pressed():
+	get_tree().change_scene("res://options.tscn") # Replace with function body.
