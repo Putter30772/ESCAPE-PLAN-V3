@@ -157,6 +157,7 @@ func empty_grid():
 func _on_PlayAgain_pressed():
 	print("reload")
 	get_tree().reload_current_scene()
+	variableLAN.ready = 1
 	variableLAN.gameState = 0
 	variableLAN.winner = 0
 	variableLAN.turn = 0

@@ -8,6 +8,7 @@ func _ready():
 
 func _process(delta):
 	if(variableLAN.gameState == 2):
+		variableLAN.ready = 0
 		popup()
 	if(variable.language==1):
 		get_node("PlayAgain/Label").set_text("เล่นใหม่")

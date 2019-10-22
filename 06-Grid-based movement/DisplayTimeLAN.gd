@@ -7,7 +7,7 @@ func _ready():
 	pass
 
 func _process(delta):
-#	if(variableLAN.ready==1):
+	if(variableLAN.ready==1):
 		if(start==0 || variableLAN.move==1):
 			variableLAN.startTime = 10
 			timer.set_wait_time(1)
@@ -24,8 +24,8 @@ func _process(delta):
 			else:
 				variableLAN.turn=1
 			variableLAN.startTime=10
-#	else:
-#		set_text("00:" + str(10))
+	else:
+		set_text("00:" + str(10))
 		
 
 
