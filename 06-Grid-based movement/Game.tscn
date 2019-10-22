@@ -1,16 +1,48 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Grid.gd" type="Script" id=1]
 [ext_resource path="res://GridVisualizer.gd" type="Script" id=2]
 [ext_resource path="res://Node.gd" type="Script" id=3]
-[ext_resource path="res://Label.gd" type="Script" id=4]
-[ext_resource path="res://PlayerNum.gd" type="Script" id=5]
-[ext_resource path="res://WindowDialog.gd" type="Script" id=6]
-[ext_resource path="res://Display.gd" type="Script" id=7]
-[ext_resource path="res://WelcomePopUp.gd" type="Script" id=8]
-[ext_resource path="res://DisplayTime.gd" type="Script" id=9]
-[ext_resource path="res://ScoreBoard.gd" type="Script" id=10]
-[ext_resource path="res://SoundEffects/335571_magntron_gamemusic (online-audio-converter.com).wav" type="AudioStream" id=11]
+[ext_resource path="res://CircularBold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Label.gd" type="Script" id=5]
+[ext_resource path="res://PlayerNum.gd" type="Script" id=6]
+[ext_resource path="res://WindowDialog.gd" type="Script" id=7]
+[ext_resource path="res://Display.gd" type="Script" id=8]
+[ext_resource path="res://WelcomePopUp.gd" type="Script" id=9]
+[ext_resource path="res://DisplayTime.gd" type="Script" id=10]
+[ext_resource path="res://ScoreBoard.gd" type="Script" id=11]
+[ext_resource path="res://SoundEffects/335571_magntron_gamemusic (online-audio-converter.com).wav" type="AudioStream" id=12]
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=9]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 18
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 4 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -30,13 +62,15 @@ margin_left = 268.0
 margin_top = 341.0
 margin_right = 333.0
 margin_bottom = 377.0
-script = ExtResource( 4 )
+custom_fonts/font = SubResource( 6 )
+script = ExtResource( 5 )
 
 [node name="PlayerNum" type="Label" parent="."]
 margin_top = 341.0
 margin_right = 100.0
 margin_bottom = 377.0
-script = ExtResource( 5 )
+custom_fonts/font = SubResource( 7 )
+script = ExtResource( 6 )
 
 [node name="WindowDialog" type="WindowDialog" parent="."]
 visible = true
@@ -44,27 +78,38 @@ margin_left = 133.0
 margin_top = 130.0
 margin_right = 307.0
 margin_bottom = 225.0
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="Display" type="Label" parent="WindowDialog"]
 margin_left = 2.57211
 margin_top = 1.71475
 margin_right = 42.5721
 margin_bottom = 15.7148
-script = ExtResource( 7 )
+custom_fonts/font = SubResource( 9 )
+script = ExtResource( 8 )
 
 [node name="PlayAgain" type="ToolButton" parent="WindowDialog"]
 margin_left = 13.718
 margin_top = 67.7327
 margin_right = 88.718
 margin_bottom = 89.7327
-text = "Play again"
+
+[node name="Label" type="Label" parent="WindowDialog/PlayAgain"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 1 )
+text = "Play Again"
 
 [node name="Exit" type="ToolButton" parent="WindowDialog"]
 margin_left = 115.746
 margin_top = 67.7327
 margin_right = 150.746
 margin_bottom = 89.7327
+
+[node name="Label" type="Label" parent="WindowDialog/Exit"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 2 )
 text = "Exit"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -78,13 +123,13 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 250, 100 )
 size_flags_horizontal = 4
 size_flags_vertical = 0
-window_title = "Welcome"
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="MarginContainer/WelcomePopUp"]
 margin_right = 40.0
 margin_bottom = 14.0
 size_flags_horizontal = 4
+custom_fonts/font = SubResource( 3 )
 align = 1
 valign = 1
 
@@ -95,14 +140,29 @@ margin_right = 145.5
 margin_bottom = 94.022
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/WelcomePopUp/Start"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 4 )
 text = "Start"
+
+[node name="Welcome" type="Label" parent="MarginContainer/WelcomePopUp"]
+margin_left = 97.0
+margin_top = -18.0
+margin_right = 153.0
+margin_bottom = 3.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Welcome"
 
 [node name="DisplayTime" type="Label" parent="."]
 margin_left = 198.0
 margin_top = 341.0
 margin_right = 268.0
 margin_bottom = 377.0
-script = ExtResource( 9 )
+custom_fonts/font = SubResource( 10 )
+script = ExtResource( 10 )
 
 [node name="Timer" type="Timer" parent="DisplayTime"]
 
@@ -111,10 +171,11 @@ margin_left = 128.0
 margin_top = 341.0
 margin_right = 198.0
 margin_bottom = 377.0
-script = ExtResource( 10 )
+custom_fonts/font = SubResource( 8 )
+script = ExtResource( 11 )
 
 [node name="Game_Sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 11 )
+stream = ExtResource( 12 )
 volume_db = -10.0
 autoplay = true
 [connection signal="pressed" from="WindowDialog/PlayAgain" to="Grid" method="_on_PlayAgain_pressed"]

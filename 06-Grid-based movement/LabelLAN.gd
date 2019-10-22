@@ -12,10 +12,22 @@ func _process(delta):
 	set_text(str(variableLAN.turn))
 	add_color_override("font_color", Color(1,1,1,1))
 	if(variableLAN.turn == 1):
-		set_text("PRISONER'S TURN")
+		if(variable.language==1):
+			set_text("ตานักโทษ")
+		else:
+			set_text("PRISONER'S TURN")
 	if(variableLAN.turn == 0):
-		set_text("WARDER'S TURN")
+		if(variable.language==1):
+			set_text("ตาผู้คุม")
+		else:
+			set_text("WARDER'S TURN")
 	if(variableLAN.winner == 1):
-		set_text("PRISONER WIN")
+		if(variable.language==1):
+			set_text("นักโทษชนะ")
+		else:
+			set_text("PRISONER WIN")
 	if(variableLAN.winner ==2):
-		set_text("WARDER WIN")
+		if(variable.language==1):
+			set_text("ผู้คุมชนะ")
+		else:
+			set_text("WARDER WIN")

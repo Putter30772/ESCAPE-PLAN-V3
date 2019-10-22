@@ -8,6 +8,12 @@ func _process(delta):
 	add_color_override("font_color", Color(1,1,1,1))
 
 	if(variable.winner == 1):
-		set_text("PRISONER WINS\nYour Score: " + str(variable.score) +"\nOpponent Score: " + str(variable.opponent_score))
+		if(variable.language==1):
+			set_text("นักโทษชนะ\nคะแนนคุณ: " + str(variable.score) +"\nคะแนนคู่แข่ง: " + str(variable.opponent_score))
+		else:
+			set_text("PRISONER WINS\nYour Score: " + str(variable.score) +"\nOpponent Score: " + str(variable.opponent_score))
 	if(variable.winner ==2):
-		set_text("WARDER WINS\nYour Score: " + str(variable.score) +"\nOpponent Score: " + str(variable.opponent_score))
+		if(variable.language==1):
+			set_text("ผู้คุมชนะ\nคะแนนคุณ: " + str(variable.score) +"\nคะแนนคู่แข่ง: " + str(variable.opponent_score))
+		else:
+			set_text("WARDER WINS\nYour Score: " + str(variable.score) +"\nOpponent Score: " + str(variable.opponent_score))

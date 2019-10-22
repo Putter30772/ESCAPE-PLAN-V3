@@ -27,3 +27,11 @@ func _on_Play_pressed():
 
 func _on_Option_pressed():
 	get_tree().change_scene("res://options.tscn") # Replace with function body.
+
+func _process(delta):
+	if(variable.language==1):
+		get_node("MarginContainer/VBoxContainer/VBoxContainer/Play/Label").set_text('เล่น')
+		get_node("MarginContainer/VBoxContainer/VBoxContainer/Option/Label").set_text('ตั้งค่า')
+	else:
+		get_node("MarginContainer/VBoxContainer/VBoxContainer/Play/Label").set_text('PLAY')
+		get_node("MarginContainer/VBoxContainer/VBoxContainer/Option/Label").set_text('OPTIONS')

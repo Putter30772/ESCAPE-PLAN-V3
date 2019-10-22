@@ -42,3 +42,16 @@ func _on_Easy_Button_pressed():
 
 func _on_Back_Button_pressed():
 	get_tree().change_scene("res://TitleScreenRelated/GameModeScreen.tscn")
+
+func _process(delta):
+	if(variable.language==1):
+		get_node("MarginContainer/VBoxContainer/VBoxContainer/Hard_Button/Label").set_text("ยาก")
+		get_node("MarginContainer/VBoxContainer/VBoxContainer/Normal_Button/Label").set_text("ปลานกลาง")
+		get_node("MarginContainer/VBoxContainer/VBoxContainer/Easy_Button/Label").set_text("ง่าย")
+		get_node("MarginContainer/VBoxContainer/VBoxContainer/Back_Button/Label").set_text("กลับ")
+	else:
+		get_node("MarginContainer/VBoxContainer/VBoxContainer/Hard_Button/Label").set_text("HARD")
+		get_node("MarginContainer/VBoxContainer/VBoxContainer/Normal_Button/Label").set_text("NORMAL")
+		get_node("MarginContainer/VBoxContainer/VBoxContainer/Easy_Button/Label").set_text("EASY")
+		get_node("MarginContainer/VBoxContainer/VBoxContainer/Back_Button/Label").set_text("BACK")
+		

@@ -5,7 +5,7 @@
 [ext_resource path="res://TitleScreenRelated/montserrat_36.tres" type="DynamicFont" id=3]
 [ext_resource path="res://TitleScreenRelated/difficulty.png" type="Texture" id=4]
 [ext_resource path="res://TitleScreenRelated/hovered80px.png" type="Texture" id=5]
-[ext_resource path="res://smallfont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=6]
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -141,7 +141,7 @@ margin_left = 100.0
 margin_right = 320.0
 margin_bottom = 102.0
 custom_fonts/font = ExtResource( 6 )
-text = "Hard"
+text = "HARD"
 
 [node name="Normal_Button" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 margin_top = 100.0
@@ -155,7 +155,7 @@ margin_left = 100.0
 margin_right = 430.0
 margin_bottom = 102.0
 custom_fonts/font = ExtResource( 6 )
-text = "Normal"
+text = "NORMAL"
 
 [node name="Easy_Button" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 margin_top = 200.0
@@ -169,7 +169,7 @@ margin_left = 100.0
 margin_right = 320.0
 margin_bottom = 102.0
 custom_fonts/font = ExtResource( 6 )
-text = "Easy"
+text = "EASY"
 
 [node name="Back_Button" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 margin_top = 300.0
@@ -183,7 +183,7 @@ margin_left = 100.0
 margin_right = 320.0
 margin_bottom = 102.0
 custom_fonts/font = ExtResource( 6 )
-text = "back"
+text = "BACK"
 [connection signal="pressed" from="Menu/CenterRow/Buttons/Easy Bot" to="." method="_on_Easy_Bot_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/Medium Bot" to="." method="_on_Medium_Bot_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/Hard Bot" to="." method="_on_Hard_Bot_pressed"]

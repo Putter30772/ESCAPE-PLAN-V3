@@ -28,3 +28,4 @@ var score = 0
 var opponent_score = 0
 var winlose = 0
 var check = true
+var language = 0

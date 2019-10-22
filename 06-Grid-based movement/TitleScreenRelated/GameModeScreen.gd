@@ -68,3 +68,19 @@ func _on_Play_pressed():
 	get_tree().set_network_peer(network)
 	network.connect("connection_failed",self,"_on_connection_failed")
 	network.connect("connection_succeeded",self,"_success") # Replace with function body.
+	
+func _process(delta):
+	if(variable.language==1):
+		get_node("MarginContainer/Gamemode/Menu/vsOnline_Button/vsOnline").set_text("เล่นออนไลน์")
+		get_node("MarginContainer/Gamemode/Menu/vsLocal_Button/vsLocal").set_text("เล่นกันเอง")
+		get_node("MarginContainer/Gamemode/Menu/vsCom_Button/vsCom").set_text("เล่นกับคอม")
+		get_node("MarginContainer/Gamemode/Menu/Back_Button/Label").set_text("กลับ")
+		get_node("Insert Name Dialog/Play").set_text("เล่น")
+		get_node("Insert Name Dialog/Label").set_text("ใส่ชื่อ")
+	else:
+		get_node("MarginContainer/Gamemode/Menu/vsOnline_Button/vsOnline").set_text("VS ONLINE")
+		get_node("MarginContainer/Gamemode/Menu/vsLocal_Button/vsLocal").set_text("VS LOCAL")
+		get_node("MarginContainer/Gamemode/Menu/vsCom_Button/vsCom").set_text("VS COM")
+		get_node("MarginContainer/Gamemode/Menu/Back_Button/Label").set_text("BACK")
+		get_node("Insert Name Dialog/Play").set_text("PLAY")
+		get_node("Insert Name Dialog/Label").set_text("Insert Your Name")
