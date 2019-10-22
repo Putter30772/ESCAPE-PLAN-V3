@@ -24,7 +24,7 @@ func _physics_process(delta):
 
 func _on_Hard_Button_pressed():
 	variableLAN.mode = 2
-	variableLAN.botdifficulty = 1
+	variableLAN.botdifficulty = 3
 	get_tree().change_scene("res://LAN.tscn")
 
 
