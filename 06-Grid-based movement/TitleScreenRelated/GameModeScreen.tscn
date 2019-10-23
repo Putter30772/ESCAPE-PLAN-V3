@@ -17,11 +17,11 @@ font_data = ExtResource( 2 )
 size = 22
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 22
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 22
 font_data = ExtResource( 2 )
 
@@ -54,7 +54,7 @@ margin_left = 182.0
 margin_top = -22.0
 margin_right = 318.0
 margin_bottom = 3.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Insert Your Name"
 align = 1
@@ -65,7 +65,7 @@ margin_left = 220.0
 margin_top = 52.0
 margin_right = 280.0
 margin_bottom = 83.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Play"
 
 [node name="Menu" type="VBoxContainer" parent="."]
@@ -251,8 +251,8 @@ text = "BACK"
 [connection signal="pressed" from="Menu/CenterRow/Buttons/PVE" to="." method="_on_PVE_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/Back" to="." method="_on_Back_pressed"]
 [connection signal="timeout" from="PlayerSearchTimeout" to="." method="_on_PlayerSearchTimeout_timeout"]
-[connection signal="pressed" from="MarginContainer/Gamemode/Menu/vsOnline_Button" to="." method="_on_vsOnline_Button_pressed"]
 [connection signal="pressed" from="MarginContainer/Gamemode/Menu/vsOnline_Button" to="Insert Name Dialog" method="_on_vsOnline_Button_pressed"]
+[connection signal="pressed" from="MarginContainer/Gamemode/Menu/vsOnline_Button" to="." method="_on_vsOnline_Button_pressed"]
 [connection signal="pressed" from="MarginContainer/Gamemode/Menu/vsLocal_Button" to="." method="_on_vsLocal_Button_pressed"]
 [connection signal="pressed" from="MarginContainer/Gamemode/Menu/vsCom_Button" to="." method="_on_vsCom_Button_pressed"]
 [connection signal="pressed" from="MarginContainer/Gamemode/Menu/Back_Button" to="." method="_on_Back_Button_pressed"]
