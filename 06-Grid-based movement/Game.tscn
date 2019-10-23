@@ -47,7 +47,7 @@ font_data = ExtResource( 4 )
 [node name="Node2D" type="Node2D"]
 
 [node name="Grid" type="TileMap" parent="."]
-cell_quadrant_size = 12
+cell_size = Vector2( 110, 110 )
 format = 1
 script = ExtResource( 1 )
 
@@ -58,17 +58,18 @@ script = ExtResource( 2 )
 script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 268.0
-margin_top = 341.0
-margin_right = 333.0
-margin_bottom = 377.0
+margin_left = 276.986
+margin_top = 610.128
+margin_right = 341.986
+margin_bottom = 646.128
 custom_fonts/font = SubResource( 1 )
 script = ExtResource( 5 )
 
 [node name="PlayerNum" type="Label" parent="."]
-margin_top = 341.0
-margin_right = 100.0
-margin_bottom = 377.0
+margin_left = 24.734
+margin_top = 609.221
+margin_right = 124.734
+margin_bottom = 645.221
 custom_fonts/font = SubResource( 2 )
 script = ExtResource( 6 )
 
@@ -157,20 +158,20 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Welcome"
 
 [node name="DisplayTime" type="Label" parent="."]
-margin_left = 198.0
-margin_top = 341.0
-margin_right = 268.0
-margin_bottom = 377.0
+margin_left = 206.986
+margin_top = 610.086
+margin_right = 276.986
+margin_bottom = 646.086
 custom_fonts/font = SubResource( 9 )
 script = ExtResource( 10 )
 
 [node name="Timer" type="Timer" parent="DisplayTime"]
 
 [node name="ScoreBoard" type="Label" parent="."]
-margin_left = 128.0
-margin_top = 341.0
-margin_right = 198.0
-margin_bottom = 377.0
+margin_left = 129.472
+margin_top = 607.981
+margin_right = 199.472
+margin_bottom = 643.981
 custom_fonts/font = SubResource( 10 )
 script = ExtResource( 11 )
 

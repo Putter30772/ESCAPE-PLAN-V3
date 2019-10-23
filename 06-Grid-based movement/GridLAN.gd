@@ -21,7 +21,7 @@ func _ready():
 		grid.append([])
 		for y in range(grid_size.y):
 			grid[x].append(EMPTY)
-
+	set_cell_size(Vector2(110,110))
 
 
 	# Obstacles
@@ -107,6 +107,9 @@ func _ready():
 
 # Check if cell at direction is vacant
 func is_cell_vacant(this_grid_pos=Vector2(), direction=Vector2()):
+	
+	set_cell_size(Vector2(110,110))
+	half_tile_size = Vector2(55,55)
 	var this = world_to_map(this_grid_pos)
 	var target_grid_pos = world_to_map(this_grid_pos) + direction
 
@@ -135,6 +138,8 @@ func is_cell_vacant(this_grid_pos=Vector2(), direction=Vector2()):
 # Remove node from current cell, add it to the new cell,
 # returns the new world target position
 func update_child_pos(this_world_pos, direction, type):
+	set_cell_size(Vector2(110,110))
+	half_tile_size = Vector2(55,55)
 	var this_grid_pos = world_to_map(this_world_pos)
 	var new_grid_pos = this_grid_pos + direction
 

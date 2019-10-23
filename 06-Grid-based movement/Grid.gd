@@ -21,7 +21,7 @@ func _ready():
 		for y in range(grid_size.y):
 			variable.grid[x].append(EMPTY)
 #	change this variable below to change cell size
-	set_cell_size(Vector2(64,64))
+	set_cell_size(Vector2(110,110))
 	print(tile_size)
 	print(half_tile_size)
 	
@@ -37,9 +37,10 @@ func positions():
 	empty_grid()
 	variable.turn = 0
 #	change these two below for all func too        half_tile_size is cell_size/2
-	set_cell_size(Vector2(64,64))
-	half_tile_size = Vector2(32,32)
+	
 	for pos in variable.position1:
+		set_cell_size(Vector2(110,110))
+		half_tile_size = Vector2(55,55)
 		var new_obstacle = Obstacle.instance()
 		new_obstacle.add_to_group("to_delete")
 		new_obstacle.position = map_to_world(pos) + half_tile_size
@@ -47,8 +48,8 @@ func positions():
 		add_child(new_obstacle)
 
 func play_pos():	
-	set_cell_size(Vector2(64,64))
-	half_tile_size = Vector2(32,32)
+	set_cell_size(Vector2(110,110))
+	half_tile_size = Vector2(55,55)
 	var new_player = Player.instance()
 	variable.player1 = new_player
 	new_player.add_to_group("to_delete")
@@ -57,8 +58,8 @@ func play_pos():
 	add_child(new_player)
         
 func play2_pos():
-	set_cell_size(Vector2(64,64))
-	half_tile_size = Vector2(32,32)
+	set_cell_size(Vector2(110,110))
+	half_tile_size = Vector2(55,55)
 	var new_player2 = Player2.instance()
 	variable.player2 = new_player2
 	new_player2.add_to_group("to_delete")
@@ -67,8 +68,8 @@ func play2_pos():
 	add_child(new_player2)
 
 func exit_pos():
-	set_cell_size(Vector2(64,64))
-	half_tile_size = Vector2(32,32)
+	set_cell_size(Vector2(110,110))
+	half_tile_size = Vector2(55,55)
 	var new_exit = Exit.instance()
 	new_exit.add_to_group("to_delete")
 	new_exit.position = map_to_world(variable.exit_pos) + half_tile_size
@@ -77,8 +78,8 @@ func exit_pos():
 
 # Check if cell at direction is vacant
 func is_cell_vacant(this_grid_pos=Vector2(), direction=Vector2()):
-	set_cell_size(Vector2(64,64))
-	half_tile_size = Vector2(32,32)
+	set_cell_size(Vector2(110,110))
+	half_tile_size = Vector2(55,55)
 	print("move2")
 	var this = world_to_map(this_grid_pos)
 	var target_grid_pos = world_to_map(this_grid_pos) + direction
@@ -126,8 +127,8 @@ func is_cell_vacant(this_grid_pos=Vector2(), direction=Vector2()):
 # Remove node from current cell, add it to the new cell,
 # returns the new world target position
 func update_child_pos(this_world_pos, direction, type):
-	set_cell_size(Vector2(64,64))
-	half_tile_size = Vector2(32,32)
+	set_cell_size(Vector2(110,110))
+	half_tile_size = Vector2(55,55)
 	var this_grid_pos = world_to_map(this_world_pos)
 	var new_grid_pos = this_grid_pos + direction
 	
