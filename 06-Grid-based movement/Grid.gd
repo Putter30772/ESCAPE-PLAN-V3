@@ -171,3 +171,5 @@ func _on_Start_pressed():
 	variable.winner = 0
 	variable.turn = 0
 	
+func _on_Reset_pressed():
+	Lobby.clientreset(Lobby.session_id)

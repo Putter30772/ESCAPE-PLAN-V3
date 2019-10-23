@@ -164,3 +164,6 @@ func send_name(playerName,session_id):
 
 remote func opponent_name(opponentName):
 	variable.opponentName =  opponentName
+
+func clientreset(session_id):
+	rpc_id(1,"clientreset", session_id)

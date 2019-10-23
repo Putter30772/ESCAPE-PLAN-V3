@@ -318,6 +318,12 @@ func reset_score(session_id):
 	rpc_id(int(curr_session.connected_players[0].name),"reset_score")
 	rpc_id(int(curr_session.connected_players[1].name),"reset_score")
 
+remote func clientreset(session_id):
+	client_reset(session_id)
+	start_game(session_id)
+	move0(session_id)
+	reset_score(session_id)
+
 remote func playerName(playerName, session_id):
 	print(playerName)
 	var id = get_tree().get_rpc_sender_id()
