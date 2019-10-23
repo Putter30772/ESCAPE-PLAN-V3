@@ -173,3 +173,13 @@ func _on_Start_pressed():
 	
 func _on_Reset_pressed():
 	Lobby.clientreset(Lobby.session_id)
+
+
+func _on_RageQuit_pressed():
+	get_tree().set_network_peer(null)
+	empty_grid()
+	get_tree().change_scene("res://TitleScreenRelated/GameModeScreen.tscn")
+	variable.gameStart = 0
+	variable.gameState = 0
+	variable.winner = 0
+	variable.turn = 0
