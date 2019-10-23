@@ -41,10 +41,10 @@ script = ExtResource( 2 )
 script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 227.257
-margin_top = 577.165
-margin_right = 310.257
-margin_bottom = 618.165
+margin_left = 209.676
+margin_top = 774.07
+margin_right = 292.676
+margin_bottom = 815.07
 custom_fonts/font = SubResource( 1 )
 script = ExtResource( 5 )
 
@@ -90,10 +90,10 @@ custom_fonts/font = SubResource( 5 )
 text = "Exit"
 
 [node name="DisplayTime" type="Label" parent="."]
-margin_left = 126.704
-margin_top = 583.31
-margin_right = 195.704
-margin_bottom = 614.31
+margin_left = 109.123
+margin_top = 776.7
+margin_right = 178.123
+margin_bottom = 807.7
 custom_fonts/font = SubResource( 6 )
 script = ExtResource( 7 )
 

@@ -66,19 +66,20 @@ func _ready():
 				new_player.position = map_to_world(play_pos) + half_tile_size
 				grid[play_pos.x][play_pos.y] = PLAYER
 				add_child(new_player)
-
-	placed = false
-	while not placed:
-		randomize()
-		var play2_pos = Vector2(randi() % int(grid_size.x), randi() % int(grid_size.y))
-		if not grid[play2_pos.x][play2_pos.y]:
-			if not play2_pos in positions:
-				positions.append(play2_pos)
-				placed = true
-				var new_player2 = Player2.instance()
-				new_player2.position = map_to_world(play2_pos) + half_tile_size
-				grid[play2_pos.x][play2_pos.y] = PLAYER2
-				add_child(new_player2)
+				
+	for n in range(variableLAN.botno):
+		placed = false
+		while not placed:
+			randomize()
+			var play2_pos = Vector2(randi() % int(grid_size.x), randi() % int(grid_size.y))
+			if not grid[play2_pos.x][play2_pos.y]:
+				if not play2_pos in positions:
+					positions.append(play2_pos)
+					placed = true
+					var new_player2 = Player2.instance()
+					new_player2.position = map_to_world(play2_pos) + half_tile_size
+					grid[play2_pos.x][play2_pos.y] = PLAYER2
+					add_child(new_player2)
 
 	placed = false
 	while not placed:
@@ -161,6 +162,11 @@ func empty_grid():
 
 func _on_PlayAgain_pressed():
 	print("reload")
+	if(variableLAN.mode == 3):
+		randomize()
+		variableLAN.gameSize = randi() % 5 + 3
+		randomize()
+		variableLAN.botdifficulty = randi() % 3 + 1
 	get_tree().reload_current_scene()
 	variableLAN.ready = 1
 	variableLAN.gameState = 0
@@ -174,3 +180,5 @@ func _on_Exit_pressed():
 	variableLAN.turn = 0
 	variableLAN.botdifficulty = 1
 	variableLAN.mode = 0
+	variableLAN.gameSize = 5
+	

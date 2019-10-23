@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://BotModeScreen.gd" type="Script" id=1]
 [ext_resource path="res://TitleScreenRelated/output-onlinepngtools.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://TitleScreenRelated/difficulty.png" type="Texture" id=4]
 [ext_resource path="res://TitleScreenRelated/hovered80px.png" type="Texture" id=5]
 [ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://TitleScreenRelated/hovered.png" type="Texture" id=7]
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -123,15 +124,15 @@ margin_bottom = 100.0
 texture = ExtResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_left = 100.0
+margin_left = 50.0
 margin_top = 150.0
-margin_right = 500.0
-margin_bottom = 530.0
+margin_right = 550.0
+margin_bottom = 650.0
 size_flags_horizontal = 4
 custom_constants/separation = 20
 
 [node name="Hard_Button" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_right = 400.0
+margin_right = 500.0
 margin_bottom = 80.0
 mouse_default_cursor_shape = 2
 texture_hover = ExtResource( 5 )
@@ -145,7 +146,7 @@ text = "HARD"
 
 [node name="Normal_Button" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 margin_top = 100.0
-margin_right = 400.0
+margin_right = 500.0
 margin_bottom = 180.0
 mouse_default_cursor_shape = 2
 texture_hover = ExtResource( 5 )
@@ -159,7 +160,7 @@ text = "NORMAL"
 
 [node name="Easy_Button" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 margin_top = 200.0
-margin_right = 400.0
+margin_right = 500.0
 margin_bottom = 280.0
 mouse_default_cursor_shape = 2
 texture_hover = ExtResource( 5 )
@@ -173,17 +174,30 @@ text = "EASY"
 
 [node name="Back_Button" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 margin_top = 300.0
-margin_right = 400.0
+margin_right = 500.0
 margin_bottom = 380.0
 mouse_default_cursor_shape = 2
 texture_hover = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/Back_Button"]
-margin_left = 100.0
-margin_right = 320.0
+margin_left = 95.683
+margin_right = 315.683
 margin_bottom = 102.0
 custom_fonts/font = ExtResource( 6 )
 text = "BACK"
+
+[node name="Madness_Button" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+margin_top = 400.0
+margin_right = 500.0
+margin_bottom = 500.0
+texture_hover = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/Madness_Button"]
+margin_left = 100.0
+margin_right = 342.0
+margin_bottom = 102.0
+custom_fonts/font = ExtResource( 6 )
+text = "Madness"
 [connection signal="pressed" from="Menu/CenterRow/Buttons/Easy Bot" to="." method="_on_Easy_Bot_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/Medium Bot" to="." method="_on_Medium_Bot_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/Hard Bot" to="." method="_on_Hard_Bot_pressed"]
@@ -192,3 +206,4 @@ text = "BACK"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Normal_Button" to="." method="_on_Normal_Button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Easy_Button" to="." method="_on_Easy_Button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Back_Button" to="." method="_on_Back_Button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Madness_Button" to="." method="_on_Madness_Button_pressed"]

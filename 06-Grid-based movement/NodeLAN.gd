@@ -16,3 +16,4 @@ var start = 0
 var move = 0 
 var mode = 0
 var botdifficulty = 1
+var botno = 1

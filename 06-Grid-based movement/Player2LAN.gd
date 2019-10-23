@@ -88,7 +88,7 @@ func _process(delta):
 					variableLAN.move = 1
 					velocity = target_direction * distance_to_target
 					is_moving = false
-					if(variableLAN.mode == 2):
+					if(variableLAN.mode == 2)||(variableLAN.mode == 3):
 						movecounter += 1
 						if(movecounter == variableLAN.botdifficulty):
 								variableLAN.turn += 1

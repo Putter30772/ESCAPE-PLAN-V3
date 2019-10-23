@@ -21,6 +21,8 @@ func _physics_process(delta):
 		$MarginContainer/VBoxContainer/VBoxContainer/Normal_Button.grab_focus()
 	if $MarginContainer/VBoxContainer/VBoxContainer/Easy_Button.is_hovered() :
 		$MarginContainer/VBoxContainer/VBoxContainer/Easy_Button.grab_focus()
+	if $MarginContainer/VBoxContainer/VBoxContainer/Madness_Button.is_hovered() :
+		$MarginContainer/VBoxContainer/VBoxContainer/Madness_Button.grab_focus()
 
 func _on_Hard_Button_pressed():
 	variableLAN.mode = 2
@@ -49,9 +51,20 @@ func _process(delta):
 		get_node("MarginContainer/VBoxContainer/VBoxContainer/Normal_Button/Label").set_text("ปานกลาง")
 		get_node("MarginContainer/VBoxContainer/VBoxContainer/Easy_Button/Label").set_text("ง่าย")
 		get_node("MarginContainer/VBoxContainer/VBoxContainer/Back_Button/Label").set_text("กลับ")
+		get_node("MarginContainer/VBoxContainer/VBoxContainer/Madness_Button/Label").set_text("สุ่ม")
 	else:
 		get_node("MarginContainer/VBoxContainer/VBoxContainer/Hard_Button/Label").set_text("HARD")
 		get_node("MarginContainer/VBoxContainer/VBoxContainer/Normal_Button/Label").set_text("NORMAL")
 		get_node("MarginContainer/VBoxContainer/VBoxContainer/Easy_Button/Label").set_text("EASY")
 		get_node("MarginContainer/VBoxContainer/VBoxContainer/Back_Button/Label").set_text("BACK")
+		get_node("MarginContainer/VBoxContainer/VBoxContainer/Madness_Button/Label").set_text("RANDOM")
 		
+
+func _on_Madness_Button_pressed():
+	variableLAN.mode = 3
+	randomize()
+	variableLAN.botdifficulty =  randi()% 3 + 1 
+	randomize()
+	variableLAN.gameSize = randi()% 5 + 3 
+#	variableLAN.botno = 2
+	get_tree().change_scene("res://LAN.tscn")
