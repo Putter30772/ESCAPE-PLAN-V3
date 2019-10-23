@@ -157,3 +157,10 @@ remote func move0(move):
 remote func reset_score():
 	variable.score = 0
 	variable.opponent_score = 0
+
+func send_name(playerName,session_id):
+	print(playerName)
+	rpc_id(1,"playerName",playerName, session_id)
+
+remote func opponent_name(opponentName):
+	variable.opponentName =  opponentName

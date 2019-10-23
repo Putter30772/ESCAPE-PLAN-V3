@@ -20,6 +20,7 @@ func stop_looking():
 	timer.stop()
 	get_tree().change_scene("res://Game.tscn")
 	Lobby.get_layout(variable.grid)
+	Lobby.send_name(variable.playerName,Lobby.session_id)
 
 func _on_PlayerSearchTimeout_timeout():
 	Lobby.look_for_player()

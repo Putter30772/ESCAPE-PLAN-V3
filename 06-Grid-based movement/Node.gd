@@ -17,6 +17,7 @@ var exit_pos = []
 var position1 = []
 var player_role
 var playerName = ''
+var opponentName = ''
 var gameStart = 0
 var player2 = null
 var player1 = null

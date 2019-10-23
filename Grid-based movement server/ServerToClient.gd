@@ -317,5 +317,13 @@ func reset_score(session_id):
 	var curr_session = session_dict[session_id]
 	rpc_id(int(curr_session.connected_players[0].name),"reset_score")
 	rpc_id(int(curr_session.connected_players[1].name),"reset_score")
-	
+
+remote func playerName(playerName, session_id):
+	print(playerName)
+	var id = get_tree().get_rpc_sender_id()
+	var curr_session = session_dict[session_id]
+	if id == int(curr_session.connected_players[0].name):
+		rpc_id(int(curr_session.connected_players[1].name),"opponent_name",playerName)
+	else: 
+		rpc_id(int(curr_session.connected_players[0].name),"opponent_name",playerName)
 	
