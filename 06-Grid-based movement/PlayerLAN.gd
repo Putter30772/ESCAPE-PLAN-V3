@@ -34,14 +34,24 @@ func _process(delta):
 	speed = 0
 	if(variableLAN.gameState == 0):
 		if(variableLAN.turn == 1):
-			if Input.is_action_pressed("move_up"):
-				direction.y = -1
-			elif Input.is_action_pressed("move_down"):
-				direction.y = 1
-			if Input.is_action_pressed("move_left"):
-				direction.x = -1
-			elif Input.is_action_pressed("move_right"):
-				direction.x = 1
+			if(variableLAN.mode == 2 || variableLAN.mode == 3):
+				if Input.is_action_pressed("move_up")||Input.is_action_pressed("w"):
+					direction.y = -1
+				elif Input.is_action_pressed("move_down")||Input.is_action_pressed("s"):
+					direction.y = 1
+				if Input.is_action_pressed("move_left")||Input.is_action_pressed("a"):
+					direction.x = -1
+				elif Input.is_action_pressed("move_right")||Input.is_action_pressed("d"):
+					direction.x = 1
+			else:
+				if Input.is_action_pressed("move_up"):
+					direction.y = -1
+				elif Input.is_action_pressed("move_down"):
+					direction.y = 1
+				if Input.is_action_pressed("move_left"):
+					direction.x = -1
+				elif Input.is_action_pressed("move_right"):
+					direction.x = 1
 		else:
 			pass
 	if not is_moving and direction != Vector2():
