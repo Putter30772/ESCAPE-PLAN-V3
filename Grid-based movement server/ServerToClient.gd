@@ -306,6 +306,14 @@ remote func start_game(session_id):
 		rpc_id(int(curr_session.connected_players[1].name), "start_timer")
 		player_start = 0
 
+remote func start_game2(session_id):
+	print("start game")
+	var id = get_tree().get_rpc_sender_id()
+	var curr_session = session_dict[session_id]
+	rpc_id(int(curr_session.connected_players[0].name),"start_timer")
+	rpc_id(int(curr_session.connected_players[1].name), "start_timer")
+	player_start = 0
+
 func move0(session_id):
 	variable.move = 1
 	var id = get_tree().get_rpc_sender_id()
@@ -321,7 +329,7 @@ func reset_score(session_id):
 
 remote func clientreset(session_id):
 	client_reset(session_id)
-	#start_game(session_id)
+	start_game2(session_id)
 	move0(session_id)
 	reset_score(session_id)
 

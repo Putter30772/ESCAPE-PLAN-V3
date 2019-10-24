@@ -43,7 +43,7 @@ func _on_Button_pressed():
 	for acc in Lobby.session_dict:
 		print(acc)
 		Lobby.client_reset(acc)
-		Lobby.start_game(acc)
+		Lobby.start_game2(acc)
 		Lobby.move0(acc)
 		Lobby.reset_score(acc)
 		

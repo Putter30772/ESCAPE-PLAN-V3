@@ -27,6 +27,7 @@ Lobby="*res://ClientToServer.gd"
 Grid="*res://Grid.gd"
 variableLAN="*res://NodeLAN.gd"
 MusicController="*res://MusicController.tscn"
+Game="*res://Game.gd"
 
 [display]
 

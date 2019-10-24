@@ -7,6 +7,7 @@ func _ready():
 	
 func _process(delta):
 	if(variable.gameStart==0):
+		variable.ready = 0
 		popup_centered()
 		if(variable.language==1):
 			get_node('Label').set_text('สวัสดี, '+ playerName + '\nยินดีต้อนรับสู่ Escape Plan!' + '\nกดปุ่ม "เริ่ม" เพิ่อเริ่มเกม')
