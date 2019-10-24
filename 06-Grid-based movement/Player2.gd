@@ -28,17 +28,16 @@ func _process(delta):
 	direction = Vector2()
 	speed = 0
 	if(variable.turn == 0)&&(variable.player_role==0):
-		if Input.is_action_pressed("w")||Input.is_action_pressed("move_up"):
-			direction.y = -1
-		elif Input.is_action_pressed("s")||Input.is_action_pressed("move_down"):
-			direction.y = 1
-		if Input.is_action_pressed("a")||Input.is_action_pressed("move_left"):
-			direction.x = -1
-		elif Input.is_action_pressed("d")||Input.is_action_pressed("move_right"):
-			direction.x = 1
-	
+		if(variable.ready==1):
+			if Input.is_action_pressed("move_up")||Input.is_action_pressed("w"):
+				direction.y = -1
+			elif Input.is_action_pressed("move_down")||Input.is_action_pressed("s"):
+				direction.y = 1
+			if Input.is_action_pressed("move_left")||Input.is_action_pressed("a"):
+				direction.x = -1
+			elif Input.is_action_pressed("move_right")||Input.is_action_pressed("d"):
+				direction.x = 1
 		_move(direction,position,position2)
-		
 	else:
 		pass
 func _move(direction,position,position2):
