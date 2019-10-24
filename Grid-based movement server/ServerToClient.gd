@@ -321,7 +321,7 @@ func reset_score(session_id):
 
 remote func clientreset(session_id):
 	client_reset(session_id)
-	start_game(session_id)
+	#start_game(session_id)
 	move0(session_id)
 	reset_score(session_id)
 
