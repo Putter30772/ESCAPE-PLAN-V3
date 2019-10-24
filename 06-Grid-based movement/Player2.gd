@@ -18,16 +18,7 @@ var sentdirection
 var sentposition
 var counter = 0
 var position2
-
 func _ready():
-	if (variable.skin2_select == 0) :
-		$Sprite.set("texture", variable.w_skin1)
-	if (variable.skin2_select == 1) :
-		$Sprite.set("texture", variable.w_skin2)
-	if (variable.skin2_select == 2) :
-		$Sprite.set("texture", variable.w_skin3)
-	if (variable.skin2_select == 3) :
-		$Sprite.set("texture", variable.w_skin4)
 	grid = get_parent()
 	type = grid.PLAYER2
 	set_process(true)
@@ -37,7 +28,7 @@ func _process(delta):
 	direction = Vector2()
 	speed = 0
 	if(variable.turn == 0)&&(variable.player_role==0):
-		if(variable.ready==1):
+		if(variable.ready==1)&&(variable.pause==0):
 			if Input.is_action_pressed("move_up")||Input.is_action_pressed("w"):
 				direction.y = -1
 			elif Input.is_action_pressed("move_down")||Input.is_action_pressed("s"):

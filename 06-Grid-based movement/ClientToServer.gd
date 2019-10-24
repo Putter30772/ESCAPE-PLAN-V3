@@ -167,3 +167,17 @@ remote func opponent_name(opponentName):
 
 func clientreset(session_id):
 	rpc_id(1,"clientreset", session_id)
+	
+func pause(session_id):
+	print("pause")
+	rpc_id(1,"pause",session_id)
+	
+remote func opponentPause():
+	variable.pause = 1 
+
+func continueGame(session_id):
+	rpc_id(1,"continueGame",session_id)
+ 
+remote func opponentContinue():
+	print("oppnentContinue")
+	variable.pause = 0

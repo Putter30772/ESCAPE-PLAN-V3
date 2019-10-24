@@ -290,6 +290,7 @@ remote func update_gridfor1(sentdirection,sentposition,position2,session_id):
 		print("update_grid2for1")
 
 func onedisconnect(session_id):
+	player_start = 0
 	var id = get_tree().get_rpc_sender_id()
 	var curr_session = session_dict[session_id]
 	rpc_id(int(curr_session.connected_players[0].name), "onedisconnect") 
@@ -332,4 +333,21 @@ remote func playerName(playerName, session_id):
 		rpc_id(int(curr_session.connected_players[1].name),"opponent_name",playerName)
 	else: 
 		rpc_id(int(curr_session.connected_players[0].name),"opponent_name",playerName)
-	
+
+remote func pause(session_id):
+	print("pause")
+	var id = get_tree().get_rpc_sender_id()
+	var curr_session = session_dict[session_id]
+	if id == int(curr_session.connected_players[0].name):
+		rpc_id(int(curr_session.connected_players[1].name),"opponentPause")
+	else: 
+		rpc_id(int(curr_session.connected_players[0].name),"opponentPause")
+
+remote func continueGame(session_id):
+	print("continue")
+	var id = get_tree().get_rpc_sender_id()
+	var curr_session = session_dict[session_id]
+	if id == int(curr_session.connected_players[0].name):
+		rpc_id(int(curr_session.connected_players[1].name),"opponentContinue")
+	else: 
+		rpc_id(int(curr_session.connected_players[0].name),"opponentContinue")

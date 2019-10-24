@@ -8,6 +8,10 @@ func _ready():
 
 func _process(delta):
 	if(variable.ready==1):
+		if(variable.pause==1):
+			timer.set_paused(true)
+		else:
+			timer.set_paused(false)
 		if(start==0 || variable.move==1):
 			variable.startTime = 10
 			timer.set_wait_time(1)

@@ -45,7 +45,6 @@ func _on_vsCom_Button_pressed():
 
 
 func _on_vsLocal_Button_pressed():
-	MusicController.stop()
 	variableLAN.mode = 1
 	get_tree().change_scene("res://LAN.tscn") # Replace with function body.
 	
@@ -61,7 +60,6 @@ func _physics_process(delta):
 
 
 func _on_Play_pressed():
-	MusicController.stop()
 	print("on Play pressed")
 	variable.score = 0
 	variable.opponent_score = 0

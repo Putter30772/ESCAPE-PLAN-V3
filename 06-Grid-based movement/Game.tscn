@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Grid.gd" type="Script" id=1]
 [ext_resource path="res://GridVisualizer.gd" type="Script" id=2]
@@ -9,11 +9,13 @@
 [ext_resource path="res://WindowDialog.gd" type="Script" id=7]
 [ext_resource path="res://Display.gd" type="Script" id=8]
 [ext_resource path="res://WelcomePopUp.gd" type="Script" id=9]
-[ext_resource path="res://DisplayTime.gd" type="Script" id=10]
-[ext_resource path="res://ScoreBoard.gd" type="Script" id=11]
-[ext_resource path="res://SoundEffects/335571_magntron_gamemusic (online-audio-converter.com).wav" type="AudioStream" id=12]
-[ext_resource path="res://Reset.gd" type="Script" id=13]
-[ext_resource path="res://RageQuit.gd" type="Script" id=14]
+[ext_resource path="res://PausedPopUp.gd" type="Script" id=10]
+[ext_resource path="res://DisplayTime.gd" type="Script" id=11]
+[ext_resource path="res://ScoreBoard.gd" type="Script" id=12]
+[ext_resource path="res://SoundEffects/335571_magntron_gamemusic (online-audio-converter.com).wav" type="AudioStream" id=13]
+[ext_resource path="res://Pause.gd" type="Script" id=14]
+[ext_resource path="res://Reset.gd" type="Script" id=15]
+[ext_resource path="res://RageQuit.gd" type="Script" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -171,13 +173,65 @@ custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Welcome"
 
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 300.0
+margin_right = 300.0
+margin_bottom = 400.0
+
+[node name="PausedPopUp" type="WindowDialog" parent="MarginContainer2"]
+visible = true
+margin_left = 25.0
+margin_right = 275.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 250, 100 )
+size_flags_horizontal = 4
+size_flags_vertical = 0
+script = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="MarginContainer2/PausedPopUp"]
+margin_left = 30.0
+margin_top = 10.0
+margin_right = 70.0
+margin_bottom = 29.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 6 )
+align = 1
+valign = 1
+
+[node name="Continue" type="ToolButton" parent="MarginContainer2/PausedPopUp"]
+margin_left = 95.0
+margin_top = 70.0
+margin_right = 155.0
+margin_bottom = 95.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer2/PausedPopUp/Continue"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 54.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 7 )
+text = "Continue"
+
+[node name="Paused" type="Label" parent="MarginContainer2/PausedPopUp"]
+margin_left = 97.0
+margin_top = -18.0
+margin_right = 153.0
+margin_bottom = 3.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Paused"
+
 [node name="DisplayTime" type="Label" parent="."]
 margin_left = 206.986
 margin_top = 610.086
 margin_right = 276.986
 margin_bottom = 646.086
 custom_fonts/font = SubResource( 9 )
-script = ExtResource( 10 )
+script = ExtResource( 11 )
 
 [node name="Timer" type="Timer" parent="DisplayTime"]
 
@@ -187,12 +241,28 @@ margin_top = 607.981
 margin_right = 199.472
 margin_bottom = 643.981
 custom_fonts/font = SubResource( 10 )
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 
 [node name="Game_Sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
+stream = ExtResource( 13 )
 volume_db = -10.0
 autoplay = true
+
+[node name="Pause" type="Button" parent="."]
+margin_left = 385.0
+margin_top = 704.146
+margin_right = 485.0
+margin_bottom = 752.146
+custom_fonts/font = SubResource( 11 )
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 12 )
+text = "Pause"
+align = 1
+valign = 1
 
 [node name="Reset" type="Button" parent="."]
 margin_left = 511.597
@@ -200,7 +270,7 @@ margin_top = 704.146
 margin_right = 611.597
 margin_bottom = 752.146
 custom_fonts/font = SubResource( 11 )
-script = ExtResource( 13 )
+script = ExtResource( 15 )
 
 [node name="Label" type="Label" parent="Reset"]
 anchor_right = 1.0
@@ -215,7 +285,7 @@ margin_left = 637.065
 margin_top = 702.988
 margin_right = 748.065
 margin_bottom = 754.988
-script = ExtResource( 14 )
+script = ExtResource( 16 )
 
 [node name="Label" type="Label" parent="RageQuit"]
 anchor_right = 1.0
@@ -227,6 +297,8 @@ valign = 1
 [connection signal="pressed" from="WindowDialog/PlayAgain" to="Grid" method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="WindowDialog/Exit" to="Grid" method="_on_Exit_pressed"]
 [connection signal="pressed" from="MarginContainer/WelcomePopUp/Start" to="Grid" method="_on_Start_pressed"]
+[connection signal="pressed" from="MarginContainer2/PausedPopUp/Continue" to="MarginContainer2/PausedPopUp" method="_on_Continue_pressed"]
 [connection signal="timeout" from="DisplayTime/Timer" to="DisplayTime" method="_on_Timer_timeout"]
+[connection signal="pressed" from="Pause" to="Pause" method="_on_Pause_pressed"]
 [connection signal="pressed" from="Reset" to="Reset" method="_on_Reset_pressed"]
 [connection signal="pressed" from="RageQuit" to="RageQuit" method="_on_RageQuit_pressed"]
