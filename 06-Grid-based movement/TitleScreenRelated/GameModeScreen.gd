@@ -1,6 +1,9 @@
 extends Node
 
 onready var timer = $PlayerSearchTimeout
+var popupwindowmatchmake
+const popupwindow = preload("res://IntermissionPopup.tscn")
+
 var cursor100 = preload("res://TitleScreenRelated/cursor100.png")
 var cursor100_light = preload("res://TitleScreenRelated/cursor100_light.png")
 var gamemodes = preload("res://TitleScreenRelated/prison_gamemodes.png")
@@ -39,6 +42,7 @@ func _on_connection_failed(error):
 
 func _success():
 	print("success")
+	popupwindowmatchmake.matching()
 	timer.start()
 	Lobby.look_for_player()
 
@@ -75,7 +79,8 @@ func _on_vsLocal_Button_pressed():
 	MusicController.stop()
 	variableLAN.mode = 1
 	get_tree().change_scene("res://LAN.tscn") # Replace with function body.
-	
+	get_tree().set_network_peer(null)	
+
 func _physics_process(delta):
 	if $MarginContainer/Gamemode/Menu/vsOnline_Button.is_hovered() :
 		$MarginContainer/Gamemode/Menu/vsOnline_Button.grab_focus()
@@ -111,5 +116,9 @@ func _on_Play_pressed():
 	var network = NetworkedMultiplayerENet.new()
 	network.create_client("127.0.0.1", 6969)
 	get_tree().set_network_peer(network)
+	popupwindowmatchmake = popupwindow.instance()
+	add_child(popupwindowmatchmake)
+	popupwindowmatchmake.popupmatch()
+	popupwindowmatchmake.connecting()
 	network.connect("connection_failed",self,"_on_connection_failed")
 	network.connect("connection_succeeded",self,"_success") # Replace with function body.

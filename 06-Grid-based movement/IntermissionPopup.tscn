@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://IntermissionPopup.gd" type="Script" id=1]
+[ext_resource path="res://CircularBold.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=8]
+size = 18
+font_data = ExtResource( 2 )
+
+[node name="Node" type="Node"]
+script = ExtResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 208.0
+margin_top = 98.0
+margin_right = -342.0
+margin_bottom = -602.0
+
+[node name="IntermissionPopup" type="WindowDialog" parent="MarginContainer"]
+visible = true
+margin_right = 250.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 250, 100 )
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Welcome" type="Label" parent="MarginContainer/IntermissionPopup"]
+margin_left = 97.0
+margin_top = -18.0
+margin_right = 153.0
+margin_bottom = 3.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Welcome"
+
+[node name="Label" type="Label" parent="MarginContainer/IntermissionPopup"]
+margin_left = 37.3825
+margin_top = 37.435
+margin_right = 213.383
+margin_bottom = 59.435
+text = "Matching with an Opponent"
+align = 1
+valign = 1
