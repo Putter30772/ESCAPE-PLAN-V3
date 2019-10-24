@@ -14,6 +14,13 @@ var w_skin3 = preload("res://Skins/W3G.png")
 var w_skin4 = preload("res://Skins/W4G.png")
 var skin_select = 0
 var skin2_select = 0
+var light_mode = 0
+
+func _process(delta):
+	if light_mode == 1 :
+		VisualServer.set_default_clear_color(Color(1,1,1,1))
+	else :
+		VisualServer.set_default_clear_color(Color(0,0,0,0))
 
 var turn = 0
 var winner = 0
