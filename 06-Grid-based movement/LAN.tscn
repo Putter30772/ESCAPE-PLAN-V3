@@ -1,44 +1,55 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://GridLAN.gd" type="Script" id=1]
-[ext_resource path="res://Grid VisualizerLAN.gd" type="Script" id=2]
-[ext_resource path="res://NodeLAN.gd" type="Script" id=3]
-[ext_resource path="res://CircularBold.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://LabelLAN.gd" type="Script" id=5]
-[ext_resource path="res://WindowDialogLAN.gd" type="Script" id=6]
-[ext_resource path="res://DisplayTimeLAN.gd" type="Script" id=7]
-[ext_resource path="res://SoundEffects/335571_magntron_gamemusic (online-audio-converter.com).wav" type="AudioStream" id=8]
+[ext_resource path="res://bg.png" type="Texture" id=1]
+[ext_resource path="res://GridLAN.gd" type="Script" id=2]
+[ext_resource path="res://Grid VisualizerLAN.gd" type="Script" id=3]
+[ext_resource path="res://NodeLAN.gd" type="Script" id=4]
+[ext_resource path="res://CircularBold.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://LabelLAN.gd" type="Script" id=6]
+[ext_resource path="res://WindowDialogLAN.gd" type="Script" id=7]
+[ext_resource path="res://DisplayTimeLAN.gd" type="Script" id=8]
+[ext_resource path="res://SoundEffects/335571_magntron_gamemusic (online-audio-converter.com).wav" type="AudioStream" id=9]
 
 [sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=4]
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=5]
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=6]
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [node name="LAN" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 800, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
 
 [node name="GridLAN" type="TileMap" parent="."]
 cell_size = Vector2( 110, 110 )
 format = 1
-script = ExtResource( 1 )
-
-[node name="Grid VisualizerLAN" type="Node2D" parent="GridLAN"]
 script = ExtResource( 2 )
 
-[node name="NodeLAN" type="Node" parent="."]
+[node name="Grid VisualizerLAN" type="Node2D" parent="GridLAN"]
 script = ExtResource( 3 )
+
+[node name="NodeLAN" type="Node" parent="."]
+script = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 209.676
@@ -46,7 +57,7 @@ margin_top = 774.07
 margin_right = 292.676
 margin_bottom = 815.07
 custom_fonts/font = SubResource( 1 )
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="WindowDialog" type="WindowDialog" parent="."]
 visible = true
@@ -54,7 +65,7 @@ margin_left = 128.812
 margin_top = 126.0
 margin_right = 286.812
 margin_bottom = 219.0
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="WindowDialog"]
 margin_left = 40.4059
@@ -62,7 +73,7 @@ margin_top = 15.5445
 margin_right = 109.406
 margin_bottom = 47.5445
 custom_fonts/font = SubResource( 2 )
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="PlayAgain" type="ToolButton" parent="WindowDialog"]
 margin_left = 12.9109
@@ -95,12 +106,12 @@ margin_top = 776.7
 margin_right = 178.123
 margin_bottom = 807.7
 custom_fonts/font = SubResource( 6 )
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="TimerLAN" type="Timer" parent="DisplayTime"]
 
 [node name="Game_Sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
+stream = ExtResource( 9 )
 volume_db = -5.0
 autoplay = true
 [connection signal="pressed" from="WindowDialog/PlayAgain" to="GridLAN" method="_on_PlayAgain_pressed"]
