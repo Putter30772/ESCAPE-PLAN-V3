@@ -280,18 +280,18 @@ text = "Reset"
 align = 1
 valign = 1
 
-[node name="RageQuit" type="Button" parent="."]
+[node name="Quit" type="Button" parent="."]
 margin_left = 637.065
 margin_top = 702.988
 margin_right = 748.065
 margin_bottom = 754.988
 script = ExtResource( 16 )
 
-[node name="Label" type="Label" parent="RageQuit"]
+[node name="Label" type="Label" parent="Quit"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 13 )
-text = "RageQuit"
+text = "Quit"
 align = 1
 valign = 1
 [connection signal="pressed" from="WindowDialog/PlayAgain" to="Grid" method="_on_PlayAgain_pressed"]
@@ -301,4 +301,4 @@ valign = 1
 [connection signal="timeout" from="DisplayTime/Timer" to="DisplayTime" method="_on_Timer_timeout"]
 [connection signal="pressed" from="Pause" to="Pause" method="_on_Pause_pressed"]
 [connection signal="pressed" from="Reset" to="Reset" method="_on_Reset_pressed"]
-[connection signal="pressed" from="RageQuit" to="RageQuit" method="_on_RageQuit_pressed"]
+[connection signal="pressed" from="Quit" to="Quit" method="_on_RageQuit_pressed"]

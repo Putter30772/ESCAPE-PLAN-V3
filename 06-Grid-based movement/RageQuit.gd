@@ -22,6 +22,6 @@ func _on_RageQuit_pressed():
 	
 func _process(delta):
 	if(variable.language==1):
-		get_node("Label").set_text('ยอมแพ้')
+		get_node("Label").set_text('ออก')
 	else:
-		get_node("Label").set_text('RAGEQUIT')
+		get_node("Label").set_text('Quit')
