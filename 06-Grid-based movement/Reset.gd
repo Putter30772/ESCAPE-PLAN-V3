@@ -18,4 +18,4 @@ func _process(delta):
 	if(variable.language==1):
 		get_node("Label").set_text('รีเซ็ต')
 	else:
-		get_node("Label").set_text('RESET')
+		get_node("Label").set_text('Reset')

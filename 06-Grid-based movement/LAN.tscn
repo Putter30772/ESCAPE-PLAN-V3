@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://LAN.gd" type="Script" id=1]
 [ext_resource path="res://GridLAN.gd" type="Script" id=2]
@@ -9,23 +9,28 @@
 [ext_resource path="res://WindowDialogLAN.gd" type="Script" id=7]
 [ext_resource path="res://DisplayTimeLAN.gd" type="Script" id=8]
 [ext_resource path="res://SoundEffects/335571_magntron_gamemusic (online-audio-converter.com).wav" type="AudioStream" id=9]
+[ext_resource path="res://RageQuit.gd" type="Script" id=10]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=14]
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=15]
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=16]
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=17]
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=18]
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=19]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 24
 font_data = ExtResource( 5 )
 
 [node name="LAN" type="Node2D"]
@@ -47,7 +52,7 @@ margin_left = 209.676
 margin_top = 774.07
 margin_right = 292.676
 margin_bottom = 815.07
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 14 )
 script = ExtResource( 6 )
 
 [node name="WindowDialog" type="WindowDialog" parent="."]
@@ -63,7 +68,7 @@ margin_left = 40.4059
 margin_top = 15.5445
 margin_right = 109.406
 margin_bottom = 47.5445
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 15 )
 script = ExtResource( 6 )
 
 [node name="PlayAgain" type="ToolButton" parent="WindowDialog"]
@@ -71,12 +76,12 @@ margin_left = 12.9109
 margin_top = 57.0
 margin_right = 70.9109
 margin_bottom = 84.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 16 )
 
 [node name="Label" type="Label" parent="WindowDialog/PlayAgain"]
 margin_right = 40.0
 margin_bottom = 14.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 17 )
 text = "Play Again"
 
 [node name="Exit" type="ToolButton" parent="WindowDialog"]
@@ -88,7 +93,7 @@ margin_bottom = 89.0
 [node name="Label" type="Label" parent="WindowDialog/Exit"]
 margin_right = 40.0
 margin_bottom = 14.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 18 )
 text = "Exit"
 
 [node name="DisplayTime" type="Label" parent="."]
@@ -96,7 +101,7 @@ margin_left = 109.123
 margin_top = 776.7
 margin_right = 178.123
 margin_bottom = 807.7
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 19 )
 script = ExtResource( 8 )
 
 [node name="TimerLAN" type="Timer" parent="DisplayTime"]
@@ -105,6 +110,22 @@ script = ExtResource( 8 )
 stream = ExtResource( 9 )
 volume_db = -5.0
 autoplay = true
+
+[node name="Quit" type="Button" parent="."]
+margin_left = 637.065
+margin_top = 702.988
+margin_right = 748.065
+margin_bottom = 754.988
+script = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="Quit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 13 )
+text = "Quit"
+align = 1
+valign = 1
 [connection signal="pressed" from="WindowDialog/PlayAgain" to="GridLAN" method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="WindowDialog/Exit" to="GridLAN" method="_on_Exit_pressed"]
 [connection signal="timeout" from="DisplayTime/TimerLAN" to="DisplayTime" method="_on_TimerLAN_timeout"]
+[connection signal="pressed" from="Quit" to="Quit" method="_on_RageQuit_pressed"]
