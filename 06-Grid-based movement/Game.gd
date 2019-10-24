@@ -1,6 +1,7 @@
 extends Node
 
 func _ready():
+	MusicController.stop()
 	get_tree().multiplayer.connect("network_peer_packet",self,"_on_packet_received")
 
 func _input(event):

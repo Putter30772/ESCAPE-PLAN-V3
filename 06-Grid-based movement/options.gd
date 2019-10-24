@@ -8,7 +8,9 @@ extends Node
 func _ready():
 	$MarginContainer/VBoxContainer/VBoxContainer/Mute.grab_focus()
 	if(variable.check==false):
-		get_node('MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Mute_Button').pressed = true
+	#get_node('MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Mute_Button').pressed = true
+		$MarginContainer/VBoxContainer/VBoxContainer/Mute.set("pressed",true)
+		$MarginContainer/VBoxContainer/VBoxContainer/Mute/HBoxContainer/MuteSymbol.set("pressed",true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
