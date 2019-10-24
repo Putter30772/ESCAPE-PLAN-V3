@@ -1,14 +1,12 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://TitleScreenRelated/GameModeScreen.gd" type="Script" id=1]
 [ext_resource path="res://CircularBold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://TitleScreenRelated/WindowDialog.gd" type="Script" id=3]
-[ext_resource path="res://TitleScreenRelated/output-onlinepngtools.png" type="Texture" id=4]
-[ext_resource path="res://TitleScreenRelated/montserrat_36.tres" type="DynamicFont" id=5]
-[ext_resource path="res://TitleScreenRelated/gamemodes.png" type="Texture" id=6]
-[ext_resource path="res://TitleScreenRelated/notHovered80px.png" type="Texture" id=7]
-[ext_resource path="res://TitleScreenRelated/hover80.png" type="Texture" id=8]
-[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=9]
+[ext_resource path="res://TitleScreenRelated/prison_gamemodes.png" type="Texture" id=4]
+[ext_resource path="res://TitleScreenRelated/cursor100.png" type="Texture" id=5]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://TitleScreenRelated/notHover.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
@@ -68,96 +66,6 @@ margin_bottom = 83.0
 custom_fonts/font = SubResource( 4 )
 text = "Play"
 
-[node name="Menu" type="VBoxContainer" parent="."]
-editor/display_folded = true
-visible = false
-margin_left = 30.0
-margin_top = 30.0
-margin_right = 354.0
-margin_bottom = 354.0
-
-[node name="Logo" type="TextureRect" parent="Menu"]
-margin_right = 324.0
-margin_bottom = 128.0
-texture = ExtResource( 4 )
-stretch_mode = 4
-
-[node name="CenterRow" type="HBoxContainer" parent="Menu"]
-margin_top = 132.0
-margin_right = 324.0
-margin_bottom = 336.0
-size_flags_vertical = 3
-
-[node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow"]
-margin_right = 324.0
-margin_bottom = 204.0
-rect_pivot_offset = Vector2( -801.729, -46.2363 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="PVP" type="Button" parent="Menu/CenterRow/Buttons"]
-margin_right = 324.0
-margin_bottom = 48.0
-rect_min_size = Vector2( 324, 48 )
-flat = true
-
-[node name="Label" type="Label" parent="Menu/CenterRow/Buttons/PVP"]
-margin_right = 40.0
-margin_bottom = 14.0
-custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color_shadow = Color( 1, 0.592157, 0, 1 )
-custom_constants/shadow_offset_x = 0
-custom_constants/shadow_offset_y = 5
-text = "PVP"
-
-[node name="PVP ShareScreen" type="Button" parent="Menu/CenterRow/Buttons"]
-margin_top = 52.0
-margin_right = 324.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 324, 48 )
-flat = true
-
-[node name="Label" type="Label" parent="Menu/CenterRow/Buttons/PVP ShareScreen"]
-margin_right = 40.0
-margin_bottom = 14.0
-custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color_shadow = Color( 1, 0.592157, 0, 1 )
-custom_constants/shadow_offset_x = 0
-custom_constants/shadow_offset_y = 5
-text = "PVP ShareScreen"
-
-[node name="PVE" type="Button" parent="Menu/CenterRow/Buttons"]
-margin_top = 104.0
-margin_right = 324.0
-margin_bottom = 152.0
-rect_min_size = Vector2( 324, 48 )
-flat = true
-
-[node name="Label" type="Label" parent="Menu/CenterRow/Buttons/PVE"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color_shadow = Color( 1, 0.592157, 0, 1 )
-custom_constants/shadow_offset_x = 0
-custom_constants/shadow_offset_y = 5
-text = "PVE"
-
-[node name="Back" type="Button" parent="Menu/CenterRow/Buttons"]
-margin_top = 156.0
-margin_right = 324.0
-margin_bottom = 204.0
-rect_min_size = Vector2( 324, 48 )
-flat = true
-
-[node name="Label" type="Label" parent="Menu/CenterRow/Buttons/Back"]
-margin_right = 40.0
-margin_bottom = 14.0
-custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color_shadow = Color( 1, 0.592157, 0, 1 )
-custom_constants/shadow_offset_x = 0
-custom_constants/shadow_offset_y = 5
-text = "Back"
-
 [node name="PlayerSearchTimeout" type="Timer" parent="."]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -178,78 +86,71 @@ custom_constants/separation = 50
 
 [node name="Gamemode_Logo" type="TextureRect" parent="MarginContainer/Gamemode"]
 margin_right = 600.0
-margin_bottom = 100.0
-texture = ExtResource( 6 )
+margin_bottom = 120.0
+texture = ExtResource( 4 )
 
 [node name="Menu" type="VBoxContainer" parent="MarginContainer/Gamemode"]
-margin_top = 150.0
+margin_top = 170.0
 margin_right = 600.0
-margin_bottom = 530.0
+margin_bottom = 630.0
 custom_constants/separation = 20
 
 [node name="vsOnline_Button" type="TextureButton" parent="MarginContainer/Gamemode/Menu"]
 margin_right = 600.0
-margin_bottom = 80.0
+margin_bottom = 100.0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 7 )
-texture_hover = ExtResource( 8 )
+texture_hover = ExtResource( 5 )
 
 [node name="vsOnline" type="Label" parent="MarginContainer/Gamemode/Menu/vsOnline_Button"]
-margin_left = 80.0
-margin_right = 452.0
-margin_bottom = 81.0
-custom_fonts/font = ExtResource( 9 )
+margin_left = 100.0
+margin_right = 504.0
+margin_bottom = 112.0
+custom_fonts/font = ExtResource( 6 )
 text = "VS ONLINE"
 
 [node name="vsLocal_Button" type="TextureButton" parent="MarginContainer/Gamemode/Menu"]
-margin_top = 100.0
+margin_top = 120.0
 margin_right = 600.0
-margin_bottom = 180.0
+margin_bottom = 220.0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 7 )
-texture_hover = ExtResource( 8 )
+texture_hover = ExtResource( 5 )
 
 [node name="vsLocal" type="Label" parent="MarginContainer/Gamemode/Menu/vsLocal_Button"]
-margin_left = 80.0
-margin_right = 398.0
-margin_bottom = 81.0
-custom_fonts/font = ExtResource( 9 )
+margin_left = 100.0
+margin_right = 467.0
+margin_bottom = 112.0
+custom_fonts/font = ExtResource( 6 )
 text = "VS LOCAL"
 
 [node name="vsCom_Button" type="TextureButton" parent="MarginContainer/Gamemode/Menu"]
-margin_top = 200.0
+margin_top = 240.0
 margin_right = 600.0
-margin_bottom = 280.0
+margin_bottom = 340.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 7 )
-texture_hover = ExtResource( 8 )
+texture_hover = ExtResource( 5 )
 
 [node name="vsCom" type="Label" parent="MarginContainer/Gamemode/Menu/vsCom_Button"]
-margin_left = 80.0
-margin_right = 310.0
-margin_bottom = 81.0
-custom_fonts/font = ExtResource( 9 )
+margin_left = 100.0
+margin_right = 700.0
+margin_bottom = 112.0
+custom_fonts/font = ExtResource( 6 )
 text = "VS COM"
 
 [node name="Back_Button" type="TextureButton" parent="MarginContainer/Gamemode/Menu"]
-margin_top = 300.0
+margin_top = 360.0
 margin_right = 600.0
-margin_bottom = 380.0
+margin_bottom = 460.0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 7 )
-texture_hover = ExtResource( 8 )
+texture_hover = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="MarginContainer/Gamemode/Menu/Back_Button"]
-margin_left = 80.0
-margin_right = 256.0
-margin_bottom = 81.0
-custom_fonts/font = ExtResource( 9 )
+margin_left = 100.0
+margin_right = 299.0
+margin_bottom = 112.0
+custom_fonts/font = ExtResource( 6 )
 text = "BACK"
 [connection signal="pressed" from="Insert Name Dialog/Play" to="." method="_on_Play_pressed"]
-[connection signal="pressed" from="Menu/CenterRow/Buttons/PVP" to="Insert Name Dialog" method="_on_Play_pressed"]
-[connection signal="pressed" from="Menu/CenterRow/Buttons/PVP ShareScreen" to="." method="_on_PVP_ShareScreen_pressed"]
-[connection signal="pressed" from="Menu/CenterRow/Buttons/PVE" to="." method="_on_PVE_pressed"]
-[connection signal="pressed" from="Menu/CenterRow/Buttons/Back" to="." method="_on_Back_pressed"]
 [connection signal="timeout" from="PlayerSearchTimeout" to="." method="_on_PlayerSearchTimeout_timeout"]
 [connection signal="pressed" from="MarginContainer/Gamemode/Menu/vsOnline_Button" to="." method="_on_vsOnline_Button_pressed"]
 [connection signal="pressed" from="MarginContainer/Gamemode/Menu/vsOnline_Button" to="Insert Name Dialog" method="_on_vsOnline_Button_pressed"]

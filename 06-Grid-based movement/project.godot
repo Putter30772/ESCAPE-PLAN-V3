@@ -26,7 +26,7 @@ globals="*res://TitleScreenRelated/globals.gd"
 Lobby="*res://ClientToServer.gd"
 Grid="*res://Grid.gd"
 variableLAN="*res://NodeLAN.gd"
-soundtrack="*res://soundtrack.tscn"
+MusicController="*res://MusicController.tscn"
 
 [display]
 
