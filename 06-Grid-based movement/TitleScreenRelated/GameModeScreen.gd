@@ -69,17 +69,19 @@ func _on_PlayerSearchTimeout_timeout():
 
 func _on_Back_Button_pressed():
 	get_tree().change_scene("res://TitleScreenRelated/TitleScreen.tscn") # Replace with function body.
+	get_tree().set_network_peer(null)
 
 
 func _on_vsCom_Button_pressed():
 	get_tree().change_scene("res://BotModeScreen.tscn") # Replace with function body.
+	get_tree().set_network_peer(null)
 
 
 func _on_vsLocal_Button_pressed():
 	MusicController.stop()
 	variableLAN.mode = 1
 	get_tree().change_scene("res://LAN.tscn") # Replace with function body.
-	get_tree().set_network_peer(null)	
+	get_tree().set_network_peer(null)
 
 func _physics_process(delta):
 	if $MarginContainer/Gamemode/Menu/vsOnline_Button.is_hovered() :
