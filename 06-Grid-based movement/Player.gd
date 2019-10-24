@@ -18,7 +18,16 @@ var sentdirection
 var sentposition
 var counter = 0
 var position2
+
 func _ready():
+	if (variable.skin_select == 0) :
+		$Sprite.set("texture", variable.p_skin1)
+	if (variable.skin_select == 1) :
+		$Sprite.set("texture", variable.p_skin2)
+	if (variable.skin_select == 2) :
+		$Sprite.set("texture", variable.p_skin3)
+	if (variable.skin_select == 3) :
+		$Sprite.set("texture", variable.p_skin4)
 	grid = get_parent()
 	type = grid.PLAYER
 	set_process(true)

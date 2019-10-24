@@ -5,6 +5,7 @@ extends Node
 # var b = "text"
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MusicController.play("res://SoundEffects/274787__setuniman__intro-1l72.wav")
 	$MarginContainer/VBoxContainer/VBoxContainer/Play.grab_focus()
 	# Replace with function body.
 

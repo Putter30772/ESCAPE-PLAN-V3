@@ -3,6 +3,18 @@ extends Node
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+
+var p_skin1 = preload("res://Skins/P1G.png")
+var p_skin2 = preload("res://Skins/P2G.png")
+var p_skin3 = preload("res://Skins/P3G.png")
+var p_skin4 = preload("res://Skins/P4G.png")
+var w_skin1 = preload("res://Skins/W1G.png")
+var w_skin2 = preload("res://Skins/W2G.png")
+var w_skin3 = preload("res://Skins/W3G.png")
+var w_skin4 = preload("res://Skins/W4G.png")
+var skin_select = 0
+var skin2_select = 0
+
 var turn = 0
 var winner = 0
 var gameState = 0
