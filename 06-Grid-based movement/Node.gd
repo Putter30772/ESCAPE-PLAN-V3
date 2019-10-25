@@ -18,7 +18,7 @@ var light_mode = 0
 
 func _process(delta):
 	if light_mode == 1 :
-		VisualServer.set_default_clear_color(Color(1,1,1,1))
+		VisualServer.set_default_clear_color(Color(1,1,1))
 	else :
 		VisualServer.set_default_clear_color(Color(0,0,0,0))
 

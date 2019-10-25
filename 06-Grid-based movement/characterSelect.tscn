@@ -107,7 +107,7 @@ margin_top = 434.0
 margin_right = 612.0
 margin_bottom = 584.0
 
-[node name="1" type="TextureButton" parent="MarginContainer/VBoxContainer/Warden"]
+[node name="W1" type="TextureButton" parent="MarginContainer/VBoxContainer/Warden"]
 margin_right = 150.0
 margin_bottom = 150.0
 toggle_mode = true
@@ -115,7 +115,7 @@ texture_normal = ExtResource( 15 )
 texture_pressed = ExtResource( 16 )
 texture_hover = ExtResource( 17 )
 
-[node name="2" type="TextureButton" parent="MarginContainer/VBoxContainer/Warden"]
+[node name="W2" type="TextureButton" parent="MarginContainer/VBoxContainer/Warden"]
 margin_left = 154.0
 margin_right = 304.0
 margin_bottom = 150.0
@@ -124,7 +124,7 @@ texture_normal = ExtResource( 18 )
 texture_pressed = ExtResource( 19 )
 texture_hover = ExtResource( 20 )
 
-[node name="3" type="TextureButton" parent="MarginContainer/VBoxContainer/Warden"]
+[node name="W3" type="TextureButton" parent="MarginContainer/VBoxContainer/Warden"]
 margin_left = 308.0
 margin_right = 458.0
 margin_bottom = 150.0
@@ -133,7 +133,7 @@ texture_normal = ExtResource( 21 )
 texture_pressed = ExtResource( 22 )
 texture_hover = ExtResource( 23 )
 
-[node name="4" type="TextureButton" parent="MarginContainer/VBoxContainer/Warden"]
+[node name="W4" type="TextureButton" parent="MarginContainer/VBoxContainer/Warden"]
 margin_left = 462.0
 margin_right = 612.0
 margin_bottom = 150.0
@@ -159,8 +159,8 @@ text = "Back"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Prisoner/Skin2" to="." method="_on_Skin2_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Prisoner/Skin3" to="." method="_on_Skin3_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Prisoner/Skin4" to="." method="_on_Skin4_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Warden/1" to="." method="_on_1_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Warden/2" to="." method="_on_2_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Warden/3" to="." method="_on_3_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Warden/4" to="." method="_on_4_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Warden/W1" to="." method="_on_W1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Warden/W2" to="." method="_on_W2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Warden/W3" to="." method="_on_W3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Warden/W4" to="." method="_on_W4_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/back" to="." method="_on_back_pressed"]
