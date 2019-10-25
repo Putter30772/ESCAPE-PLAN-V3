@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Grid-based movement server"
+config/name="EscapePlanServer"
 run/main_scene="res://Server.tscn"
 config/icon="res://icon.png"
 
